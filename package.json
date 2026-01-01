@@ -2,11 +2,10 @@
   "name": "echoforge-web",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+ "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "npx serve@latest out"
   },
   "dependencies": {
     "next": "16.1.1",
