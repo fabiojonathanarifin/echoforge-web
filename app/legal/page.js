@@ -9,12 +9,12 @@ export default function LegalPage() {
             href="/legal/magda/privacy"
             className="underline underline-offset-4"
           >
-            Magda – Privacy Policy
+            Magda - Privacy Policy
           </a>
         </li>
         <li>
           <a href="/legal/magda/terms" className="underline underline-offset-4">
-            Magda – Terms of Service
+            Magda - Terms of Service
           </a>
         </li>
       </ul>
