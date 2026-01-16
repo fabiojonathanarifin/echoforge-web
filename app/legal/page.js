@@ -17,6 +17,19 @@ export default function LegalPage() {
             Magda - Terms of Service
           </a>
         </li>
+        <li>
+          <a
+            href="/legal/kume/privacy"
+            className="underline underline-offset-4"
+          >
+            Kume - Privacy Policy
+          </a>
+        </li>
+        <li>
+          <a href="/legal/kume/terms" className="underline underline-offset-4">
+            Kume - Terms of Service
+          </a>
+        </li>
       </ul>
     </section>
   );

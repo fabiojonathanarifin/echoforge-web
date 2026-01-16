@@ -11,6 +11,14 @@ export default function AppsPage() {
         href="/apps/magda"
         icon="/magda-icon.png"
       />
+
+      <AppCard
+        name="Kume"
+        description="Plan your perfect trip in 10 seconds."
+        href="/kume"
+        icon="/kume-icon.png"
+      />
     </section>
   );
 }
+
