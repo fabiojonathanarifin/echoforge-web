@@ -22,6 +22,20 @@ export default function AppsPage() {
           href="/kume"
           icon="/kume-icon.png"
         />
+
+        <AppCard
+          name="Brainecho"
+          description="A voice-first AI thinking assistant that transforms spoken thoughts into structured outputs."
+          href="https://brainechoai.com/"
+          icon="/brainecho-icon.png"
+        />
+
+        <AppCard
+          name="TinyOrange"
+          description="A minimalist todo list with multi-device sync. It's kinda important, but not red important."
+          href="https://tinyorange.app/"
+          icon="/tinyorange-icon.png"
+        />
       </div>
     </section>
   );

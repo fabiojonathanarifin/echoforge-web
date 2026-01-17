@@ -10,7 +10,7 @@ export default function AppCard({ name, description, href, icon }) {
         <p className="text-muted mt-1 leading-relaxed">{description}</p>
         <a
           href={href}
-          className="inline-block mt-4 font-medium text-accent hover:underline underline-offset-4 transition-all"
+          className="inline-block mt-4 font-medium text-foreground hover:underline underline-offset-8 decoration-border hover:decoration-foreground transition-all"
         >
           View App →
         </a>

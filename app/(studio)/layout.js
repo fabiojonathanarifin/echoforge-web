@@ -36,6 +36,8 @@ export default function StudioLayout({ children }) {
                 <span className="font-bold text-foreground uppercase text-xs tracking-widest">Legal</span>
                 <Link href="/legal/magda/privacy" className="hover:text-foreground">Magda Privacy</Link>
                 <Link href="/legal/kume/privacy" className="hover:text-foreground">Kume Privacy</Link>
+                <a href="https://brainechoai.com/privacy" className="hover:text-foreground" target="_blank" rel="noopener noreferrer">Brainecho Privacy</a>
+                <a href="https://tinyorange.app/privacy" className="hover:text-foreground" target="_blank" rel="noopener noreferrer">TinyOrange Privacy</a>
               </div>
             </div>
           </div>

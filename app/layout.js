@@ -3,8 +3,22 @@ import Link from "next/link";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata = {
-  title: "EchoForge",
-  description: "A quiet studio for shipping focused software.",
+  title: "EchoForge — Independent Software Studio",
+  description: "An independent software studio building focused, voice-first and thoughtfully opinionated tools.",
+  metadataBase: new URL("https://echoforge.io"), // Placeholder URL, update if you have a real one
+  openGraph: {
+    title: "EchoForge",
+    description: "Focused tools for focused minds.",
+    url: "https://echoforge.io",
+    siteName: "EchoForge",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EchoForge",
+    description: "An independent software studio building focused, voice-first tools.",
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },

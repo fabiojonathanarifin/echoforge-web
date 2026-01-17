@@ -9,7 +9,11 @@ export default function LegalPage() {
             { name: "Magda - Privacy Policy", href: "/legal/magda/privacy" },
             { name: "Magda - Terms of Service", href: "/legal/magda/terms" },
             { name: "Kume - Privacy Policy", href: "/legal/kume/privacy" },
-            { name: "Kume - Terms of Service", href: "/legal/kume/terms" }
+            { name: "Kume - Terms of Service", href: "/legal/kume/terms" },
+            { name: "Brainecho - Privacy Policy", href: "https://brainechoai.com/privacy" },
+            { name: "Brainecho - Terms of Service", href: "https://brainechoai.com/terms" },
+            { name: "TinyOrange - Privacy Policy", href: "https://tinyorange.app/privacy" },
+            { name: "TinyOrange - Terms of Service", href: "https://tinyorange.app/terms" }
           ].map((link, i) => (
             <li key={i} className="flex items-center gap-4">
               <span className="w-2 h-2 rounded-full bg-accent" />
