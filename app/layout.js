@@ -5,19 +5,28 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 export const metadata = {
   title: "EchoForge — Independent Software Studio",
   description: "An independent software studio building focused, voice-first and thoughtfully opinionated tools.",
-  metadataBase: new URL("https://echoforge.io"), // Placeholder URL, update if you have a real one
+  metadataBase: new URL("https://echoforge.to"),
   openGraph: {
     title: "EchoForge",
     description: "Focused tools for focused minds.",
-    url: "https://echoforge.io",
+    url: "https://echoforge.to",
     siteName: "EchoForge",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "EchoForge — Independent Software Studio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "EchoForge",
     description: "An independent software studio building focused, voice-first tools.",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [
