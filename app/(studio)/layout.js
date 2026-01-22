@@ -4,6 +4,38 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 export default function StudioLayout({ children }) {
   return (
     <>
+      {/* Premium Mesh Background */}
+      <div className="fixed inset-0 -z-20 pointer-events-none overflow-hidden">
+        {/* Ambient base layer */}
+        <div className="absolute inset-0 bg-background" />
+        
+        {/* Anchored Glow Spots - Optimized with smaller base sizes + scale for better perf */}
+        {/* Top Left */}
+        <div className="absolute top-[-10%] left-[-5%] w-[30%] h-[30%] scale-[2] bg-indigo-500/[0.08] dark:bg-indigo-500/[0.15] blur-[80px] rounded-full animate-float-1" />
+        
+        {/* Top Right */}
+        <div className="absolute top-[-5%] right-[-10%] w-[25%] h-[25%] scale-[2.2] bg-violet-500/[0.08] dark:bg-violet-500/[0.15] blur-[90px] rounded-full animate-float-2" />
+        
+        {/* Middle Left */}
+        <div className="absolute top-[30%] left-[-10%] w-[25%] h-[25%] scale-[2] bg-blue-500/[0.06] dark:bg-blue-500/[0.12] blur-[80px] rounded-full animate-float-3" />
+        
+        {/* Middle Right */}
+        <div className="absolute top-[40%] right-[-5%] w-[20%] h-[20%] scale-[2.2] bg-indigo-400/[0.06] dark:bg-indigo-400/[0.12] blur-[70px] rounded-full animate-float-4" />
+        
+        {/* Bottom Left */}
+        <div className="absolute bottom-[-10%] left-[0%] w-[30%] h-[30%] scale-[2] bg-violet-400/[0.05] dark:bg-violet-400/[0.1] blur-[100px] rounded-full animate-float-2" />
+        
+        {/* Bottom Right */}
+        <div className="absolute bottom-[-10%] right-[0%] w-[30%] h-[30%] scale-[2] bg-foreground/[0.03] dark:bg-foreground/[0.08] blur-[110px] rounded-full animate-float-1" />
+        
+        {/* Center Floating Accent */}
+        <div className="absolute top-[25%] left-[25%] w-[15%] h-[15%] scale-[2.5] bg-indigo-300/[0.03] dark:bg-indigo-300/[0.06] blur-[60px] rounded-full animate-float-3" />
+        <div className="absolute bottom-[25%] right-[25%] w-[15%] h-[15%] scale-[2.5] bg-blue-300/[0.03] dark:bg-blue-300/[0.06] blur-[60px] rounded-full animate-float-4" />
+        
+        {/* Sub-pixel grain for texture softness */}
+        <div className="absolute inset-0 bg-noise opacity-[0.03] dark:opacity-[0.06] mix-blend-overlay" />
+      </div>
+
       <header className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="font-semibold text-lg tracking-tight">

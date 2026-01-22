@@ -9,19 +9,7 @@ export default function AppsPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <AppCard
-          name="Magda"
-          description="A voice-first AI planner that turns natural speech into scheduled tasks."
-          href="/apps/magda"
-          icon="/magda-icon.png"
-        />
-
-        <AppCard
-          name="Kume"
-          description="Plan your perfect trip in 10 seconds with personalized itineraries."
-          href="/kume"
-          icon="/kume-icon.png"
-        />
+    
 
         <AppCard
           name="Brainecho"
@@ -35,6 +23,24 @@ export default function AppsPage() {
           description="A minimalist todo list with multi-device sync. It's kinda important, but not red important."
           href="https://tinyorange.app/"
           icon="/tinyorange-icon.png"
+        />
+        <AppCard
+          name="Protos"
+          description="An offline-first Bible study app with deep commentary integration and cloud sync."
+          href="https://protos-app.com/"
+          icon="/protos-icon.png"
+        /> <AppCard
+          name="Magda"
+          description="A voice-first AI planner that turns natural speech into scheduled tasks."
+          href="/apps/magda"
+          icon="/magda-icon.png"
+        />
+
+        <AppCard
+          name="Kume"
+          description="Plan your perfect trip within seconds with personalized itineraries."
+          href="/kume"
+          icon="/kume-icon.png"
         />
       </div>
     </section>
