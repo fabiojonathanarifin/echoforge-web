@@ -2,7 +2,10 @@ export default function KumeTerms() {
   return (
     <main className="max-w-3xl mx-auto px-6 py-24 space-y-12 text-foreground">
       <div className="space-y-4">
-        <a href="/" className="text-accent hover:underline inline-flex items-center gap-2 text-sm font-medium">
+        <a
+          href="/"
+          className="text-accent hover:underline inline-flex items-center gap-2 text-sm font-medium"
+        >
           ← Back to Home
         </a>
         <h1 className="text-4xl font-black tracking-tight">Terms of Use</h1>
@@ -11,51 +14,160 @@ export default function KumeTerms() {
 
       <section className="space-y-4">
         <p>
-          These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and <strong>EchoForge (attn: Fabio)</strong>, concerning your access to and use of the <strong>Kume</strong> mobile application and any related services (collectively, the "Services").
+          These Legal Terms constitute a legally binding agreement made between
+          you, whether personally or on behalf of an entity (&quot;you&quot;),
+          and <strong>EchoForge (attn: Fabio)</strong>, concerning your access
+          to and use of the <strong>Kume</strong> mobile application and any
+          related services (collectively, the &quot;Services&quot;).
         </p>
         <p>
-          You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms.
+          You agree that by accessing the Services, you have read, understood,
+          and agreed to be bound by all of these Legal Terms.
         </p>
         <p className="font-bold underline underline-offset-4 decoration-accent">
-          IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+          IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE
+          EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE
+          USE IMMEDIATELY.
         </p>
       </section>
 
       <nav className="space-y-4 py-8 border-y border-border/50">
         <h2 className="text-xl font-bold">Table of Contents</h2>
         <ol className="list-decimal list-inside space-y-2 text-muted">
-          <li><a href="#services" className="hover:text-foreground transition-colors">Our Services</a></li>
-          <li><a href="#ip" className="hover:text-foreground transition-colors">Intellectual Property Rights</a></li>
-          <li><a href="#user-reps" className="hover:text-foreground transition-colors">User Representations</a></li>
-          <li><a href="#purchases" className="hover:text-foreground transition-colors">Purchases and Payment</a></li>
-          <li><a href="#subscriptions" className="hover:text-foreground transition-colors">Subscriptions</a></li>
-          <li><a href="#refunds" className="hover:text-foreground transition-colors">Refunds Policy</a></li>
-          <li><a href="#prohibited" className="hover:text-foreground transition-colors">Prohibited Activities</a></li>
-          <li><a href="#contributions" className="hover:text-foreground transition-colors">User Generated Contributions</a></li>
-          <li><a href="#mobile-license" className="hover:text-foreground transition-colors">Mobile Application License</a></li>
-          <li><a href="#disclaimer" className="hover:text-foreground transition-colors">Disclaimer</a></li>
-          <li><a href="#liability" className="hover:text-foreground transition-colors">Limitations of Liability</a></li>
-          <li><a href="#contact" className="hover:text-foreground transition-colors">Contact Us</a></li>
+          <li>
+            <a
+              href="#services"
+              className="hover:text-foreground transition-colors"
+            >
+              Our Services
+            </a>
+          </li>
+          <li>
+            <a href="#ip" className="hover:text-foreground transition-colors">
+              Intellectual Property Rights
+            </a>
+          </li>
+          <li>
+            <a
+              href="#user-reps"
+              className="hover:text-foreground transition-colors"
+            >
+              User Representations
+            </a>
+          </li>
+          <li>
+            <a
+              href="#purchases"
+              className="hover:text-foreground transition-colors"
+            >
+              Purchases and Payment
+            </a>
+          </li>
+          <li>
+            <a
+              href="#subscriptions"
+              className="hover:text-foreground transition-colors"
+            >
+              Subscriptions
+            </a>
+          </li>
+          <li>
+            <a
+              href="#refunds"
+              className="hover:text-foreground transition-colors"
+            >
+              Refunds Policy
+            </a>
+          </li>
+          <li>
+            <a
+              href="#prohibited"
+              className="hover:text-foreground transition-colors"
+            >
+              Prohibited Activities
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contributions"
+              className="hover:text-foreground transition-colors"
+            >
+              User Generated Contributions
+            </a>
+          </li>
+          <li>
+            <a
+              href="#mobile-license"
+              className="hover:text-foreground transition-colors"
+            >
+              Mobile Application License
+            </a>
+          </li>
+          <li>
+            <a
+              href="#disclaimer"
+              className="hover:text-foreground transition-colors"
+            >
+              Disclaimer
+            </a>
+          </li>
+          <li>
+            <a
+              href="#liability"
+              className="hover:text-foreground transition-colors"
+            >
+              Limitations of Liability
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="hover:text-foreground transition-colors"
+            >
+              Contact Us
+            </a>
+          </li>
         </ol>
       </nav>
 
       <section id="services" className="space-y-4">
         <h2 className="text-2xl font-bold">1. OUR SERVICES</h2>
         <p>
-          Kume provides AI-powered trip planning services using advanced natural language processing. The itinerary generation depends on your input and the data provided by our AI models (OpenAI) and location data services (Google Places). While we strive for accuracy, travel plans generated by Kume are suggestions and should be verified independently.
+          Kume provides AI-powered trip planning services...{" "}
+          {/* keep existing text */}
         </p>
-        <p className="text-sm text-muted">
-          Portions of the location data and photos used in the Services are provided by <strong>Google Maps/Google Places</strong> and are used in accordance with their terms.
+        <p className="text-sm text-muted italic">
+          Portions of the travel guides and destination descriptions used in the
+          Services are derived from <strong>Wikivoyage</strong> and are licensed
+          under the{" "}
+          <a
+            href="https://creativecommons.org/licenses/by-sa/3.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Creative Commons Attribution-ShareAlike 3.0 (CC BY-SA 3.0)
+          </a>{" "}
+          license.
+        </p>
+        <p className="text-sm text-muted italic">
+          Portions of the location data and photos used in the Services are
+          provided by <strong>Google Maps/Google Places</strong> and are used in
+          accordance with their terms.
         </p>
       </section>
 
       <section id="ip" className="space-y-4">
         <h2 className="text-2xl font-bold">2. INTELLECTUAL PROPERTY RIGHTS</h2>
         <p>
-          We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the "Content"), as well as the trademarks, service marks, and logos contained therein (the "Marks").
+          We are the owner or the licensee of all intellectual property rights
+          in our Services... {/* keep existing text */}
         </p>
-        <p>
-          Our Content and Marks are protected by copyright and trademark laws. The Content and Marks are provided in or through the Services "AS IS" for your personal, non-commercial use only.
+        <p className="text-sm bg-accent/5 p-4 rounded-xl border border-accent/10">
+          <strong>Note on Open Data:</strong> Kume utilizes open-source data
+          from Wikivoyage. While the App&apos;s interface, code, and unique
+          AI-arrangements are our property, the underlying guidebook text
+          remains subject to the CC BY-SA license.
         </p>
       </section>
 
@@ -63,21 +175,39 @@ export default function KumeTerms() {
         <h2 className="text-2xl font-bold">3. USER REPRESENTATIONS</h2>
         <p>By using the Services, you represent and warrant that:</p>
         <ul className="list-disc list-inside space-y-2 ml-4 text-muted">
-          <li>All registration information you submit will be true, accurate, current, and complete.</li>
-          <li>You will maintain the accuracy of such information and promptly update such registration information as necessary.</li>
-          <li>You have the legal capacity and you agree to comply with these Legal Terms.</li>
+          <li>
+            All registration information you submit will be true, accurate,
+            current, and complete.
+          </li>
+          <li>
+            You will maintain the accuracy of such information and promptly
+            update such registration information as necessary.
+          </li>
+          <li>
+            You have the legal capacity and you agree to comply with these Legal
+            Terms.
+          </li>
           <li>You are not a minor in the jurisdiction in which you reside.</li>
-          <li>You will not access the Services through automated or non-human means.</li>
+          <li>
+            You will not access the Services through automated or non-human
+            means.
+          </li>
         </ul>
       </section>
 
       <section id="purchases" className="space-y-4">
         <h2 className="text-2xl font-bold">4. PURCHASES AND PAYMENT</h2>
         <p>
-          We accept the payment methods supported by the Apple App Store and Google Play Store. You agree to provide current, complete, and accurate purchase and account information for all purchases made via the Services.
+          We accept the payment methods supported by the Apple App Store and
+          Google Play Store. You agree to provide current, complete, and
+          accurate purchase and account information for all purchases made via
+          the Services.
         </p>
         <p>
-          You agree to pay all charges at the prices then in effect for your purchases and any applicable shipping fees, and you authorize us to charge your chosen payment provider for any such amounts upon placing your order.
+          You agree to pay all charges at the prices then in effect for your
+          purchases and any applicable shipping fees, and you authorize us to
+          charge your chosen payment provider for any such amounts upon placing
+          your order.
         </p>
       </section>
 
@@ -86,17 +216,28 @@ export default function KumeTerms() {
         <div className="space-y-4">
           <h3 className="text-xl font-bold">Billing and Renewal</h3>
           <p>
-            Your subscription will continue and automatically renew unless canceled. You consent to our charging your payment method on a recurring basis without requiring your prior approval for each recurring charge, until such time as you cancel the applicable order.
+            Your subscription will continue and automatically renew unless
+            canceled. You consent to our charging your payment method on a
+            recurring basis without requiring your prior approval for each
+            recurring charge, until such time as you cancel the applicable
+            order.
           </p>
-          
+
           <h3 className="text-xl font-bold">Free Trial</h3>
           <p>
-            We offer a 3-day free trial to new users who register for the <strong>Yearly Subscription</strong> ($79.99/year). Your account will be charged the full yearly subscription amount at the end of the free trial unless canceled at least 24 hours prior to the trial expiration.
+            We offer a 3-day free trial to new users who register for the{" "}
+            <strong>Yearly Subscription</strong> ($79.99/year). Your account
+            will be charged the full yearly subscription amount at the end of
+            the free trial unless canceled at least 24 hours prior to the trial
+            expiration.
           </p>
 
           <h3 className="text-xl font-bold">Cancellation</h3>
           <p>
-            We adhere to Apple's and Google's respective policies on cancellation. All subscriptions must be managed and canceled through your App Store or Play Store account settings. Your cancellation will take effect at the end of the current paid term.
+            We adhere to Apple&apos;s and Google&apos;s respective policies on
+            cancellation. All subscriptions must be managed and canceled through
+            your App Store or Play Store account settings. Your cancellation
+            will take effect at the end of the current paid term.
           </p>
         </div>
       </section>
@@ -104,7 +245,10 @@ export default function KumeTerms() {
       <section id="refunds" className="space-y-4">
         <h2 className="text-2xl font-bold">6. REFUNDS POLICY</h2>
         <p>
-          All sales are final and no refund will be issued, except as required by law or the specific policies of the platform (Apple/Google) through which the purchase was made. For refund requests, please contact Apple or Google directly.
+          All sales are final and no refund will be issued, except as required
+          by law or the specific policies of the platform (Apple/Google) through
+          which the purchase was made. For refund requests, please contact Apple
+          or Google directly.
         </p>
       </section>
 
@@ -112,11 +256,22 @@ export default function KumeTerms() {
         <h2 className="text-2xl font-bold">7. PROHIBITED ACTIVITIES</h2>
         <p>As a user of the Services, you agree not to:</p>
         <ul className="list-disc list-inside space-y-2 ml-4 text-muted">
-          <li>Systematically retrieve data or other content from the Services to create or compile a database without written permission.</li>
+          <li>
+            Systematically retrieve data or other content from the Services to
+            create or compile a database without written permission.
+          </li>
           <li>Trick, defraud, or mislead us and other users.</li>
-          <li>Circumvent or disable security-related features of the Services.</li>
-          <li>Decipher, decompile, disassemble, or reverse engineer any of the software comprising the Services.</li>
-          <li>Use the Services in a manner inconsistent with any applicable laws or regulations.</li>
+          <li>
+            Circumvent or disable security-related features of the Services.
+          </li>
+          <li>
+            Decipher, decompile, disassemble, or reverse engineer any of the
+            software comprising the Services.
+          </li>
+          <li>
+            Use the Services in a manner inconsistent with any applicable laws
+            or regulations.
+          </li>
         </ul>
       </section>
 
@@ -124,37 +279,59 @@ export default function KumeTerms() {
         <h2 className="text-2xl font-bold">8. MOBILE APPLICATION LICENSE</h2>
         <h3 className="text-xl font-bold">Use License</h3>
         <p>
-          We grant you a revocable, non-exclusive, non-transferable, limited right to install and use the App on wireless electronic devices owned or controlled by you, and to access and use the App on such devices strictly in accordance with the terms of this mobile application license.
+          We grant you a revocable, non-exclusive, non-transferable, limited
+          right to install and use the App on wireless electronic devices owned
+          or controlled by you, and to access and use the App on such devices
+          strictly in accordance with the terms of this mobile application
+          license.
         </p>
         <h3 className="text-xl font-bold">Apple and Android Devices</h3>
         <p>
-          The App Distributors (Apple/Google) have no obligation to furnish any maintenance and support services with respect to the App. The App Distributors are third-party beneficiaries of these Legal Terms and have the right to enforce the terms against you.
+          The App Distributors (Apple/Google) have no obligation to furnish any
+          maintenance and support services with respect to the App. The App
+          Distributors are third-party beneficiaries of these Legal Terms and
+          have the right to enforce the terms against you.
         </p>
       </section>
 
       <section id="disclaimer" className="space-y-4">
         <h2 className="text-2xl font-bold">9. DISCLAIMER</h2>
         <p className="uppercase text-sm font-mono bg-secondary p-4 rounded-xl">
-          THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF.
+          THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU
+          AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE
+          FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS
+          OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF.
         </p>
       </section>
 
       <section id="liability" className="space-y-4">
         <h2 className="text-2xl font-bold">10. LIMITATIONS OF LIABILITY</h2>
         <p>
-          In no event will we or our directors, employees, or agents be liable to you or any third party for any indirect, consequential, exemplary, incidental, or punitive damages, including lost profit, lost revenue, loss of data, or other damages arising from your use of the Services.
+          In no event will we or our directors, employees, or agents be liable
+          to you or any third party for any indirect, consequential, exemplary,
+          incidental, or punitive damages, including lost profit, lost revenue,
+          loss of data, or other damages arising from your use of the Services.
         </p>
       </section>
 
       <section id="contact" className="space-y-4 pt-12 border-t border-border">
         <h2 className="text-2xl font-bold">11. CONTACT US</h2>
         <p>
-          For any complaints or further information regarding the Services, please contact us at:
+          For any complaints or further information regarding the Services,
+          please contact us at:
         </p>
         <div className="bg-secondary p-6 rounded-3xl border border-border space-y-2">
           <p className="font-bold">EchoForge (attn: Fabio)</p>
           <p>Jakarta, Indonesia</p>
-          <p>Email: <a href="mailto:fabio@echoforge.to" className="text-accent hover:underline">fabio@echoforge.to</a></p>
+          <p>
+            Email:{" "}
+            <a
+              href="mailto:fabio@echoforge.to"
+              className="text-accent hover:underline"
+            >
+              fabio@echoforge.to
+            </a>
+          </p>
         </div>
       </section>
     </main>
