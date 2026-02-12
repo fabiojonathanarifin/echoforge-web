@@ -23,46 +23,58 @@ export default function Home() {
               Echo<span className="text-muted">Forge</span>
             </h1>
             <p className="text-muted text-2xl md:text-3xl max-w-2xl leading-relaxed font-medium">
-              An independent software studio based in <span className="text-foreground">San Francisco</span>, building <span className="text-foreground">focused</span>, <span className="text-foreground">thoughtfully designed</span> mobile and web products.
+              A software studio based in{" "}
+              <span className="text-foreground">San Francisco</span>, building a
+              suite of <span className="text-foreground">focused</span> and{" "}
+              <span className="text-foreground">thoughtfully designed</span>{" "}
+              digital products.
             </p>
           </div>
 
           <div>
             <a
-              href="#works"
+              href="#products"
               className="group inline-flex items-center gap-3 text-xl font-bold text-foreground hover:gap-5 transition-all duration-300 underline underline-offset-8 decoration-border hover:decoration-foreground"
             >
-              Explore our works <span className="transition-transform group-hover:translate-x-1">→</span>
+              Explore our products{" "}
+              <span className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
             </a>
           </div>
         </div>
 
-       
-
-        {/* FEATURED WORKS */}
-        <div id="works" className="space-y-16">
+        {/* FEATURED PRODUCTS */}
+        <div id="products" className="space-y-16">
           <div className="space-y-4">
-            <h2 className="text-4xl font-black tracking-tight">Featured Works</h2>
-            <p className="text-muted text-xl">A curated selection of our latest prototypes and apps.</p>
+            <h2 className="text-4xl font-black tracking-tight">Our Products</h2>
+            <p className="text-muted text-xl">
+              The core ecosystem of the Forge.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-              <AppCard
-                      name="Brainecho"
-                      description="A voice-first AI thinking assistant that transforms spoken thoughts into structured outputs."
-                      href="https://brainechoai.com/"
-                      icon="/brainecho-icon.png"
-                    />
+            <AppCard
+              name="Kume"
+              description="A personal travel planner tailored to your specific vibe and pace."
+              href="/kume"
+              icon="/kume-icon.png"
+            />
+            <AppCard
+              name="Brainecho"
+              description="A voice-first AI thinking assistant transforming spoken thoughts into structured outputs."
+              href="https://brainechoai.com/"
+              icon="/brainecho-icon.png"
+            />
             <AppCard
               name="Protos"
-              description="An Bible study app with book background, verse-by-verse explanation (commentary), and Bible dictionary."
+              description="A Bible study app with contextual backgrounds and verse-by-verse commentary."
               href="https://protos-app.com/"
               icon="/protos-icon.png"
             />
-           
             <AppCard
               name="TinyOrange"
-              description="A minimalist todo list with multi-device sync. It's kinda important, but not red important."
+              description="A minimalist todo list with multi-device sync. Important, but not red important."
               href="https://tinyorange.app/"
               icon="/tinyorange-icon.png"
             />
@@ -73,7 +85,10 @@ export default function Home() {
               href="/apps"
               className="group inline-flex items-center gap-3 text-lg font-bold text-muted hover:text-foreground hover:gap-4 transition-all duration-300"
             >
-              View all 5 projects <span className="transition-transform group-hover:translate-x-1">→</span>
+              View the full suite{" "}
+              <span className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
             </a>
           </div>
         </div>
