@@ -469,9 +469,9 @@ export default function KumePrivacyPolicy() {
       <section id="minors" className="space-y-4">
         <h2 className="text-2xl font-bold">9. Children's Privacy</h2>
         <p>
-          Our service is not directed to children under 13 years of age. We do
-          not knowingly collect any data from children under 13. If you are
-          under 13, please do not use Kume.
+          Our service is not directed to children under 18 years of age. We do
+          not knowingly collect any data from children under 18. If you are
+          under 18, please do not use Kume.
         </p>
       </section>
 
