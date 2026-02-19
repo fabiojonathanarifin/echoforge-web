@@ -115,18 +115,18 @@ export default function KumeLanding() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 text-[#FF6B6B] border border-[#FF6B6B]/20 text-xs font-bold uppercase tracking-widest"
             >
               <Sparkles size={12} className="fill-current" />
-              <span>The Vibe-First Planner</span>
+              <span>Smart Travel Itinerary Planner</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] text-balance"
+              className="text-6xl md:text-7xl lg:text-7xl font-black tracking-tighter leading-[0.9] text-balance"
             >
-              You pick the vibe. <br />
+              Skip travel research <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53]">
-                We handle the rest.
+                Get a trip you’ll actually love
               </span>
             </motion.h1>
 
@@ -136,9 +136,8 @@ export default function KumeLanding() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-gray-500 leading-relaxed font-medium"
             >
-              Tell Kume what you love (Food? History? Instagram spots?), and
-              watch us build the perfect itinerary in seconds. No spreadsheets
-              required.
+              From trending spots to local favorites, we do the research. You
+              pick the vibe. You make the call.
             </motion.p>
 
             <motion.div
