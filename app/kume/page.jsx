@@ -448,6 +448,12 @@ export default function KumeLanding() {
             >
               Terms
             </a>
+            <a
+              href="mailto:support@echoforge.to"
+              className="hover:text-black transition-colors"
+            >
+              Contact Support
+            </a>
           </div>
 
           <div className="flex items-center gap-2 text-sm font-medium text-gray-400">

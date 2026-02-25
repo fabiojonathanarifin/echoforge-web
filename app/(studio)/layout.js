@@ -101,6 +101,9 @@ export default function StudioLayout({ children }) {
                 <Link href="/legal" className="hover:text-foreground">
                   Legal
                 </Link>
+                <a href="mailto:support@echoforge.to" className="hover:text-foreground">
+                  Contact Support
+                </a>
               </div>
               <div className="space-y-3 flex flex-col">
                 <span className="font-bold text-foreground uppercase text-xs tracking-widest">
