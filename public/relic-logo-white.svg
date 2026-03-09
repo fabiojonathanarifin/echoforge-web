@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 74" fill="none">
+  <!--
+    Arc mark: center (37,37), radius 25, 300° arc, gap at bottom-right (45°)
+    Gap spans 15°→75°, arc spans 75°→375°(=15°) clockwise
+
+    Start at 75°: (37 + 25·cos75, 37 + 25·sin75) = (43.47, 61.15)
+    End   at 15°: (37 + 25·cos15, 37 + 25·sin15) = (61.15, 43.47)
+    Dot   at 45°: (37 + 25·cos45, 37 + 25·sin45) = (54.68, 54.68)
+  -->
+  <path
+    d="M 43.47 61.15 A 25 25 0 1 1 61.15 43.47"
+    stroke="#FFFFFF"
+    stroke-width="6.5"
+    stroke-linecap="round"
+  />
+  <circle cx="54.68" cy="54.68" r="4.5" fill="#F59E0B" />
+  <text
+    x="82"
+    y="49"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="33"
+    font-weight="800"
+    letter-spacing="-0.8"
+    fill="#FFFFFF"
+  >Relic</text>
+</svg>

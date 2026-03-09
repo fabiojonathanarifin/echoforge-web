@@ -78,6 +78,18 @@ export default function Home() {
               href="https://tinyorange.app/"
               icon="/tinyorange-icon.png"
             />
+            <AppCard
+              name="Relic"
+              description="An AI relationship memory for founders. Voice capture, smart briefings, and promise tracking."
+              href="/relic"
+              icon="/asset/relic/icon-trasnparent-bg.png"
+            />
+            <AppCard
+              name="ReadersGuild"
+              description="A social reading app where reading is shared, not measured. Timer sessions, beautiful share cards, and a community feed."
+              href="https://readers-guild.com/"
+              icon="/asset/readersGuild/icon.png"
+            />
           </div>
 
           <div className="pt-8">

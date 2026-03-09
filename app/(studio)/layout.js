@@ -137,6 +137,32 @@ export default function StudioLayout({ children }) {
                 >
                   TinyOrange Privacy
                 </a>
+                <Link
+                  href="/relic/privacy"
+                  className="hover:text-foreground"
+                >
+                  Relic Privacy
+                </Link>
+                <Link
+                  href="/sentinel/privacy"
+                  className="hover:text-foreground"
+                >
+                  Sentinel Privacy
+                </Link>
+                <a
+                  href="https://readers-guild.com/privacy"
+                  className="hover:text-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ReadersGuild Privacy
+                </a>
+                <Link
+                  href="/legal/diggerinsights/privacy"
+                  className="hover:text-foreground"
+                >
+                  DiggerInsights Privacy
+                </Link>
               </div>
             </div>
           </div>

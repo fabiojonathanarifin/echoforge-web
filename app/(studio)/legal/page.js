@@ -13,7 +13,15 @@ export default function LegalPage() {
             { name: "Brainecho - Privacy Policy", href: "https://brainechoai.com/privacy" },
             { name: "Brainecho - Terms of Service", href: "https://brainechoai.com/terms" },
             { name: "TinyOrange - Privacy Policy", href: "https://tinyorange.app/privacy" },
-            { name: "TinyOrange - Terms of Service", href: "https://tinyorange.app/terms" }
+            { name: "TinyOrange - Terms of Service", href: "https://tinyorange.app/terms" },
+            { name: "Relic - Privacy Policy", href: "/relic/privacy" },
+            { name: "Relic - Terms of Service", href: "/relic/terms" },
+            { name: "Sentinel - Privacy Policy", href: "/sentinel/privacy" },
+            { name: "Sentinel - Terms of Service", href: "/sentinel/terms" },
+            { name: "ReadersGuild - Privacy Policy", href: "https://readers-guild.com/privacy" },
+            { name: "ReadersGuild - Terms of Service", href: "https://readers-guild.com/terms" },
+            { name: "DiggerInsights - Privacy Policy", href: "/legal/diggerinsights/privacy" },
+            { name: "DiggerInsights - Terms of Service", href: "/legal/diggerinsights/terms" }
           ].map((link, i) => (
             <li key={i} className="flex items-center gap-4">
               <span className="w-2 h-2 rounded-full bg-accent" />
