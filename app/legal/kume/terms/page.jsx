@@ -223,15 +223,6 @@ export default function KumeTerms() {
             order.
           </p>
 
-          <h3 className="text-xl font-bold">Free Trial</h3>
-          <p>
-            We offer a 3-day free trial to new users who register for the{" "}
-            <strong>Yearly Subscription</strong> ($79.99/year). Your account
-            will be charged the full yearly subscription amount at the end of
-            the free trial unless canceled at least 24 hours prior to the trial
-            expiration.
-          </p>
-
           <h3 className="text-xl font-bold">Cancellation</h3>
           <p>
             We adhere to Apple&apos;s and Google&apos;s respective policies on
