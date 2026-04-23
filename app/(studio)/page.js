@@ -90,6 +90,12 @@ export default function Home() {
               href="https://readers-guild.com/"
               icon="/asset/readersGuild/icon.png"
             />
+            <AppCard
+              name="Vial"
+              description="A daily companion for peptide protocols. Calculator, tracker, and AI coach in one beautifully designed iOS app."
+              href="/vial"
+              icon="/asset/vial/icon.png"
+            />
           </div>
 
           <div className="pt-8">

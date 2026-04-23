@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "WebFetch(domain:www.pepcalc.com)",
+      "WebFetch(domain:www.shotsy.app)",
+      "WebFetch(domain:peptidely.com)",
+      "WebFetch(domain:apps.apple.com)",
+      "WebFetch(domain:shotsy.app)",
+      "WebFetch(domain:shotsyapp.com)",
+      "WebFetch(domain:peptidely.org)",
+      "WebFetch(domain:pepcalc.app)"
+    ]
+  }
+}
