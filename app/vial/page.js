@@ -294,47 +294,16 @@ export default function VialPage() {
               transition={{ duration: 0.6, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex justify-center lg:justify-end"
             >
-              <div
-                className="relative w-[240px] md:w-[272px] rounded-[3rem] overflow-hidden"
-                style={{
-                  border: `2px solid ${BORDER}`,
-                  boxShadow: `0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px ${MINT}12`,
-                  aspectRatio: "9 / 19.5",
-                }}
-              >
-                {/*
-                  VIDEO PLACEHOLDER
-                  When your clip is ready, replace this <div> with:
-
-                  <video
-                    src="YOUR_VIDEO_URL"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                */}
-                <div
-                  className="w-full h-full flex flex-col items-center justify-center gap-4"
-                  style={{ backgroundColor: SURFACE }}
-                >
-                  <Image
-                    src="/asset/vial/icon.png"
-                    alt=""
-                    width={48}
-                    height={48}
-                    className="rounded-2xl opacity-60"
-                  />
-                  <p
-                    className="text-[11px] text-center px-8 leading-relaxed"
-                    style={{ color: TEXT_MUTED, fontFamily: mono }}
-                  >
-                    App preview
-                    <br />
-                    coming soon
-                  </p>
-                </div>
+              <div className="relative w-[280px] md:w-[320px]">
+                <Image
+                  src="/asset/vial/hero-framed-screenshot.png"
+                  alt="Vial App Screenshot"
+                  width={600}
+                  height={1200}
+                  className="w-full h-auto"
+                  style={{ filter: "drop-shadow(0 40px 100px rgba(0,0,0,0.6))" }}
+                  priority
+                />
               </div>
             </motion.div>
           </div>
