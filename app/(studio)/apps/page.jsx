@@ -74,6 +74,13 @@ export default function AppsPage() {
           icon="/asset/readersGuild/icon.png"
         />
         <AppCard
+          name="Vial"
+          tagline="Optimize your peptide protocol."
+          description="A daily companion for peptide protocols. Calculator, tracker, and AI coach in one beautifully designed iOS app."
+          href="/vial"
+          icon="/asset/vial/icon.png"
+        />
+        <AppCard
           name="DiggerInsights"
           tagline="5 minutes to know what matters in tech right now."
           description="A daily newsletter for founders and decision-makers covering emerging startups, AI, and innovation."

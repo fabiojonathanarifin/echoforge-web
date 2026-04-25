@@ -53,6 +53,7 @@ const features = [
       "Water Solver: input your target units and get the BAC water volume",
     ],
     reverse: false,
+    image: "/asset/vial/feature-1-mock.png",
   },
   {
     icon: Activity,
@@ -67,6 +68,7 @@ const features = [
       "CSV export for your provider or your own records",
     ],
     reverse: true,
+    image: "/asset/vial/feature-2-mock.png",
   },
   {
     icon: Bell,
@@ -80,6 +82,7 @@ const features = [
       "Works fully offline, no account needed",
     ],
     reverse: false,
+    image: "/asset/vial/feature-3-mock.png",
   },
 ];
 
@@ -370,40 +373,21 @@ export default function VialPage() {
                   </motion.ul>
                 </div>
 
-                {/* Screenshot placeholder */}
+                {/* Screenshot */}
                 <motion.div
                   variants={fadeUp}
                   className={`flex justify-center ${f.reverse ? "md:order-1" : ""}`}
                 >
-                  <div
-                    className="w-[200px] md:w-[240px] rounded-[2.75rem] overflow-hidden flex items-center justify-center"
-                    style={{
-                      border: `1.5px solid ${BORDER}`,
-                      boxShadow: `0 32px 80px rgba(0,0,0,0.5)`,
-                      aspectRatio: "9 / 19.5",
-                      backgroundColor: CARD,
-                    }}
-                  >
-                    {/*
-                      SCREENSHOT PLACEHOLDER
-                      Replace this <div> with an <img> or <Image> when
-                      your screenshot for this feature is ready.
-                    */}
-                    <div className="flex flex-col items-center gap-3">
-                      <f.icon
-                        size={28}
-                        style={{ color: TEXT_MUTED, opacity: 0.4 }}
-                        strokeWidth={1.5}
-                      />
-                      <p
-                        className="text-[10px] text-center px-6 leading-relaxed"
-                        style={{ color: TEXT_MUTED, fontFamily: mono }}
-                      >
-                        {f.label}
-                        <br />
-                        screenshot
-                      </p>
-                    </div>
+                  <div className="relative w-[280px] md:w-[320px]">
+                    <Image
+                      src={f.image}
+                      alt={f.label}
+                      width={500}
+                      height={1000}
+                      className="w-full h-auto"
+                      style={{ filter: "drop-shadow(0 32px 64px rgba(0,0,0,0.5))" }}
+                      priority
+                    />
                   </div>
                 </motion.div>
               </motion.div>
@@ -460,6 +444,19 @@ export default function VialPage() {
               Ask anything about your stack. Get answers grounded in your actual
               protocol. Not encyclopedic. Specific to you.
             </motion.p>
+
+            <motion.div variants={fadeUp} className="flex justify-center mb-12">
+              <div className="relative w-[280px] md:w-[320px]">
+                <Image
+                  src="/asset/vial/feature-4-mock.png"
+                  alt="Vial AI"
+                  width={600}
+                  height={1200}
+                  className="w-full h-auto"
+                  style={{ filter: "drop-shadow(0 40px 100px rgba(0,0,0,0.6))" }}
+                />
+              </div>
+            </motion.div>
 
             <motion.ul
               variants={stagger}
