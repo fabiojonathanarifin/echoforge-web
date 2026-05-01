@@ -38,9 +38,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // suppressHydrationWarning on <html> and <body> avoids dev-warning noise
+  // from ThemeProvider (sets dark class on first effect) and browser
+  // extensions (Grammarly, Honey, etc. inject data-* attrs into <body>
+  // before React hydrates). React's docs explicitly recommend it for both.
   return (
-    <html lang="en">
-      <body className="bg-background text-foreground transition-colors duration-300">
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className="bg-background text-foreground transition-colors duration-300"
+        suppressHydrationWarning
+      >
         <ThemeProvider>
           <main>{children}</main>
         </ThemeProvider>
