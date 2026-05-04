@@ -44,11 +44,14 @@ const features = [
   {
     icon: FlaskConical,
     label: "Calculator",
-    title: "Perfect doses. No math required.",
-    desc: "Enter your vial size, BAC water volume, and target dose. Vial calculates the reconstituted concentration, draw volume in mL, and exact syringe units. Switch between mcg and mg. Supports U20, U30, U40, and U100 insulin syringes.",
+    title: "Stop doing dose math in your head.",
+    desc: "Enter your vial size, bacteriostatic water volume, and target dose. Vial computes the reconstituted concentration, draw volume in mL, and exact syringe units. Switch between mcg and mg. Supports U-20, U-30, U-40, and U-100 syringes. Free forever, no purchase required.",
     bullets: [
-      "15 peptide presets with sensible reconstitution defaults",
+      "15 preloaded peptide presets including BPC-157, TB-500, CJC-1295, Ipamorelin, GHK-Cu",
+      "Compounded GLP-1 support: semaglutide, tirzepatide, retatrutide",
+      "TRT cohort support: testosterone, HCG, ancillaries",
       "Custom peptide entry for anything not on the list",
+      "Multi-peptide blend support for KLOW, GLOW, and custom stacks",
       "Save vials for instant recall across sessions",
       "Water Solver: input your target units and get the BAC water volume",
     ],
@@ -58,14 +61,15 @@ const features = [
   {
     icon: Activity,
     label: "Tracker",
-    title: "Build the habit. Keep the streak.",
-    desc: "Create protocols for daily, weekly, or custom injection schedules. Log each dose directly from a notification tap. Three-state logging distinguishes logged, skipped, and missed doses so your history stays accurate.",
+    title: "Save your protocol once. Tap to log every dose.",
+    desc: "Create protocols for daily, weekly, or custom schedules. Log each dose with a single tap from the lock-screen notification. Three-state logging captures logged, skipped, and missed doses so your history stays accurate. See your patterns on the calendar timeline.",
     bullets: [
       "Streak tracking across all active protocols",
       "Smart injection site rotation based on your last 3 sites",
-      "On and off cycle scheduling for cycled peptides",
-      "1-minute granularity time picker for accurate logging",
-      "CSV export for your provider or your own records",
+      "On/off cycle scheduling for cycled peptides",
+      "Calendar timeline: month, week, year, and cycle Gantt views",
+      "Body metrics, bloodwork, and progress photos",
+      "CSV export and Vial 365 year-end share asset",
     ],
     reverse: true,
     image: "/asset/vial/feature-2-mock.png",
@@ -73,12 +77,13 @@ const features = [
   {
     icon: Bell,
     label: "Reminders",
-    title: "It reminds you. On device. Always.",
-    desc: "All reminders are scheduled locally on your device. No backend, no internet required. Tap the notification and your log sheet is pre-filled. Confirm in under 3 seconds and get back to your day.",
+    title: "Notifications that fire on device. Always.",
+    desc: "All reminders are scheduled locally. No backend, no internet required. Tap the notification and your log sheet is pre-filled. Confirm in under 3 seconds and get back to your day.",
     bullets: [
       "Dose due notification at your scheduled time",
       "Missed dose alert 2 hours after the window closes",
-      "Streak milestone notifications at 7, 14, 30, 60, and 100 days",
+      "Streak milestones at 7, 14, 30, 60, and 100 days",
+      "Vial freshness warnings before reconstitution expires",
       "Works fully offline, no account needed",
     ],
     reverse: false,
@@ -88,20 +93,32 @@ const features = [
 
 const faqs = [
   {
-    q: "Is my data private?",
-    a: "Completely. All protocol data is stored locally on your device using on-device SQLite. It is never uploaded to any server, never synced to the cloud, and never accessible by us. No account is required.",
+    q: "Is the calculator really free?",
+    a: "Yes. The reconstitution calculator is free forever, no purchase required. You can save one vial and one active protocol on the free tier. Premium unlocks unlimited protocols, full history, body metrics, bloodwork, progress photos, and Vial AI.",
   },
   {
-    q: "What peptides are included?",
-    a: "15 presets: BPC-157, TB-500, CJC-1295 (no DAC and DAC variants), Ipamorelin, GHK-Cu, Semaglutide, Tirzepatide, Retatrutide, Epithalon, NAD+, MOTS-c, Tesamorelin, Sermorelin, and PT-141. Custom entry is supported for anything not on the list.",
+    q: "Is my data private?",
+    a: "All protocol data, logs, and metrics are stored on your device using on-device SQLite. Nothing is uploaded. No account is required. Vial does not track you across other apps or websites. See the Privacy Policy for the full data flow.",
+  },
+  {
+    q: "What peptides are supported?",
+    a: "15 presets: BPC-157, TB-500, CJC-1295 (with and without DAC), Ipamorelin, GHK-Cu, Semaglutide, Tirzepatide, Retatrutide, Epitalon, NAD+, MOTS-c, Tesamorelin, Sermorelin, PT-141. Plus testosterone and HCG for TRT users. Custom peptide entry for anything else.",
+  },
+  {
+    q: "What does Vial cost?",
+    a: "Monthly $14.99. Yearly $49.99 with $29.99 first-year intro for new subscribers. Lifetime $99.99 one-time. AI coach is included with every paid tier. The reconstitution calculator stays free forever.",
+  },
+  {
+    q: "What does Vial AI do?",
+    a: "Vial AI is an educational chat assistant. It explains peptide mechanisms, half-lives, technique principles, and published prescribing information. It cannot diagnose, prescribe, or recommend a specific dose. It is configured to refuse personalized clinical questions and redirect to your prescriber. Educational only, not medical advice.",
   },
   {
     q: "What syringes does Vial support?",
-    a: "Vial supports U20, U30, U40, and U100 insulin syringes. Select your syringe type and the calculator outputs the exact unit mark to draw to on your barrel.",
+    a: "U-20, U-30, U-40, and U-100 insulin syringes. Select your syringe type and the calculator outputs the exact unit mark to draw to on your barrel.",
   },
   {
     q: "Does it work offline?",
-    a: "Yes. Vial is fully local-first. Reminders are scheduled on device, the calculator works without any connection, and your log history is always available.",
+    a: "Calculator and tracker, yes. Vial AI requires an internet connection because it streams responses from a hosted model.",
   },
   {
     q: "What is the refund policy?",
@@ -183,6 +200,13 @@ export default function VialPage() {
               Features
             </a>
             <a
+              href="#pricing"
+              className="text-sm hidden sm:block transition-colors hover:text-white"
+              style={{ color: TEXT_SECONDARY }}
+            >
+              Pricing
+            </a>
+            <a
               href="#faq"
               className="text-sm hidden sm:block transition-colors hover:text-white"
               style={{ color: TEXT_SECONDARY }}
@@ -240,7 +264,7 @@ export default function VialPage() {
                     fontFamily: mono,
                   }}
                 >
-                  Peptide Calculator + Tracker
+                  Peptide Tracker · Calculator · AI Coach
                 </span>
               </motion.div>
 
@@ -248,8 +272,8 @@ export default function VialPage() {
                 variants={fadeUp}
                 className="text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-5"
               >
-                The peptide app you open{" "}
-                <span style={{ color: MINT }}>every day.</span>
+                The peptide calculator{" "}
+                <span style={{ color: MINT }}>is free.</span>
               </motion.h1>
 
               <motion.p
@@ -257,9 +281,9 @@ export default function VialPage() {
                 className="text-lg mb-10 leading-relaxed"
                 style={{ color: TEXT_SECONDARY }}
               >
-                Reconstitute your vials, calculate exact syringe units, track
-                your protocol, and never miss a dose. Fully on device. No
-                account required.
+                Reconstitute, dose, and track BPC-157, GLP-1s, TRT, and more on
+                your iPhone. Save your protocol once. Tap to log every dose.
+                See your patterns. AI coach included.
               </motion.p>
 
               <motion.div
@@ -285,7 +309,7 @@ export default function VialPage() {
                   className="text-sm font-semibold transition-colors hover:text-white"
                   style={{ color: TEXT_SECONDARY }}
                 >
-                  See features ↓
+                  Try the calculator ↓
                 </a>
               </motion.div>
             </motion.div>
@@ -424,9 +448,9 @@ export default function VialPage() {
             <motion.p
               variants={fadeUp}
               className="text-xs tracking-[0.2em] uppercase mb-4"
-              style={{ color: TEXT_MUTED, fontFamily: mono }}
+              style={{ color: MINT, fontFamily: mono }}
             >
-              Coming May 7
+              Included with Vial
             </motion.p>
 
             <motion.h2
@@ -441,8 +465,10 @@ export default function VialPage() {
               className="text-lg leading-relaxed mb-10"
               style={{ color: TEXT_SECONDARY }}
             >
-              Ask anything about your stack. Get answers grounded in your actual
-              protocol. Not encyclopedic. Specific to you.
+              An educational chat assistant that knows your active protocol.
+              Ask about peptide mechanisms, half-lives, technique principles,
+              and published prescribing information. Not a substitute for your
+              prescriber.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex justify-center mb-12">
@@ -463,10 +489,10 @@ export default function VialPage() {
               className="grid grid-cols-2 gap-4 text-left mb-10 max-w-sm mx-auto"
             >
               {[
-                "Stack interactions",
-                "Side effect guidance",
-                "Protocol questions",
-                "Missed dose recovery",
+                "Peptide mechanisms",
+                "Half-life and PK",
+                "Technique principles",
+                "Cycling theory",
               ].map((item) => (
                 <motion.li
                   key={item}
@@ -485,10 +511,87 @@ export default function VialPage() {
               className="text-xs"
               style={{ color: TEXT_MUTED }}
             >
-              Included with Vial Lifetime. Available as a $7.99/mo add-on for
-              Vial.
+              Educational only. Not medical advice. Configured to refuse
+              personalized clinical questions and redirect to your prescriber.
             </motion.p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" className="border-t" style={{ borderColor: BORDER, backgroundColor: BG }}>
+        <div className="max-w-5xl mx-auto px-6 py-24 md:py-32">
+          <div className="text-center mb-16">
+            <p className="text-xs tracking-[0.2em] uppercase mb-4" style={{ color: TEXT_MUTED, fontFamily: mono }}>
+              Pricing
+            </p>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4">
+              Free to calculate. Fair to upgrade.
+            </h2>
+            <p className="text-lg" style={{ color: TEXT_SECONDARY }}>
+              Calculator stays free forever. AI coach included with every paid tier.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="rounded-2xl p-8 flex flex-col" style={{ backgroundColor: SURFACE, border: `1px solid ${BORDER}` }}>
+              <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ color: TEXT_MUTED, fontFamily: mono }}>
+                Vial Monthly
+              </p>
+              <div className="mb-6">
+                <span className="text-4xl font-black">$14.99</span>
+                <span className="text-sm" style={{ color: TEXT_SECONDARY }}> / month</span>
+              </div>
+              <ul className="space-y-3 mb-8 text-sm flex-1" style={{ color: TEXT_SECONDARY }}>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Unlimited protocols and vials</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Body metrics, bloodwork, photos</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Vial AI included</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Cancel anytime</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl p-8 flex flex-col relative" style={{ backgroundColor: SURFACE, border: `2px solid ${MINT}` }}>
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap" style={{ backgroundColor: MINT, color: BG, fontFamily: mono }}>
+                Best value · 72% off
+              </span>
+              <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ color: MINT, fontFamily: mono }}>
+                Vial Yearly
+              </p>
+              <div className="mb-2">
+                <span className="text-4xl font-black">$29.99</span>
+                <span className="text-sm" style={{ color: TEXT_SECONDARY }}> first year</span>
+              </div>
+              <p className="text-xs mb-6" style={{ color: TEXT_MUTED }}>
+                Then $49.99/yr. New subscribers only.
+              </p>
+              <ul className="space-y-3 mb-8 text-sm flex-1" style={{ color: TEXT_SECONDARY }}>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Everything in Monthly</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> $4.17/mo effective after intro</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Vial AI included</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> CSV export, Vial 365</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl p-8 flex flex-col" style={{ backgroundColor: SURFACE, border: `1px solid ${BORDER}` }}>
+              <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ color: TEXT_MUTED, fontFamily: mono }}>
+                Vial Lifetime
+              </p>
+              <div className="mb-6">
+                <span className="text-4xl font-black">$99.99</span>
+                <span className="text-sm" style={{ color: TEXT_SECONDARY }}> one-time</span>
+              </div>
+              <ul className="space-y-3 mb-8 text-sm flex-1" style={{ color: TEXT_SECONDARY }}>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Everything forever, no sub</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Vial AI included</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Family Sharing</li>
+                <li className="flex gap-2"><Check size={14} style={{ color: MINT, flexShrink: 0, marginTop: 3 }} /> Limited launch offer</li>
+              </ul>
+            </div>
+          </div>
+
+          <p className="text-center text-sm mt-10" style={{ color: TEXT_MUTED }}>
+            Free tier: calculator + 1 protocol + 1 saved vial + 30 days history. No expiry.
+          </p>
         </div>
       </section>
 
