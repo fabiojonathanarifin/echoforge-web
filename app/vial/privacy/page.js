@@ -368,7 +368,8 @@ export default function VialPrivacyPolicy() {
         Children&apos;s Privacy
       </h2>
       <p className="text-foreground">
-        Vial is rated 17+ and is not intended for anyone under 17. We do not
+        Vial is rated 18+ on iOS 26+ (17+ on earlier iOS) and is not intended
+        for anyone under 18. We do not
         knowingly collect any data from minors. If you believe we have, email
         us and we will delete the records.
       </p>

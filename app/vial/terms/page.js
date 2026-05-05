@@ -34,7 +34,7 @@ export default function VialTermsOfService() {
         2. Eligibility and Lawful Use
       </h2>
       <p className="text-foreground">
-        You must be at least 17 years old to use Vial. By using Vial, you
+        You must be at least 18 years old to use Vial. By using Vial, you
         confirm that:
       </p>
       <ul className="list-disc list-inside text-foreground space-y-2">
