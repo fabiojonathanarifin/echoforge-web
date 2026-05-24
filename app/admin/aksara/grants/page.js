@@ -162,7 +162,7 @@ export default function AksaraGrantsPage() {
               className="h-4 w-4"
             />
             <span className="text-sm text-foreground">
-              Whiteglove (adds Featured badge and lists on /featured)
+              Whiteglove (reserved for Featured tier, coming in slice 2+)
             </span>
           </label>
 

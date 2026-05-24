@@ -43,8 +43,10 @@ export async function POST(request) {
     .from("users")
     .select("id, username, email, plan, pro_override")
     .limit(1);
+  // For email: exact match (case-folded) — ilike treats _ and % as wildcards,
+  // which can match the wrong user on writes like this.
   const { data: matches, error: lookupError } = isEmail
-    ? await lookup.ilike("email", identifier)
+    ? await lookup.eq("email", identifier.toLowerCase())
     : await lookup.ilike("username", identifier);
 
   if (lookupError) {
