@@ -10,6 +10,14 @@ const APPS = [
     ],
   },
   {
+    id: "aksara",
+    name: "Aksara",
+    description: "Profile builder",
+    sections: [
+      { label: "Pro grants", href: "/admin/aksara/grants" },
+    ],
+  },
+  {
     id: "kume",
     name: "Kume",
     description: "Travel planner",
@@ -41,7 +49,7 @@ export default function AdminHomePage() {
       <div>
         <h1 className="text-2xl font-semibold text-foreground">Apps</h1>
         <p className="mt-1 text-sm text-muted">
-          Pick an app to manage. Only Protos has admin tools wired up today.
+          Pick an app to manage. Protos and Aksara have admin tools wired up today.
         </p>
       </div>
 
