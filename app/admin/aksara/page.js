@@ -6,6 +6,11 @@ const SECTIONS = [
     href: "/admin/aksara/grants",
     description: "Grant or revoke Pro for any aksara user by email or username.",
   },
+  {
+    label: "White Gloves",
+    href: "/admin/aksara/whitegloves",
+    description: "Pre-build ghost profiles for featured creators and send claim links.",
+  },
 ];
 
 export default function AksaraAdminHomePage() {

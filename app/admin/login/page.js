@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 
 // Next.js requires useSearchParams() to be wrapped in a Suspense boundary
@@ -8,7 +8,6 @@ import { Suspense, useState } from "react";
 // into an inner component keeps the boundary tight (just the param read)
 // instead of the whole login UI.
 function LoginForm() {
-  const router = useRouter();
   const params = useSearchParams();
   const next = params.get("next") || "/admin";
 
@@ -30,7 +29,7 @@ function LoginForm() {
       });
 
       if (response.ok) {
-        router.replace(next);
+        window.location.replace(next);
         return;
       }
 
