@@ -87,6 +87,13 @@ export default function AppsPage() {
           href="https://diggerinsights.beehiiv.com"
           icon="/asset/diggerinsights/icon.png"
         />
+        <AppCard
+          name="Aksara"
+          tagline="A link in bio to show your work."
+          description="Build a real portfolio in minutes, not weeks. One link to show what you have built, created, and sold, made for your Instagram, X, or LinkedIn bio."
+          href="https://aksara.so"
+          icon="/asset/aksara/icon.png"
+        />
       </div>
     </section>
   );

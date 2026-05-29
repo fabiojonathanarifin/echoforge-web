@@ -163,6 +163,14 @@ export default function StudioLayout({ children }) {
                 >
                   DiggerInsights Privacy
                 </Link>
+                <a
+                  href="https://aksara.so/privacy"
+                  className="hover:text-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Aksara Privacy
+                </a>
               </div>
             </div>
           </div>

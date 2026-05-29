@@ -96,6 +96,12 @@ export default function Home() {
               href="/vial"
               icon="/asset/vial/icon.png"
             />
+            <AppCard
+              name="Aksara"
+              description="A link in bio to show your work. Build a real portfolio in minutes, not weeks, made for your Instagram, X, or LinkedIn bio."
+              href="https://aksara.so"
+              icon="/asset/aksara/icon.png"
+            />
           </div>
 
           <div className="pt-8">

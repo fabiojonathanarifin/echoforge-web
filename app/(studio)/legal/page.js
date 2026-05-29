@@ -21,7 +21,9 @@ export default function LegalPage() {
             { name: "ReadersGuild - Privacy Policy", href: "https://readers-guild.com/privacy" },
             { name: "ReadersGuild - Terms of Service", href: "https://readers-guild.com/terms" },
             { name: "DiggerInsights - Privacy Policy", href: "/legal/diggerinsights/privacy" },
-            { name: "DiggerInsights - Terms of Service", href: "/legal/diggerinsights/terms" }
+            { name: "DiggerInsights - Terms of Service", href: "/legal/diggerinsights/terms" },
+            { name: "Aksara - Privacy Policy", href: "https://aksara.so/privacy" },
+            { name: "Aksara - Terms of Service", href: "https://aksara.so/terms" }
           ].map((link, i) => (
             <li key={i} className="flex items-center gap-4">
               <span className="w-2 h-2 rounded-full bg-accent" />
