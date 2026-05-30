@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Globe, Linkedin } from "lucide-react";
 import { getPublicCard } from "@/lib/relicCard";
+import { safeHref } from "@/lib/vcard";
 import CardActions from "./CardActions";
 import CardViewTracker from "./CardViewTracker";
 
@@ -184,7 +185,14 @@ export default async function PublicCardPage({ params }) {
 
   const role = [card.title, card.company].filter(Boolean).join(" at ");
   const links = card.links || {};
-  const hasLinks = links.site || links.x || links.linkedin;
+  // Defense-in-depth: only render hrefs that parse as http(s). Older rows may
+  // predate write-side normalization, so never trust the stored value raw.
+  const siteHref = safeHref(links.site);
+  const xHref = safeHref(links.x);
+  const linkedinHref = safeHref(links.linkedin);
+  const hasLinks = siteHref || xHref || linkedinHref;
+  // Pro users hide the badge. Default to showing it when the flag is missing.
+  const showBranding = card.show_branding !== false;
 
   return (
     <PageShell>
@@ -226,13 +234,13 @@ export default async function PublicCardPage({ params }) {
 
           {hasLinks ? (
             <div className="flex flex-wrap gap-2.5 mb-8">
-              {links.site ? (
-                <LinkButton href={links.site} label="Website" icon={Globe} />
+              {siteHref ? (
+                <LinkButton href={siteHref} label="Website" icon={Globe} />
               ) : null}
-              {links.x ? <XLinkButton href={links.x} /> : null}
-              {links.linkedin ? (
+              {xHref ? <XLinkButton href={xHref} /> : null}
+              {linkedinHref ? (
                 <LinkButton
-                  href={links.linkedin}
+                  href={linkedinHref}
                   label="LinkedIn"
                   icon={Linkedin}
                 />
@@ -243,9 +251,11 @@ export default async function PublicCardPage({ params }) {
           <CardActions card={card} />
         </div>
 
-        <div className="mt-8 flex justify-center">
-          <MadeWithRelic />
-        </div>
+        {showBranding ? (
+          <div className="mt-8 flex justify-center">
+            <MadeWithRelic />
+          </div>
+        ) : null}
       </div>
     </PageShell>
   );
