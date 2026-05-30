@@ -6,6 +6,21 @@ import { motion } from "framer-motion";
 import { Mic, FileText, Bell, Handshake, Brain, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
+const CULTURAL_PROOFS = [
+  {
+    name: "Bill Clinton",
+    proof: "Kept a box of 10,000 index cards. Every person he met, every detail. Decades later he would remember your mother's name.",
+  },
+  {
+    name: "Jim Farley",
+    proof: "Greeted 50,000 people by name and asked about their families. That memory helped run the campaign that elected a President.",
+  },
+  {
+    name: "The Mackay 66",
+    proof: "America's best salesman kept a 66-question dossier on every client. Their kids, their goals, the last thing they worried about.",
+  },
+];
+
 const AMBER = "#F59E0B";
 const BG = "#0C0A09";
 const SURFACE = "#1C1917";
@@ -31,35 +46,35 @@ const stagger = {
 const features = [
   {
     icon: Mic,
-    title: "Voice-first capture",
-    desc: "Speak for 30 seconds after any meeting. Relic transcribes and extracts names, commitments, preferences, and context. No typing required.",
+    title: "Just talk for 30 seconds",
+    desc: "Walk out of a meeting, hit record, say what happened. Relic pulls out the names, the commitments, the things they care about. No typing, no forms.",
   },
   {
     icon: FileText,
-    title: "AI pre-meeting briefings",
-    desc: "Before your next meeting, get a dossier: personal details to remember, open commitments, conversation openers, and a suggested ask.",
+    title: "Walk in knowing their kids' names",
+    desc: "Before you see them again, open the briefing. Who they are, what to remember, three ways to open, the thing you owe them, and the ask you came for.",
   },
   {
     icon: Bell,
-    title: "Relationship cadence",
-    desc: "Relic knows when a relationship is going cold. It nudges you before it's too late, calibrated by relationship type, not arbitrary timers.",
+    title: "Reach out before they go cold",
+    desc: "Relic nudges you when a relationship needs attention, paced by how close you are, not an arbitrary timer. The people who matter never fall off your radar.",
   },
   {
     icon: Handshake,
-    title: "Commitment tracking",
-    desc: "What did they promise you? What did you promise them? Bidirectional commitment tracking ensures nothing falls through the cracks.",
+    title: "Keep every promise you made",
+    desc: "What they promised you, what you promised them. Both sides tracked, so the intro you offered over coffee actually happens.",
   },
   {
     icon: Brain,
-    title: "Full relationship context",
-    desc: "Food preferences, family details, hobbies, challenges, shared history. Everything you learn about someone, organized and searchable.",
+    title: "Remember the details that make people feel seen",
+    desc: "Their daughter's recital, the wine they love, the project keeping them up at night. Everything you learn about someone, ready when you need it.",
   },
 ];
 
 const faqs = [
   {
-    q: "How is Relic different from a regular CRM?",
-    a: "CRMs are built for pipelines and deal tracking. Relic is built for people. It captures the human details: what someone's kids are named, what they promised you over coffee, what topics light them up. The kind of context that makes relationships feel real.",
+    q: "What exactly is Relic?",
+    a: "Relic is the briefing you walk in with. After you meet someone, you talk for 30 seconds. Before you see them again, Relic hands you what to remember, the promises still open between you, three ways to open, and the ask you came for. The prep a chief of staff would do for you, on everyone you meet.",
   },
   {
     q: "How does the voice capture work?",
@@ -78,8 +93,8 @@ const faqs = [
     a: "Yes. You can record voice notes without an internet connection. They queue locally and sync automatically when you're back online. Your recently viewed contacts and briefings are cached for offline access.",
   },
   {
-    q: "How much does it cost?",
-    a: "Relic is free for up to 10 contacts with 50 AI extractions per month. Pro unlocks unlimited contacts, 500 monthly extractions, and priority processing for $9.99/month or $79.99/year.",
+    q: "What will it cost?",
+    a: "Early access members get first look and launch pricing. When Relic opens, it runs $9.99 weekly or $199 yearly. Join the list and you will hear before anyone else.",
   },
 ];
 
@@ -119,6 +134,149 @@ function FAQItem({ q, a }) {
   );
 }
 
+// PLACEHOLDER: no capture backend wired yet. Email is validated and the UI
+// confirms, but nothing is persisted. When a backend exists (a /api/waitlist
+// route or a supabase table), POST the email here.
+function WaitlistForm({ size = "default" }) {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    if (!valid) {
+      setError("Enter a valid email.");
+      return;
+    }
+    setError("");
+    setSubmitted(true);
+  };
+
+  const padY = size === "large" ? "py-4" : "py-3.5";
+
+  if (submitted) {
+    return (
+      <div
+        className={`flex items-center gap-3 rounded-xl px-5 ${padY} border`}
+        style={{ borderColor: BORDER, backgroundColor: CARD }}
+      >
+        <span style={{ color: AMBER }} className="text-sm font-semibold">
+          You are on the list.
+        </span>
+        <span className="text-sm" style={{ color: TEXT_SECONDARY }}>
+          We will reach out before launch.
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="w-full">
+      <div className="flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@company.com"
+          aria-label="Email address"
+          className={`flex-1 rounded-xl px-5 ${padY} text-base outline-none border focus:border-[#F59E0B] transition-colors`}
+          style={{ backgroundColor: CARD, borderColor: BORDER, color: TEXT }}
+        />
+        <button
+          type="submit"
+          className={`inline-flex items-center justify-center rounded-xl px-7 ${padY} font-semibold text-base transition-all hover:brightness-110 active:scale-95 whitespace-nowrap`}
+          style={{ backgroundColor: AMBER, color: BG }}
+        >
+          Get early access
+        </button>
+      </div>
+      {error ? (
+        <p className="mt-2 text-sm" style={{ color: "#F87171" }}>
+          {error}
+        </p>
+      ) : (
+        <p className="mt-3 text-sm" style={{ color: TEXT_TERTIARY }}>
+          Early access is rolling out now. No spam, just your invite.
+        </p>
+      )}
+    </form>
+  );
+}
+
+function SampleBrief() {
+  const sections = [
+    {
+      label: "Remember",
+      lines: ["Wife Dana, twins started kindergarten", "Trying to cut back on coffee, into matcha now"],
+    },
+    {
+      label: "Open loops",
+      lines: ["You promised an intro to your LP", "He owes you the deck from the offsite"],
+    },
+    {
+      label: "Openers",
+      lines: ["Ask how the twins are settling in", "Bring up the matcha place near his office"],
+    },
+    {
+      label: "The ask",
+      lines: ["Get him to commit to the advisor call next week"],
+    },
+  ];
+
+  return (
+    <div
+      className="rounded-2xl border p-1.5"
+      style={{ borderColor: BORDER, backgroundColor: SURFACE }}
+    >
+      {/* PLACEHOLDER: drop the real briefing screenshot or screen recording here */}
+      <div
+        className="rounded-xl px-6 pt-6 pb-7"
+        style={{ backgroundColor: CARD }}
+      >
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <p className="text-white font-semibold text-lg leading-tight">Marcus Reed</p>
+            <p className="text-sm" style={{ color: TEXT_TERTIARY }}>
+              Partner, Northline Capital
+            </p>
+          </div>
+          <span
+            className="text-[10px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-md"
+            style={{ color: AMBER, backgroundColor: "rgba(245,158,11,0.1)", fontFamily: mono }}
+          >
+            Sample brief
+          </span>
+        </div>
+        <div className="space-y-5">
+          {sections.map((s) => (
+            <div key={s.label}>
+              <p
+                className="text-[11px] tracking-[0.18em] uppercase mb-2"
+                style={{ color: AMBER, fontFamily: mono }}
+              >
+                {s.label}
+              </p>
+              <ul className="space-y-1.5">
+                {s.lines.map((line) => (
+                  <li
+                    key={line}
+                    className="text-[15px] leading-snug flex gap-2.5"
+                    style={{ color: TEXT_SECONDARY }}
+                  >
+                    <span style={{ color: TEXT_TERTIARY }}>-</span>
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function RelicPage() {
   return (
     <div
@@ -149,81 +307,81 @@ export default function RelicPage() {
               FAQ
             </a>
             <a
-              href="https://apps.apple.com"
+              href="#early-access"
               className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all hover:brightness-110 active:scale-95"
               style={{ backgroundColor: AMBER, color: BG }}
             >
-              Download
+              Get early access
             </a>
           </div>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-28">
-        <div className="max-w-3xl">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-            className="text-xs tracking-[0.2em] uppercase mb-8"
-            style={{ color: TEXT_TERTIARY, fontFamily: mono }}
-          >
-            Personal relationship intelligence
-          </motion.p>
+      <section id="early-access" className="max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+              className="text-xs tracking-[0.2em] uppercase mb-7"
+              style={{ color: TEXT_TERTIARY, fontFamily: mono }}
+            >
+              The briefing the powerful always had
+            </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-5xl md:text-7xl leading-[1.08] mb-8"
-            style={{ fontFamily: serif, fontWeight: 400 }}
-          >
-            You remember every deal.
-            <br />
-            <span style={{ color: AMBER }}>Now remember every person.</span>
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-4xl md:text-6xl leading-[1.08] mb-7"
+              style={{ fontFamily: serif, fontWeight: 400 }}
+            >
+              Walk into every meeting like you have a{" "}
+              <span style={{ color: AMBER }}>chief of staff who remembers everyone.</span>
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-xl md:text-2xl leading-relaxed mb-12 max-w-2xl"
-            style={{ color: TEXT_SECONDARY }}
-          >
-            Relic captures what matters after every conversation and prepares you
-            before the next one. Voice in, briefing out. For founders who build
-            relationships, not just pipelines.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-lg md:text-xl leading-relaxed mb-9 max-w-xl"
+              style={{ color: TEXT_SECONDARY }}
+            >
+              Record a 30-second voice note after you meet someone. Relic remembers
+              what matters and briefs you before you see them again.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="max-w-xl"
+            >
+              <WaitlistForm size="large" />
+              <a
+                href="#sample-brief"
+                className="inline-block mt-5 text-base font-semibold text-white hover:opacity-80 transition-opacity"
+              >
+                See a sample brief
+                <span style={{ color: AMBER }}> {">"}</span>
+              </a>
+            </motion.div>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            id="sample-brief"
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col sm:flex-row gap-4"
+            transition={{ duration: 0.6, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <a
-              href="https://apps.apple.com"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:brightness-110 active:scale-95"
-              style={{ backgroundColor: AMBER, color: BG }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-              </svg>
-              Download for iOS
-            </a>
-            <a
-              href="#how-it-works"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-lg text-white transition-all hover:bg-white/5 border"
-              style={{ borderColor: BORDER }}
-            >
-              See how it works
-            </a>
+            <SampleBrief />
           </motion.div>
         </div>
       </section>
 
-      {/* PAIN POINT */}
+      {/* STAKES + PAIN POINT */}
       <div className="border-y" style={{ borderColor: BORDER, backgroundColor: SURFACE }}>
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
           <motion.div
@@ -235,6 +393,13 @@ export default function RelicPage() {
           >
             <motion.p
               variants={fadeUp}
+              className="text-xl md:text-2xl mb-8"
+              style={{ color: AMBER, fontFamily: serif, fontWeight: 400 }}
+            >
+              The most prepared person in the room usually wins it.
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
               className="text-2xl md:text-3xl leading-relaxed"
               style={{ color: TEXT_SECONDARY }}
             >
@@ -242,12 +407,76 @@ export default function RelicPage() {
               follow-ups. But you forget their daughter&apos;s name. You forget they&apos;re
               vegan. You forget what you promised them three months ago.{" "}
               <span className="text-white">
-                The details that make people feel known? Those are the first to go.
+                The details that make people feel seen are the first to go.
               </span>
             </motion.p>
           </motion.div>
         </div>
       </div>
+
+      {/* CULTURAL PROOF */}
+      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={stagger}
+        >
+          <motion.p
+            variants={fadeUp}
+            className="text-xs tracking-[0.2em] uppercase mb-4"
+            style={{ color: TEXT_TERTIARY, fontFamily: mono }}
+          >
+            The pattern
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl md:text-5xl mb-16"
+            style={{ fontFamily: serif, fontWeight: 400 }}
+          >
+            They all had a system.
+          </motion.h2>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={stagger}
+          className="grid md:grid-cols-3 gap-6 md:gap-8"
+        >
+          {CULTURAL_PROOFS.map((p) => (
+            <motion.div
+              key={p.name}
+              variants={fadeUp}
+              className="rounded-2xl p-7 border"
+              style={{ borderColor: BORDER, backgroundColor: SURFACE }}
+            >
+              <p
+                className="text-sm tracking-[0.12em] uppercase mb-4"
+                style={{ color: AMBER, fontFamily: mono }}
+              >
+                {p.name}
+              </p>
+              <p className="leading-relaxed" style={{ color: TEXT_SECONDARY }}>
+                {p.proof}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-2xl md:text-3xl mt-16 max-w-2xl"
+          style={{ fontFamily: serif, fontWeight: 400 }}
+        >
+          They had a person who remembered everyone.{" "}
+          <span style={{ color: AMBER }}>Now you have an app.</span>
+        </motion.p>
+      </section>
 
       {/* HOW IT WORKS */}
       <section id="how-it-works" className="max-w-6xl mx-auto px-6 py-24 md:py-32">
@@ -398,14 +627,14 @@ export default function RelicPage() {
           </motion.h2>
           <motion.div variants={fadeUp} className="space-y-6 text-lg leading-relaxed" style={{ color: TEXT_SECONDARY }}>
             <p>
-              You&apos;re not looking for a sales CRM. You don&apos;t need deal stages or lead
-              scoring. You need to remember that your co-investor&apos;s wife just had a baby,
-              that your mentor prefers oat milk, and that you promised to intro someone to
-              your LP three weeks ago.
+              You live by the people you know. You want to remember that your
+              co-investor&apos;s wife just had a baby, that your mentor prefers oat milk,
+              and that you promised to intro someone to your LP three weeks ago. Relic
+              hands you all of it the moment you need it.
             </p>
             <p>
-              Relic is for people who know that relationships compound, and that the
-              small details are what make them real.
+              For founders first, then anyone in sales and BD who knows that
+              relationships compound, and that the small details are what make them real.
             </p>
           </motion.div>
         </motion.div>
@@ -465,20 +694,11 @@ export default function RelicPage() {
             className="text-lg mb-10 leading-relaxed"
             style={{ color: TEXT_SECONDARY }}
           >
-            Download Relic and walk in knowing exactly who you&apos;re talking to, what
+            Get early access and walk in knowing exactly who you are talking to, what
             you promised them, and what to say next.
           </motion.p>
-          <motion.div variants={fadeUp}>
-            <a
-              href="https://apps.apple.com"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:brightness-110 active:scale-95"
-              style={{ backgroundColor: AMBER, color: BG }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-              </svg>
-              Download for iOS
-            </a>
+          <motion.div variants={fadeUp} className="max-w-xl">
+            <WaitlistForm size="large" />
           </motion.div>
         </motion.div>
       </section>

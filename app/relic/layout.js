@@ -1,21 +1,21 @@
 export const metadata = {
-  title: "Relic | AI Relationship Memory for Founders",
+  title: "Relic | The Pre-Meeting Briefing for Founders",
   description:
-    "Never walk into a meeting cold again. Relic captures voice notes after meetings, extracts key details with AI, and generates pre-meeting briefings so you show up prepared every time.",
+    "Walk into every meeting like you have a chief of staff who remembers everyone. Record a 30-second voice note after you meet someone. Relic remembers what matters and briefs you before you see them again.",
   keywords: [
-    "personal CRM",
-    "relationship management",
-    "AI meeting prep",
-    "founder networking",
-    "voice CRM",
     "pre-meeting briefing",
-    "contact management",
-    "relationship intelligence",
+    "remember everyone you meet",
+    "relationship edge for founders",
+    "AI meeting prep",
+    "voice note briefing",
+    "founder networking",
+    "meeting preparation app",
+    "remember names and details",
   ],
   openGraph: {
-    title: "Relic | AI Relationship Memory for Founders",
+    title: "Relic | The Pre-Meeting Briefing for Founders",
     description:
-      "Capture every detail after meetings with voice. Get AI briefings before the next one. Built for founders who move fast.",
+      "Record a 30-second voice note after you meet someone. Relic briefs you before you see them again. The relationship edge the powerful always had.",
     url: "https://echoforge.to/relic",
     siteName: "Relic by EchoForge",
     type: "website",
@@ -23,9 +23,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Relic | AI Relationship Memory for Founders",
+    title: "Relic | The Pre-Meeting Briefing for Founders",
     description:
-      "Capture every detail after meetings with voice. Get AI briefings before the next one.",
+      "Record a 30-second voice note after you meet someone. Relic briefs you before you see them again.",
   },
   alternates: {
     canonical: "https://echoforge.to/relic",
