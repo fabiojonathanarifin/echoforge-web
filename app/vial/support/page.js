@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     q: "I lost all my data after deleting and reinstalling the app. Can I recover it?",
-    a: "Vial stores your data on your device only. If you delete the app without first exporting a backup, the data is gone permanently. There is no cloud copy because we never upload it. Always run Settings > Data > Export full backup before deleting or switching phones.",
+    a: "Vial stores your data on your device only. If you delete the app without first exporting a backup, the data is gone permanently. There is no cloud copy because we never upload it. Always run Settings › Data › Export full backup before deleting or switching phones.",
   },
   {
     q: "How do I restore from a backup file?",
@@ -36,7 +36,7 @@ const FAQS = [
   },
   {
     q: "My notifications stopped firing. What do I check?",
-    a: "First, open the iPhone Settings app, find Vial, and confirm Notifications are enabled. Then re-open Vial and go to Settings > Reminders to confirm the reminders are turned on for each protocol. If you recently changed your protocol schedule, the reminders may need to be re-saved by opening the protocol once.",
+    a: "First, open the iPhone Settings app, find Vial, and confirm Notifications are enabled. Then re-open Vial and go to Settings › Reminders to confirm the reminders are turned on for each protocol. If you recently changed your protocol schedule, the reminders may need to be re-saved by opening the protocol once.",
   },
   {
     q: "Does Vial AI replace a doctor or pharmacist?",
@@ -109,7 +109,7 @@ export default function VialSupport() {
             <strong>Premium features are locked even though I purchased.</strong> Open the paywall or Settings and tap Restore Purchases. Make sure you are signed into the same Apple ID that made the purchase. Subscriptions can take a moment to sync from Apple to RevenueCat after a fresh install.
           </li>
           <li>
-            <strong>Apple Health is not syncing.</strong> Open the iPhone Settings app, tap Privacy and Security > Health > Vial, and confirm every category you want is toggled on. Then open Vial > Settings > Sync now to force a fresh pull.
+            <strong>Apple Health is not syncing.</strong> Open the iPhone Settings app, tap Privacy &amp; Security › Health › Vial, and confirm every category you want is toggled on. Then open Vial › Settings › Sync now to force a fresh pull.
           </li>
           <li>
             <strong>A reminder fired at the wrong time.</strong> Reminders use your phone time zone at the moment the protocol is saved. If you have traveled across time zones, re-open the protocol and tap Save to reschedule against your current time zone.
