@@ -81,6 +81,12 @@ export default function AppsPage() {
           icon="/asset/vial/icon.png"
         />
         <AppCard
+          name="Almanack"
+          tagline="Remember every decision you make."
+          description="Voice-first decision and business memory for operators. Talk for a minute a day; Almanack keeps the decisions, commitments, and follow-ups. Coming soon to the App Store."
+          href="/almanack"
+        />
+        <AppCard
           name="DiggerInsights"
           tagline="5 minutes to know what matters in tech right now."
           description="A daily newsletter for founders and decision-makers covering emerging startups, AI, and innovation."
