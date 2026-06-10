@@ -13,15 +13,17 @@ import {
   MessageCircleQuestion,
 } from "lucide-react";
 
-const AQUA = "#1FC9DD";
-const AQUA_DIM = "#1FC9DD22";
-const BG = "#0D0F12";
-const SURFACE = "#15181C";
-const CARD = "#1A1E24";
-const BORDER = "#23272E";
-const TEXT = "#F4F6F8";
-const TEXT_SECONDARY = "#9AA3AD";
-const TEXT_MUTED = "#5F6873";
+const ACCENT = "#8C2F2F";
+const ACCENT_SOFT = "rgba(140,47,47,0.08)";
+const BRASS = "#A67C3D";
+const SUCCESS = "#3E6B4F";
+const BG = "#F6F2EA";
+const SURFACE = "#EFE9DD";
+const CARD = "#FDFBF6";
+const BORDER = "#E2DACB";
+const TEXT = "#1C1917";
+const TEXT_SECONDARY = "#6E6759";
+const TEXT_MUTED = "#A39B8B";
 
 const serif = "Georgia, 'Times New Roman', serif";
 const mono = "'JetBrains Mono', Menlo, 'Courier New', monospace";
@@ -91,15 +93,15 @@ function AlmanackMark({ size = 64 }) {
       style={{
         width: size,
         height: size,
-        backgroundColor: SURFACE,
+        backgroundColor: CARD,
         border: `1px solid ${BORDER}`,
-        boxShadow: `0 16px 40px ${AQUA}1A`,
+        boxShadow: "0 12px 32px rgba(28,25,23,0.10)",
       }}
     >
       <span
         style={{
           fontFamily: serif,
-          color: AQUA,
+          color: ACCENT,
           fontSize: size * 0.55,
           fontWeight: 700,
           lineHeight: 1,
@@ -132,28 +134,31 @@ export default function AlmanackPage() {
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <AlmanackMark size={32} />
-            <span className="text-white font-bold text-lg tracking-tight">
+            <span
+              className="font-bold text-lg tracking-tight"
+              style={{ color: TEXT }}
+            >
               Almanack
             </span>
           </Link>
           <div className="flex items-center gap-4">
             <a
               href="#how"
-              className="text-sm hidden sm:block transition-colors hover:text-white"
+              className="text-sm hidden sm:block transition-colors hover:text-[#1C1917]"
               style={{ color: TEXT_SECONDARY }}
             >
               How it works
             </a>
             <a
               href="#privacy"
-              className="text-sm hidden sm:block transition-colors hover:text-white"
+              className="text-sm hidden sm:block transition-colors hover:text-[#1C1917]"
               style={{ color: TEXT_SECONDARY }}
             >
               Privacy
             </a>
             <a
               href="#pricing"
-              className="text-sm hidden sm:block transition-colors hover:text-white"
+              className="text-sm hidden sm:block transition-colors hover:text-[#1C1917]"
               style={{ color: TEXT_SECONDARY }}
             >
               Pricing
@@ -162,7 +167,7 @@ export default function AlmanackPage() {
               className="px-5 py-2 rounded-lg text-sm font-bold select-none"
               style={{
                 backgroundColor: SURFACE,
-                color: TEXT_MUTED,
+                color: TEXT_SECONDARY,
                 border: `1px solid ${BORDER}`,
               }}
             >
@@ -177,7 +182,7 @@ export default function AlmanackPage() {
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] pointer-events-none"
           style={{
-            background: `radial-gradient(ellipse at 50% 0%, ${AQUA}12 0%, transparent 65%)`,
+            background: `radial-gradient(ellipse at 50% 0%, ${ACCENT}0F 0%, transparent 65%)`,
           }}
         />
 
@@ -196,9 +201,9 @@ export default function AlmanackPage() {
               <span
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
                 style={{
-                  color: AQUA,
-                  backgroundColor: AQUA_DIM,
-                  border: `1px solid ${AQUA}30`,
+                  color: ACCENT,
+                  backgroundColor: ACCENT_SOFT,
+                  border: `1px solid ${ACCENT}33`,
                   fontFamily: mono,
                 }}
               >
@@ -212,7 +217,7 @@ export default function AlmanackPage() {
               style={{ fontFamily: serif, fontWeight: 700 }}
             >
               Remember every decision you make,{" "}
-              <span style={{ color: AQUA }}>and never drop a follow-up.</span>
+              <span style={{ color: ACCENT }}>and never drop a follow-up.</span>
             </motion.h1>
 
             <motion.p
@@ -234,7 +239,7 @@ export default function AlmanackPage() {
                 className="flex items-center gap-3 px-7 py-3.5 rounded-xl font-bold text-base select-none cursor-default"
                 style={{
                   backgroundColor: SURFACE,
-                  color: TEXT_MUTED,
+                  color: TEXT_SECONDARY,
                   border: `1px solid ${BORDER}`,
                 }}
               >
@@ -249,8 +254,8 @@ export default function AlmanackPage() {
               </span>
               <a
                 href="mailto:support@echoforge.to?subject=Almanack%20launch%20list"
-                className="text-sm font-semibold transition-colors hover:text-white"
-                style={{ color: AQUA }}
+                className="text-sm font-semibold transition-opacity hover:opacity-70"
+                style={{ color: ACCENT }}
               >
                 Email us to get notified at launch
               </a>
@@ -282,7 +287,7 @@ export default function AlmanackPage() {
               style={{ color: TEXT_SECONDARY }}
             >
               The best operators document.{" "}
-              <span style={{ color: AQUA }}>
+              <span style={{ color: ACCENT }}>
                 Almanack makes it take one minute.
               </span>
             </motion.p>
@@ -303,7 +308,7 @@ export default function AlmanackPage() {
             <motion.p
               variants={fadeUp}
               className="text-xs tracking-[0.2em] uppercase mb-4"
-              style={{ color: AQUA, fontFamily: mono }}
+              style={{ color: BRASS, fontFamily: mono }}
             >
               How it works
             </motion.p>
@@ -333,15 +338,15 @@ export default function AlmanackPage() {
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
                   style={{
-                    backgroundColor: AQUA_DIM,
-                    border: `1px solid ${AQUA}30`,
+                    backgroundColor: ACCENT_SOFT,
+                    border: `1px solid ${ACCENT}26`,
                   }}
                 >
-                  <s.icon size={22} style={{ color: AQUA }} />
+                  <s.icon size={22} style={{ color: ACCENT }} />
                 </div>
                 <p
                   className="text-xs tracking-[0.2em] uppercase mb-3"
-                  style={{ color: TEXT_MUTED, fontFamily: mono }}
+                  style={{ color: BRASS, fontFamily: mono }}
                 >
                   {s.label}
                 </p>
@@ -362,12 +367,12 @@ export default function AlmanackPage() {
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
             className="mt-16 rounded-2xl p-8 md:p-10 max-w-3xl mx-auto"
-            style={{ backgroundColor: SURFACE, border: `1px solid ${BORDER}` }}
+            style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}
           >
             <motion.div variants={fadeUp} className="flex items-start gap-4">
               <MessageCircleQuestion
                 size={20}
-                style={{ color: AQUA, flexShrink: 0, marginTop: 4 }}
+                style={{ color: ACCENT, flexShrink: 0, marginTop: 4 }}
               />
               <div>
                 <p
@@ -404,7 +409,7 @@ export default function AlmanackPage() {
             <motion.p
               variants={fadeUp}
               className="text-xs tracking-[0.2em] uppercase mb-4"
-              style={{ color: AQUA, fontFamily: mono }}
+              style={{ color: BRASS, fontFamily: mono }}
             >
               Privacy
             </motion.p>
@@ -443,11 +448,11 @@ export default function AlmanackPage() {
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
                   style={{
-                    backgroundColor: AQUA_DIM,
-                    border: `1px solid ${AQUA}30`,
+                    backgroundColor: ACCENT_SOFT,
+                    border: `1px solid ${ACCENT}26`,
                   }}
                 >
-                  <p.icon size={20} style={{ color: AQUA }} />
+                  <p.icon size={20} style={{ color: ACCENT }} />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{p.title}</h3>
                 <p
@@ -466,12 +471,12 @@ export default function AlmanackPage() {
             viewport={{ once: true }}
             variants={fadeUp}
             className="text-center text-sm mt-10 max-w-2xl mx-auto"
-            style={{ color: TEXT_MUTED }}
+            style={{ color: TEXT_SECONDARY }}
           >
             Full detail in the{" "}
             <Link
               href="/legal/almanack/privacy"
-              className="underline underline-offset-4 hover:text-white transition-colors"
+              className="underline underline-offset-4 hover:text-[#1C1917] transition-colors"
             >
               Privacy Policy
             </Link>
@@ -490,7 +495,7 @@ export default function AlmanackPage() {
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <p
               className="text-xs tracking-[0.2em] uppercase mb-4"
-              style={{ color: TEXT_MUTED, fontFamily: mono }}
+              style={{ color: BRASS, fontFamily: mono }}
             >
               Pricing
             </p>
@@ -509,16 +514,18 @@ export default function AlmanackPage() {
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div
               className="rounded-2xl p-8 flex flex-col"
-              style={{ backgroundColor: SURFACE, border: `1px solid ${BORDER}` }}
+              style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}
             >
               <p
                 className="text-xs tracking-[0.2em] uppercase mb-3"
-                style={{ color: TEXT_MUTED, fontFamily: mono }}
+                style={{ color: BRASS, fontFamily: mono }}
               >
                 Monthly
               </p>
               <div className="mb-6">
-                <span className="text-4xl font-black">$19</span>
+                <span className="text-4xl font-black" style={{ color: BRASS }}>
+                  $19
+                </span>
                 <span className="text-sm" style={{ color: TEXT_SECONDARY }}>
                   {" "}
                   / month
@@ -529,19 +536,19 @@ export default function AlmanackPage() {
                 style={{ color: TEXT_SECONDARY }}
               >
                 <li className="flex gap-2">
-                  <Check size={14} style={{ color: AQUA, flexShrink: 0, marginTop: 3 }} />
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   Unlimited voice capture and memory
                 </li>
                 <li className="flex gap-2">
-                  <Check size={14} style={{ color: AQUA, flexShrink: 0, marginTop: 3 }} />
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   Decision log, commitments, and reminders
                 </li>
                 <li className="flex gap-2">
-                  <Check size={14} style={{ color: AQUA, flexShrink: 0, marginTop: 3 }} />
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   Ask questions about your own history
                 </li>
                 <li className="flex gap-2">
-                  <Check size={14} style={{ color: AQUA, flexShrink: 0, marginTop: 3 }} />
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   Cancel anytime
                 </li>
               </ul>
@@ -549,28 +556,30 @@ export default function AlmanackPage() {
 
             <div
               className="rounded-2xl p-8 flex flex-col relative"
-              style={{ backgroundColor: SURFACE, border: `2px solid ${AQUA}` }}
+              style={{ backgroundColor: CARD, border: `2px solid ${ACCENT}` }}
             >
               <span
                 className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap"
-                style={{ backgroundColor: AQUA, color: BG, fontFamily: mono }}
+                style={{ backgroundColor: ACCENT, color: CARD, fontFamily: mono }}
               >
                 7-day free trial
               </span>
               <p
                 className="text-xs tracking-[0.2em] uppercase mb-3"
-                style={{ color: AQUA, fontFamily: mono }}
+                style={{ color: BRASS, fontFamily: mono }}
               >
                 Annual
               </p>
               <div className="mb-2">
-                <span className="text-4xl font-black">$190</span>
+                <span className="text-4xl font-black" style={{ color: BRASS }}>
+                  $190
+                </span>
                 <span className="text-sm" style={{ color: TEXT_SECONDARY }}>
                   {" "}
                   / year
                 </span>
               </div>
-              <p className="text-xs mb-6" style={{ color: TEXT_MUTED }}>
+              <p className="text-xs mb-6" style={{ color: TEXT_SECONDARY }}>
                 Two months free versus monthly.
               </p>
               <ul
@@ -578,26 +587,26 @@ export default function AlmanackPage() {
                 style={{ color: TEXT_SECONDARY }}
               >
                 <li className="flex gap-2">
-                  <Check size={14} style={{ color: AQUA, flexShrink: 0, marginTop: 3 }} />
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   Everything in Monthly
                 </li>
                 <li className="flex gap-2">
-                  <Check size={14} style={{ color: AQUA, flexShrink: 0, marginTop: 3 }} />
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   7 days free, full access, then $190/year
                 </li>
                 <li className="flex gap-2">
-                  <Check size={14} style={{ color: AQUA, flexShrink: 0, marginTop: 3 }} />
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   Works out to about $0.52 a day
                 </li>
                 <li className="flex gap-2">
-                  <Check size={14} style={{ color: AQUA, flexShrink: 0, marginTop: 3 }} />
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   Cancel anytime
                 </li>
               </ul>
             </div>
           </div>
 
-          <p className="text-center text-sm mt-10" style={{ color: TEXT_MUTED }}>
+          <p className="text-center text-sm mt-10" style={{ color: TEXT_SECONDARY }}>
             Subscriptions auto-renew through your Apple ID. Cancel anytime in
             your App Store settings.
           </p>
@@ -634,7 +643,7 @@ export default function AlmanackPage() {
               <a
                 href="mailto:support@echoforge.to?subject=Almanack%20launch%20list"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:brightness-110 active:scale-[0.98]"
-                style={{ backgroundColor: AQUA, color: BG }}
+                style={{ backgroundColor: ACCENT, color: CARD }}
               >
                 Get notified at launch
               </a>
@@ -648,7 +657,9 @@ export default function AlmanackPage() {
         <div className="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="flex items-center gap-3">
             <AlmanackMark size={28} />
-            <span className="text-white font-bold text-sm">Almanack</span>
+            <span className="font-bold text-sm" style={{ color: TEXT }}>
+              Almanack
+            </span>
             <span className="text-xs" style={{ color: TEXT_MUTED }}>
               by EchoForge
             </span>
@@ -660,23 +671,23 @@ export default function AlmanackPage() {
           >
             <Link
               href="/legal/almanack/privacy"
-              className="hover:text-white transition-colors"
+              className="hover:text-[#1C1917] transition-colors"
             >
               Privacy
             </Link>
             <Link
               href="/legal/almanack/terms"
-              className="hover:text-white transition-colors"
+              className="hover:text-[#1C1917] transition-colors"
             >
               Terms
             </Link>
             <a
               href="mailto:support@echoforge.to"
-              className="hover:text-white transition-colors"
+              className="hover:text-[#1C1917] transition-colors"
             >
               Contact
             </a>
-            <Link href="/" className="hover:text-white transition-colors">
+            <Link href="/" className="hover:text-[#1C1917] transition-colors">
               EchoForge
             </Link>
           </div>
