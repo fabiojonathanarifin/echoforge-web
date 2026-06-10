@@ -108,12 +108,12 @@ export default function AlmanackPrivacyPolicy() {
         privacy policies.
       </p>
 
-      <h2 className="text-xl font-medium text-foreground">Sign-In</h2>
+      <h2 className="text-xl font-medium text-foreground">No Accounts</h2>
       <p className="text-foreground">
-        You can sign in with Apple or Google. The resulting identity is stored
-        on your device only and is used to associate your subscription and to
-        gate access to the app. We do not maintain a server-side account
-        database for Almanack.
+        Almanack has no sign-up and no account system. We do not maintain a
+        server-side account database. Your subscription is tied to your Apple
+        ID through the App Store and can be restored on any device signed into
+        that Apple ID.
       </p>
 
       <h2 className="text-xl font-medium text-foreground">
@@ -170,10 +170,9 @@ export default function AlmanackPrivacyPolicy() {
 
       <h2 className="text-xl font-medium text-foreground">Data Deletion</h2>
       <p className="text-foreground">
-        Go to Settings, then Delete account and data inside the app. This
-        erases everything: your encrypted database, transcripts, and sign-in
-        identity. Because there is no cloud copy, deletion is immediate and
-        complete. Deleting the app from your phone has the same effect on
+        Go to Settings, then Delete all data inside the app. This erases
+        everything: your encrypted database and transcripts. Because there is
+        no cloud copy, deletion is immediate and complete. Deleting the app from your phone has the same effect on
         your local data. To request deletion of anonymous analytics events or
         RevenueCat purchase records, email us at{" "}
         <a
