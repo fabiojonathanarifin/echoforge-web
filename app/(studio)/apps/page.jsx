@@ -85,6 +85,7 @@ export default function AppsPage() {
           tagline="Remember every decision you make."
           description="Voice-first decision and business memory for operators. Talk for a minute a day; Almanack keeps the decisions, commitments, and follow-ups. Coming soon to the App Store."
           href="/almanack"
+          icon="/almanack-icon.png"
         />
         <AppCard
           name="DiggerInsights"

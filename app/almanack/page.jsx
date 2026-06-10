@@ -88,28 +88,17 @@ const privacyPoints = [
 
 function AlmanackMark({ size = 64 }) {
   return (
-    <div
-      className="flex items-center justify-center rounded-2xl"
+    <img
+      src="/almanack-icon.png"
+      alt="Almanack"
+      width={size}
+      height={size}
+      className="rounded-2xl"
       style={{
-        width: size,
-        height: size,
-        backgroundColor: CARD,
         border: `1px solid ${BORDER}`,
         boxShadow: "0 12px 32px rgba(28,25,23,0.10)",
       }}
-    >
-      <span
-        style={{
-          fontFamily: serif,
-          color: ACCENT,
-          fontSize: size * 0.55,
-          fontWeight: 700,
-          lineHeight: 1,
-        }}
-      >
-        A
-      </span>
-    </div>
+    />
   );
 }
 
