@@ -6,9 +6,9 @@ const PAGE_URL = `${SITE}/almanack`;
 
 export const metadata = {
   metadataBase: new URL(SITE),
-  title: "Almanack: Voice-first decision memory for operators",
+  title: "Almanack: Decision memory for operators",
   description:
-    "Remember every decision you make, and never drop a follow-up. Talk for a minute a day. Almanack turns it into structured memory: decisions, commitments, and tasks, all stored encrypted on your phone.",
+    "Remember every decision you make, and never drop a follow-up. Talk for a minute, or dump it at your desk. Almanack turns it into structured memory: decisions, commitments, and tasks, and hands the right one back when you need it.",
   keywords: [
     "decision memory",
     "decision journal",
@@ -20,19 +20,20 @@ export const metadata = {
     "chief of staff app",
     "voice-first",
     "on-device transcription",
+    "MCP memory",
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Almanack: Voice-first decision memory for operators",
+    title: "Almanack: Decision memory for operators",
     description:
-      "Remember every decision you make, and never drop a follow-up. Talk for a minute a day. Almanack turns it into structured, encrypted memory on your phone.",
+      "Remember every decision you make, and never drop a follow-up. On your phone, at your desk, and in your AI.",
     siteName: "Almanack",
   },
   twitter: {
     card: "summary",
-    title: "Almanack: Voice-first decision memory for operators",
+    title: "Almanack: Decision memory for operators",
     description:
       "Remember every decision you make, and never drop a follow-up.",
   },
@@ -57,12 +58,15 @@ export default function AlmanackLayout({ children }) {
       { "@type": "Offer", name: "Almanack Annual", price: "190", priceCurrency: "USD", category: "subscription", description: "7-day free trial, then $190/year" },
     ],
     featureList: [
-      "One-minute voice capture",
+      "One-minute voice capture on iPhone",
+      "Desktop web capture and recall",
       "Decisions logged with the reasoning behind them",
       "Commitment tracking with reminders",
       "Ask questions about your own decision history",
       "On-device transcription, audio never leaves the phone",
-      "Encrypted local database, no cloud copy",
+      "Encrypted sync with row-level isolation",
+      "Markdown export and full account deletion",
+      "MCP server: query your memory from Claude or any AI",
       "Optional Face ID lock",
     ],
   };

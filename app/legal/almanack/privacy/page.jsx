@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Privacy Policy | Almanack",
   description:
-    "Almanack is local-first. Your voice never leaves your phone, your memory is encrypted on device, and there is no cloud database. Full disclosure of every data flow.",
+    "Your voice never leaves your phone. Your memory syncs encrypted, isolated to your account, exportable and deletable anytime. Full disclosure of every data flow.",
   robots: { index: true, follow: true },
 };
 
@@ -18,15 +18,17 @@ export default function AlmanackPrivacyPolicy() {
         <h1 className="text-2xl font-semibold text-foreground">
           Almanack / Privacy Policy
         </h1>
-        <p className="text-muted">Effective date: June 10, 2026</p>
+        <p className="text-muted">Effective date: June 13, 2026</p>
       </div>
 
       <p className="text-foreground">
         This Privacy Policy describes how Almanack (operated by Fabio Jonathan
         Arifin via EchoForge, the &quot;Operator&quot;) handles information
-        when you use the Almanack iOS application. Almanack is built
-        local-first: your voice recordings never leave your device, and your
-        memory database exists only on your phone. There is no cloud copy.
+        when you use the Almanack iOS application and web application. The
+        short version: your voice recordings never leave your phone, your
+        memory syncs encrypted so it works on your phone and at your desk, it
+        is isolated to your account, never used to train anything, and you can
+        export or permanently delete all of it at any time.
       </p>
 
       <h2 className="text-xl font-medium text-foreground">Contact</h2>
@@ -43,15 +45,20 @@ export default function AlmanackPrivacyPolicy() {
       </p>
 
       <h2 className="text-xl font-medium text-foreground">
-        Your Memory Stays on Your Device
+        Where Your Memory Lives
       </h2>
       <p className="text-foreground">
-        All entries, decisions, commitments, tasks, and transcripts you create
-        in Almanack are stored exclusively on your device in a local database
-        encrypted at rest with SQLCipher. The encryption key is stored in the
-        iOS keychain. You can additionally enable a Face ID lock inside the
-        app. There is no cloud database. We cannot read, access, or recover
-        your memory because no copy of it ever reaches our servers.
+        On your phone, entries, decisions, commitments, tasks, and transcripts
+        are stored in a local database encrypted at rest with SQLCipher, keyed
+        from the iOS keychain, with an optional Face ID lock. So Almanack works
+        on your phone and at your desk, your memory also syncs to a database we
+        operate (hosted on Supabase, encrypted at rest and in transit).
+        Row-level security enforced by the database itself isolates your rows
+        to your account: queries from any client can only ever return your own
+        data. Files you attach (screenshots, documents) are stored in a private
+        Cloudflare R2 bucket, accessible only through short-lived signed links
+        generated for your authenticated session. We do not read your memory,
+        and it is never used to train any model.
       </p>
 
       <h2 className="text-xl font-medium text-foreground">
@@ -66,7 +73,7 @@ export default function AlmanackPrivacyPolicy() {
       </p>
 
       <h2 className="text-xl font-medium text-foreground">
-        AI Processing of Transcript Text
+        AI Processing of Transcript Text and Attached Images
       </h2>
       <p className="text-foreground">
         Two features require a network call: structuring your spoken notes
@@ -75,8 +82,11 @@ export default function AlmanackPrivacyPolicy() {
         text needed to answer a question) is sent from your device to a
         Cloudflare Worker proxy we operate, which forwards it to AI providers
         (OpenAI and Anthropic models accessed via OpenRouter) solely to
-        generate the structured output or answer. The proxy does not store
-        your content. These providers process text under their API terms. We
+        generate the structured output or answer. If you choose to attach a
+        photo or screenshot to a capture, that image is sent the same way,
+        once, to be read into the structured note; the image itself is stored
+        in your private attachment storage. The proxy does not store your
+        content. These providers process text under their API terms. We
         do not use your content to train models, and these API providers state
         that API inputs are not used to train their models. See{" "}
         <a
@@ -108,12 +118,26 @@ export default function AlmanackPrivacyPolicy() {
         privacy policies.
       </p>
 
-      <h2 className="text-xl font-medium text-foreground">No Accounts</h2>
+      <h2 className="text-xl font-medium text-foreground">Accounts</h2>
       <p className="text-foreground">
-        Almanack has no sign-up and no account system. We do not maintain a
-        server-side account database. Your subscription is tied to your Apple
-        ID through the App Store and can be restored on any device signed into
-        that Apple ID.
+        You sign in with Apple or Google (handled by Supabase Auth). We store
+        the email address and authentication identifiers your provider shares,
+        nothing more. The account exists so your memory can sync between your
+        phone and the web app and so your data can be isolated to you. Your
+        subscription is tied to your Apple ID through the App Store and can be
+        restored on any device signed into that Apple ID.
+      </p>
+
+      <h2 className="text-xl font-medium text-foreground">
+        Connecting Your AI (MCP)
+      </h2>
+      <p className="text-foreground">
+        If you create an API key in Settings to query your memory from an AI
+        assistant, only a hash of that key is stored; the key itself is shown
+        to you once. Anything an assistant retrieves through that key flows to
+        the assistant you connected, under that provider&apos;s terms. Entries
+        you mark personal are never returned through this surface. You can
+        revoke any key instantly in Settings.
       </p>
 
       <h2 className="text-xl font-medium text-foreground">
@@ -161,20 +185,22 @@ export default function AlmanackPrivacyPolicy() {
         <li>We do not sell your data. Ever.</li>
         <li>We do not show ads or share data with advertisers.</li>
         <li>We do not upload your audio. It never leaves the device.</li>
-        <li>
-          We do not keep a cloud copy of your memory. There is nothing for us
-          to read, leak, or hand over.
-        </li>
+        <li>We do not read your memory or mine it for any purpose.</li>
         <li>We do not use your content to train AI models.</li>
+        <li>We do not hold your data hostage: export everything as markdown anytime.</li>
       </ul>
 
-      <h2 className="text-xl font-medium text-foreground">Data Deletion</h2>
+      <h2 className="text-xl font-medium text-foreground">
+        Export and Deletion
+      </h2>
       <p className="text-foreground">
-        Go to Settings, then Delete all data inside the app. This erases
-        everything: your encrypted database and transcripts. Because there is
-        no cloud copy, deletion is immediate and complete. Deleting the app from your phone has the same effect on
-        your local data. To request deletion of anonymous analytics events or
-        RevenueCat purchase records, email us at{" "}
+        You can export your entire memory as a markdown file anytime from
+        Settings. Deleting your account (Settings, then Delete account) erases
+        everything immediately and permanently: every entry, decision,
+        commitment, transcript, attachment, and API key, on the server and from
+        the device once it syncs. There is no retention window and no recovery.
+        To request deletion of anonymous analytics events or RevenueCat
+        purchase records, email us at{" "}
         <a
           href="mailto:support@echoforge.to"
           className="text-accent hover:underline"
@@ -186,11 +212,14 @@ export default function AlmanackPrivacyPolicy() {
 
       <h2 className="text-xl font-medium text-foreground">Security</h2>
       <p className="text-foreground">
-        Your memory is encrypted at rest on your device with SQLCipher, keyed
-        from the iOS keychain, and protected by your device&apos;s own
-        security (passcode, Face ID, Secure Enclave). All network calls use
-        TLS encryption in transit. No system is perfectly secure, but keeping
-        your data off our servers entirely removes the largest class of risk.
+        On device, your memory is encrypted at rest with SQLCipher, keyed from
+        the iOS keychain, and protected by your device&apos;s own security
+        (passcode, Face ID, Secure Enclave). On the server, your data is
+        encrypted at rest and in transit, isolated to your account by
+        database-enforced row-level security, and administrative credentials
+        never ship to any client. No system is perfectly secure, but every
+        layer here is designed so that a failure in one does not expose your
+        memory.
       </p>
 
       <h2 className="text-xl font-medium text-foreground">

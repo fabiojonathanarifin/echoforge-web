@@ -28,6 +28,9 @@ const TEXT_MUTED = "#A39B8B";
 const serif = "Georgia, 'Times New Roman', serif";
 const mono = "'JetBrains Mono', Menlo, 'Courier New', monospace";
 
+// Update when the web app's production domain is live on Railway.
+const WEB_APP_URL = "https://almanack.echoforge.to";
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: {
@@ -46,8 +49,8 @@ const steps = [
   {
     icon: Mic,
     label: "Step 1",
-    title: "Talk for a minute.",
-    desc: "Open the app and say what happened. The pricing call. The hire you are leaning toward. The intro you promised a client by Friday. No typing, no formatting, no structure required.",
+    title: "Dump it, anywhere.",
+    desc: "Talk for a minute on your phone, or paste the mess at your desk. The pricing call. The hire you are leaning toward. The intro you promised a client by Friday. No formatting, no structure required.",
   },
   {
     icon: BookOpen,
@@ -59,7 +62,7 @@ const steps = [
     icon: Bell,
     label: "Step 3",
     title: "The right memory comes back.",
-    desc: "Ask \"what did I decide about pricing in March\" and get the answer with your original reasoning. Every promise gets a reminder before it slips. Relevant context resurfaces unprompted.",
+    desc: "Ask \"what did I decide about pricing in March\" and get the answer with your original reasoning. Every promise gets a reminder before it slips. Old decisions resurface when they matter again.",
   },
 ];
 
@@ -71,18 +74,18 @@ const privacyPoints = [
   },
   {
     icon: Lock,
-    title: "Encrypted on device",
-    desc: "Your memory lives in a local database encrypted at rest with SQLCipher. The key sits in the iOS keychain. Add a Face ID lock if you want a second gate.",
+    title: "Encrypted and walled off",
+    desc: "Your memory syncs encrypted between your phone and your desk. In the database, row-level security isolates your data from everyone else's, enforced by the database itself. It is never used to train anything.",
   },
   {
     icon: Smartphone,
-    title: "No cloud database",
-    desc: "There is no server copy of your memory. It exists only on your phone. Delete the app or your account, and it is gone everywhere, instantly.",
+    title: "Yours to take or erase",
+    desc: "Export your entire memory as markdown anytime. Delete your account and every entry, attachment, and key goes with it. Delete means delete.",
   },
   {
     icon: ShieldCheck,
-    title: "Minimal network surface",
-    desc: "The only thing that travels is transcript text, sent to our proxy and forwarded to AI providers to structure your notes and answer your questions. No audio, no database, no card data.",
+    title: "Minimal AI surface",
+    desc: "AI providers only ever see transcript text, sent through our proxy to structure your notes and answer your questions. No audio, no database access, no card data.",
   },
 ];
 
@@ -152,16 +155,13 @@ export default function AlmanackPage() {
             >
               Pricing
             </a>
-            <span
-              className="px-5 py-2 rounded-lg text-sm font-bold select-none"
-              style={{
-                backgroundColor: SURFACE,
-                color: TEXT_SECONDARY,
-                border: `1px solid ${BORDER}`,
-              }}
+            <a
+              href={WEB_APP_URL}
+              className="px-5 py-2 rounded-lg text-sm font-bold transition-all hover:brightness-110 active:scale-[0.98]"
+              style={{ backgroundColor: ACCENT, color: CARD }}
             >
-              Coming soon
-            </span>
+              Open the app
+            </a>
           </div>
         </div>
       </nav>
@@ -196,7 +196,7 @@ export default function AlmanackPage() {
                   fontFamily: mono,
                 }}
               >
-                Voice-first decision memory for operators
+                Decision memory for operators
               </span>
             </motion.div>
 
@@ -224,32 +224,68 @@ export default function AlmanackPage() {
               variants={fadeUp}
               className="flex flex-col sm:flex-row gap-4 items-center"
             >
+              <a
+                href={WEB_APP_URL}
+                className="flex items-center gap-3 px-7 py-3.5 rounded-xl font-bold text-base transition-all hover:brightness-110 active:scale-[0.98]"
+                style={{ backgroundColor: ACCENT, color: CARD }}
+              >
+                Start on the web
+              </a>
               <span
-                className="flex items-center gap-3 px-7 py-3.5 rounded-xl font-bold text-base select-none cursor-default"
-                style={{
-                  backgroundColor: SURFACE,
-                  color: TEXT_SECONDARY,
-                  border: `1px solid ${BORDER}`,
-                }}
+                className="flex items-center gap-2 text-sm font-semibold"
+                style={{ color: TEXT_SECONDARY }}
               >
                 <svg
                   viewBox="0 0 24 24"
-                  className="w-5 h-5 fill-current"
+                  className="w-4 h-4 fill-current"
                   aria-hidden="true"
                 >
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                 </svg>
-                Coming soon to the App Store
+                iPhone app coming soon.{" "}
+                <a
+                  href="mailto:support@echoforge.to?subject=Almanack%20launch%20list"
+                  className="underline underline-offset-4 transition-opacity hover:opacity-70"
+                  style={{ color: ACCENT }}
+                >
+                  Get notified
+                </a>
               </span>
-              <a
-                href="mailto:support@echoforge.to?subject=Almanack%20launch%20list"
-                className="text-sm font-semibold transition-opacity hover:opacity-70"
-                style={{ color: ACCENT }}
-              >
-                Email us to get notified at launch
-              </a>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* PRODUCT SHOT */}
+      <section className="relative">
+        <div className="max-w-4xl mx-auto px-6 pb-24">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="rounded-2xl overflow-hidden"
+            style={{
+              border: `1px solid ${BORDER}`,
+              boxShadow: "0 32px 80px rgba(28,25,23,0.14)",
+            }}
+          >
+            <img
+              src="/almanack/web-today.png"
+              alt="Almanack on the web: today's follow-ups and recent entries, organized from raw dumps"
+              className="w-full block"
+            />
+          </motion.div>
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-center text-sm mt-6"
+            style={{ color: TEXT_SECONDARY }}
+          >
+            A raw ramble in. Decisions, follow-ups, and due dates out.
+          </motion.p>
         </div>
       </section>
 
@@ -377,7 +413,31 @@ export default function AlmanackPage() {
                 </p>
               </div>
             </motion.div>
+            <motion.div
+              variants={fadeUp}
+              className="mt-6 rounded-xl overflow-hidden"
+              style={{ border: `1px solid ${BORDER}` }}
+            >
+              <img
+                src="/almanack/web-ask.png"
+                alt="Asking Almanack what was decided about pricing: the answer cites the original entry and date"
+                className="w-full block"
+              />
+            </motion.div>
           </motion.div>
+
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-center text-sm mt-10 max-w-2xl mx-auto"
+            style={{ color: TEXT_SECONDARY }}
+          >
+            One memory, every surface: capture on iPhone or at your desk, and
+            connect Claude or any AI that speaks MCP to ask your decision log
+            from wherever you already work.
+          </motion.p>
         </div>
       </section>
 
@@ -407,16 +467,16 @@ export default function AlmanackPage() {
               className="text-3xl md:text-5xl tracking-tight mb-6"
               style={{ fontFamily: serif, fontWeight: 700 }}
             >
-              Your voice never leaves your phone. Even we can't read your
-              memory.
+              Your voice stays on your phone. Your memory stays yours.
             </motion.h2>
             <motion.p
               variants={fadeUp}
               className="text-lg leading-relaxed"
               style={{ color: TEXT_SECONDARY }}
             >
-              Your decisions are the most sensitive data you have. Almanack is
-              built so they stay yours. This is architecture, not a promise.
+              Your decisions are the most sensitive data you have. Here is
+              exactly how Almanack handles them, and every claim is documented
+              in the privacy policy.
             </motion.p>
           </motion.div>
 
@@ -626,15 +686,16 @@ export default function AlmanackPage() {
               className="text-lg mb-10"
               style={{ color: TEXT_SECONDARY }}
             >
-              Almanack will have the answer. Launching soon on iOS.
+              Almanack will have the answer. Start at your desk today, the
+              iPhone app is close behind.
             </motion.p>
             <motion.div variants={fadeUp}>
               <a
-                href="mailto:support@echoforge.to?subject=Almanack%20launch%20list"
+                href={WEB_APP_URL}
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:brightness-110 active:scale-[0.98]"
                 style={{ backgroundColor: ACCENT, color: CARD }}
               >
-                Get notified at launch
+                Start on the web
               </a>
             </motion.div>
           </motion.div>
