@@ -213,10 +213,10 @@ export default function AlmanackPage() {
               className="text-lg mb-10 leading-relaxed max-w-xl"
               style={{ color: TEXT_SECONDARY }}
             >
-              Talk for a minute a day. Almanack turns the ramble into
-              structured memory: decisions with the reasoning, commitments
-              owed to others, tasks owed to yourself. Then it brings the right
-              one back exactly when you need it.
+              Say it on your phone or dump it at your desk. Almanack turns
+              the mess into structured memory: decisions with the reasoning,
+              commitments owed to others, tasks owed to yourself. Then it
+              brings the right one back exactly when you need it.
             </motion.p>
 
             <motion.div
@@ -228,7 +228,7 @@ export default function AlmanackPage() {
                 className="flex items-center gap-3 px-7 py-3.5 rounded-xl font-bold text-base transition-all hover:brightness-110 active:scale-[0.98]"
                 style={{ backgroundColor: ACCENT, color: CARD }}
               >
-                Start on the web
+                Start free on the web
               </a>
               <span
                 className="flex items-center gap-2 text-sm font-semibold"
@@ -251,6 +251,14 @@ export default function AlmanackPage() {
                 </a>
               </span>
             </motion.div>
+
+            <motion.p
+              variants={fadeUp}
+              className="text-xs mt-4"
+              style={{ color: TEXT_MUTED }}
+            >
+              Free during early access. No card needed.
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -568,9 +576,9 @@ export default function AlmanackPage() {
                 className="text-xs tracking-[0.2em] uppercase mb-3"
                 style={{ color: BRASS, fontFamily: mono }}
               >
-                Monthly
+                At launch
               </p>
-              <div className="mb-6">
+              <div className="mb-2">
                 <span className="text-4xl font-black" style={{ color: BRASS }}>
                   $19
                 </span>
@@ -579,21 +587,24 @@ export default function AlmanackPage() {
                   / month
                 </span>
               </div>
+              <p className="text-xs mb-6" style={{ color: TEXT_SECONDARY }}>
+                Or $190 a year, about $0.52 a day.
+              </p>
               <ul
                 className="space-y-3 mb-8 text-sm flex-1"
                 style={{ color: TEXT_SECONDARY }}
               >
                 <li className="flex gap-2">
                   <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
-                  Unlimited voice capture and memory
+                  One-minute voice capture on iPhone
+                </li>
+                <li className="flex gap-2">
+                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
+                  Unlimited memory across phone and desk
                 </li>
                 <li className="flex gap-2">
                   <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
                   Decision log, commitments, and reminders
-                </li>
-                <li className="flex gap-2">
-                  <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
-                  Ask questions about your own history
                 </li>
                 <li className="flex gap-2">
                   <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
@@ -610,25 +621,21 @@ export default function AlmanackPage() {
                 className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap"
                 style={{ backgroundColor: ACCENT, color: CARD, fontFamily: mono }}
               >
-                7-day free trial
+                Early access
               </span>
               <p
                 className="text-xs tracking-[0.2em] uppercase mb-3"
                 style={{ color: BRASS, fontFamily: mono }}
               >
-                Annual
+                On the web, today
               </p>
               <div className="mb-2">
                 <span className="text-4xl font-black" style={{ color: BRASS }}>
-                  $190
-                </span>
-                <span className="text-sm" style={{ color: TEXT_SECONDARY }}>
-                  {" "}
-                  / year
+                  Free
                 </span>
               </div>
               <p className="text-xs mb-6" style={{ color: TEXT_SECONDARY }}>
-                Two months free versus monthly.
+                While we finish the iPhone app. No card needed.
               </p>
               <ul
                 className="space-y-3 mb-8 text-sm flex-1"
@@ -636,27 +643,34 @@ export default function AlmanackPage() {
               >
                 <li className="flex gap-2">
                   <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
-                  Everything in Monthly
+                  Full capture, decision log, and follow-ups
                 </li>
                 <li className="flex gap-2">
                   <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
-                  7 days free, full access, then $190/year
+                  Ask your memory, with sources
                 </li>
                 <li className="flex gap-2">
                   <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
-                  Works out to about $0.52 a day
+                  Connect Claude or any MCP assistant
                 </li>
                 <li className="flex gap-2">
                   <Check size={14} style={{ color: SUCCESS, flexShrink: 0, marginTop: 3 }} />
-                  Cancel anytime
+                  Export everything as markdown, anytime
                 </li>
               </ul>
+              <a
+                href={WEB_APP_URL}
+                className="text-center px-6 py-3 rounded-xl font-bold text-sm transition-all hover:brightness-110 active:scale-[0.98]"
+                style={{ backgroundColor: ACCENT, color: CARD }}
+              >
+                Start free
+              </a>
             </div>
           </div>
 
           <p className="text-center text-sm mt-10" style={{ color: TEXT_SECONDARY }}>
-            Subscriptions auto-renew through your Apple ID. Cancel anytime in
-            your App Store settings.
+            Fair-use daily limits during early access. Launch pricing applies
+            when the iPhone app ships, through your Apple ID.
           </p>
         </div>
       </section>

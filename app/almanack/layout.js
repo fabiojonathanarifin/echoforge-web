@@ -54,8 +54,9 @@ export default function AlmanackLayout({ children }) {
     url: PAGE_URL,
     publisher: { "@type": "Organization", name: "EchoForge", url: SITE },
     offers: [
-      { "@type": "Offer", name: "Almanack Monthly", price: "19", priceCurrency: "USD", category: "subscription" },
-      { "@type": "Offer", name: "Almanack Annual", price: "190", priceCurrency: "USD", category: "subscription", description: "7-day free trial, then $190/year" },
+      { "@type": "Offer", name: "Almanack Web Early Access", price: "0", priceCurrency: "USD", description: "Free on the web during early access" },
+      { "@type": "Offer", name: "Almanack Monthly", price: "19", priceCurrency: "USD", category: "subscription", description: "At iPhone launch" },
+      { "@type": "Offer", name: "Almanack Annual", price: "190", priceCurrency: "USD", category: "subscription", description: "At iPhone launch" },
     ],
     featureList: [
       "One-minute voice capture on iPhone",
