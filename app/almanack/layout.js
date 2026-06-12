@@ -1,6 +1,16 @@
 // Server component. Defines SEO metadata + JSON-LD structured data for /almanack.
 // Page content lives in page.jsx (client component for animations).
 
+import { Fraunces } from "next/font/google";
+
+// Same display serif as the product (Ledger system): the ad -> landing -> app
+// chain should feel like one object.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-fraunces",
+});
+
 const SITE = "https://echoforge.to";
 const PAGE_URL = `${SITE}/almanack`;
 
@@ -75,9 +85,9 @@ export default function AlmanackLayout({ children }) {
   const ldHtml = `<script type="application/ld+json">${JSON.stringify(softwareJsonLd).replace(/</g, "\\u003c")}</script>`;
 
   return (
-    <>
+    <div className={fraunces.variable}>
       <div dangerouslySetInnerHTML={{ __html: ldHtml }} />
       {children}
-    </>
+    </div>
   );
 }

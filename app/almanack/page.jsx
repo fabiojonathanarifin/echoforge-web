@@ -1,7 +1,8 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   Mic,
   BookOpen,
@@ -11,6 +12,7 @@ import {
   Smartphone,
   Check,
   MessageCircleQuestion,
+  ArrowUp,
 } from "lucide-react";
 
 const ACCENT = "#8C2F2F";
@@ -25,7 +27,7 @@ const TEXT = "#1C1917";
 const TEXT_SECONDARY = "#6E6759";
 const TEXT_MUTED = "#A39B8B";
 
-const serif = "Georgia, 'Times New Roman', serif";
+const serif = "var(--font-fraunces), Georgia, 'Times New Roman', serif";
 const mono = "'JetBrains Mono', Menlo, 'Courier New', monospace";
 
 const WEB_APP_URL = "https://app.almanack.echoforge.to";
@@ -87,6 +89,238 @@ const privacyPoints = [
     desc: "AI providers only ever see transcript text, sent through our proxy to structure your notes and answer your questions. No audio, no database access, no card data.",
   },
 ];
+
+// ---------- Hero demo: a ramble visibly becoming structured memory ----------
+// The loop is the pitch, so it plays in the first viewport. Runs 5 times,
+// then holds on the organized state (ambient forever-loops are frantic).
+// prefers-reduced-motion gets the final state, static.
+
+const DEMO_RAMBLE =
+  "Call with Dana ran long. We're pushing the Acme launch to the 24th, the payment flow still drops carts. I owe her a revised timeline by Friday.";
+
+const demoEase = [0.22, 1, 0.36, 1];
+
+function DemoRow({ label, labelColor, children, delay }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay, ease: demoEase }}
+    >
+      <p
+        className="text-[10px] tracking-[0.2em] uppercase mb-1.5"
+        style={{ color: labelColor, fontFamily: mono }}
+      >
+        {label}
+      </p>
+      <div
+        className="rounded-xl px-3.5 py-2.5"
+        style={{ backgroundColor: BG, border: `1px solid ${BORDER}` }}
+      >
+        {children}
+      </div>
+    </motion.div>
+  );
+}
+
+function HeroDemo() {
+  const reducedMotion = useReducedMotion();
+  const [phase, setPhase] = useState("typing"); // typing | organizing | structured
+  const [chars, setChars] = useState(0);
+  const loops = useRef(0);
+
+  useEffect(() => {
+    if (reducedMotion) setPhase("structured");
+  }, [reducedMotion]);
+
+  // Type the ramble, two characters per tick
+  useEffect(() => {
+    if (phase !== "typing" || reducedMotion) return;
+    if (chars >= DEMO_RAMBLE.length) {
+      const t = setTimeout(() => setPhase("organizing"), 600);
+      return () => clearTimeout(t);
+    }
+    const t = setTimeout(() => setChars((c) => Math.min(c + 2, DEMO_RAMBLE.length)), 26);
+    return () => clearTimeout(t);
+  }, [phase, chars, reducedMotion]);
+
+  // Organizing beat, then the structured reveal; loop up to 5 times
+  useEffect(() => {
+    if (reducedMotion) return;
+    if (phase === "organizing") {
+      const t = setTimeout(() => setPhase("structured"), 1500);
+      return () => clearTimeout(t);
+    }
+    if (phase === "structured") {
+      loops.current += 1;
+      if (loops.current >= 5) return;
+      const t = setTimeout(() => {
+        setChars(0);
+        setPhase("typing");
+      }, 4500);
+      return () => clearTimeout(t);
+    }
+  }, [phase, reducedMotion]);
+
+  return (
+    <div
+      className="rounded-2xl p-5 md:p-6 w-full min-h-[340px] flex flex-col"
+      style={{
+        backgroundColor: CARD,
+        border: `1px solid ${BORDER}`,
+        boxShadow: "0 24px 64px rgba(28,25,23,0.12)",
+      }}
+    >
+      <AnimatePresence mode="wait">
+        {phase !== "structured" ? (
+          <motion.div
+            key="capture"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.3, ease: demoEase }}
+            className="flex flex-col flex-1"
+          >
+            <div
+              className="rounded-xl px-4 py-3.5 flex-1 text-[15px] leading-relaxed"
+              style={{ backgroundColor: BG, border: `1px solid ${BORDER}`, color: TEXT }}
+            >
+              {DEMO_RAMBLE.slice(0, chars)}
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+                style={{ color: ACCENT }}
+              >
+                |
+              </motion.span>
+            </div>
+            <div className="flex items-center justify-between mt-3">
+              <span className="text-xs" style={{ color: TEXT_MUTED, fontFamily: mono }}>
+                {phase === "organizing" ? "" : "no formatting needed"}
+              </span>
+              <span
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold"
+                style={{ backgroundColor: ACCENT, color: CARD, fontFamily: mono }}
+              >
+                {phase === "organizing" ? (
+                  <>
+                    <motion.span
+                      className="inline-block w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: CARD }}
+                      animate={{ opacity: [1, 0.3, 1], scale: [1, 0.8, 1] }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    Organizing
+                  </>
+                ) : (
+                  <>
+                    <ArrowUp size={12} strokeWidth={2.5} />
+                    Capture
+                  </>
+                )}
+              </span>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="structured"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.3, ease: demoEase }}
+            className="flex flex-col gap-4 flex-1"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: demoEase }}
+            >
+              <p
+                className="text-[10px] tracking-[0.2em] uppercase mb-1"
+                style={{ color: TEXT_MUTED, fontFamily: mono }}
+              >
+                Organized
+              </p>
+              <p className="text-lg leading-snug" style={{ fontFamily: serif, fontWeight: 600 }}>
+                Acme launch moves to the 24th
+              </p>
+            </motion.div>
+
+            <DemoRow label="Decisions" labelColor={ACCENT} delay={0.15}>
+              <p className="text-sm" style={{ color: TEXT }}>
+                Push the launch to the 24th
+              </p>
+              <p className="text-xs mt-0.5" style={{ color: TEXT_MUTED }}>
+                Why: payment flow still drops carts
+              </p>
+            </DemoRow>
+
+            <DemoRow label="Follow-ups" labelColor={BRASS} delay={0.27}>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px]" style={{ color: TEXT_MUTED, fontFamily: mono }}>
+                  commitment
+                </span>
+                <span className="text-[11px]" style={{ color: BRASS, fontFamily: mono }}>
+                  due Friday
+                </span>
+              </div>
+              <p className="text-sm mt-0.5" style={{ color: TEXT }}>
+                Send Dana the revised timeline
+              </p>
+            </DemoRow>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.45, ease: demoEase }}
+              className="text-xs mt-auto"
+              style={{ color: TEXT_MUTED, fontFamily: mono }}
+            >
+              filed, dated, searchable
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// Minimal browser chrome around product screenshots
+function BrowserFrame({ children }) {
+  return (
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{
+        border: `1px solid ${BORDER}`,
+        boxShadow: "0 32px 80px rgba(28,25,23,0.14)",
+        backgroundColor: CARD,
+      }}
+    >
+      <div
+        className="flex items-center px-4 py-2.5"
+        style={{ backgroundColor: SURFACE, borderBottom: `1px solid ${BORDER}` }}
+      >
+        <div className="flex items-center gap-1.5">
+          {[0, 1, 2].map((i) => (
+            <span
+              key={i}
+              className="w-2.5 h-2.5 rounded-full"
+              style={{ backgroundColor: BORDER }}
+            />
+          ))}
+        </div>
+        <span
+          className="mx-auto px-3 py-0.5 rounded-md text-[11px]"
+          style={{ color: TEXT_MUTED, backgroundColor: CARD, fontFamily: mono }}
+        >
+          app.almanack.echoforge.to
+        </span>
+        <span className="w-12" />
+      </div>
+      {children}
+    </div>
+  );
+}
 
 function AlmanackMark({ size = 64 }) {
   return (
@@ -174,92 +408,102 @@ export default function AlmanackPage() {
           }}
         />
 
-        <div className="max-w-3xl mx-auto px-6 relative">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="flex flex-col items-center text-center pt-16 pb-24"
-          >
-            <motion.div variants={fadeUp} className="mb-8">
-              <AlmanackMark size={72} />
-            </motion.div>
-
-            <motion.div variants={fadeUp}>
-              <span
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
-                style={{
-                  color: ACCENT,
-                  backgroundColor: ACCENT_SOFT,
-                  border: `1px solid ${ACCENT}33`,
-                  fontFamily: mono,
-                }}
-              >
-                Decision memory for operators
-              </span>
-            </motion.div>
-
-            <motion.h1
-              variants={fadeUp}
-              className="text-5xl md:text-6xl tracking-tight leading-[1.08] mb-6"
-              style={{ fontFamily: serif, fontWeight: 700 }}
-            >
-              Remember every decision you make,{" "}
-              <span style={{ color: ACCENT }}>and never drop a follow-up.</span>
-            </motion.h1>
-
-            <motion.p
-              variants={fadeUp}
-              className="text-lg mb-10 leading-relaxed max-w-xl"
-              style={{ color: TEXT_SECONDARY }}
-            >
-              Say it on your phone or dump it at your desk. Almanack turns
-              the mess into structured memory: decisions with the reasoning,
-              commitments owed to others, tasks owed to yourself. Then it
-              brings the right one back exactly when you need it.
-            </motion.p>
-
+        <div className="max-w-6xl mx-auto px-6 relative">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center pt-12 pb-20 md:pt-16 md:pb-24">
             <motion.div
-              variants={fadeUp}
-              className="flex flex-col sm:flex-row gap-4 items-center"
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="flex flex-col items-start text-left"
             >
-              <a
-                href={WEB_APP_URL}
-                className="flex items-center gap-3 px-7 py-3.5 rounded-xl font-bold text-base transition-all hover:brightness-110 active:scale-[0.98]"
-                style={{ backgroundColor: ACCENT, color: CARD }}
+              <motion.div variants={fadeUp} className="mb-7">
+                <AlmanackMark size={56} />
+              </motion.div>
+
+              <motion.div variants={fadeUp}>
+                <span
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
+                  style={{
+                    color: ACCENT,
+                    backgroundColor: ACCENT_SOFT,
+                    border: `1px solid ${ACCENT}33`,
+                    fontFamily: mono,
+                  }}
+                >
+                  Decision memory for operators
+                </span>
+              </motion.div>
+
+              <motion.h1
+                variants={fadeUp}
+                className="text-4xl md:text-[3.4rem] tracking-tight leading-[1.08] mb-6"
+                style={{ fontFamily: serif, fontWeight: 700 }}
               >
-                Start free on the web
-              </a>
-              <span
-                className="flex items-center gap-2 text-sm font-semibold"
+                Remember every decision you make,{" "}
+                <span style={{ color: ACCENT }}>and never drop a follow-up.</span>
+              </motion.h1>
+
+              <motion.p
+                variants={fadeUp}
+                className="text-lg mb-9 leading-relaxed max-w-xl"
                 style={{ color: TEXT_SECONDARY }}
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4 fill-current"
-                  aria-hidden="true"
-                >
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                </svg>
-                iPhone app coming soon.{" "}
+                Say it on your phone or dump it at your desk. Almanack turns
+                the mess into structured memory: decisions with the reasoning,
+                commitments owed to others, tasks owed to yourself. Then it
+                brings the right one back exactly when you need it.
+              </motion.p>
+
+              <motion.div
+                variants={fadeUp}
+                className="flex flex-col sm:flex-row gap-4 items-start sm:items-center"
+              >
                 <a
-                  href="mailto:support@echoforge.to?subject=Almanack%20launch%20list"
-                  className="underline underline-offset-4 transition-opacity hover:opacity-70"
-                  style={{ color: ACCENT }}
+                  href={WEB_APP_URL}
+                  className="flex items-center gap-3 px-7 py-3.5 rounded-xl font-bold text-base transition-all hover:brightness-110 active:scale-[0.98]"
+                  style={{ backgroundColor: ACCENT, color: CARD }}
                 >
-                  Get notified
+                  Start free on the web
                 </a>
-              </span>
+                <span
+                  className="flex items-center gap-2 text-sm font-semibold"
+                  style={{ color: TEXT_SECONDARY }}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4 fill-current"
+                    aria-hidden="true"
+                  >
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                  </svg>
+                  iPhone app coming soon.{" "}
+                  <a
+                    href="mailto:support@echoforge.to?subject=Almanack%20launch%20list"
+                    className="underline underline-offset-4 transition-opacity hover:opacity-70"
+                    style={{ color: ACCENT }}
+                  >
+                    Get notified
+                  </a>
+                </span>
+              </motion.div>
+
+              <motion.p
+                variants={fadeUp}
+                className="text-xs mt-4"
+                style={{ color: TEXT_MUTED }}
+              >
+                Free during early access. No card needed.
+              </motion.p>
             </motion.div>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-xs mt-4"
-              style={{ color: TEXT_MUTED }}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35, ease: demoEase }}
             >
-              Free during early access. No card needed.
-            </motion.p>
-          </motion.div>
+              <HeroDemo />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -271,17 +515,14 @@ export default function AlmanackPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="rounded-2xl overflow-hidden"
-            style={{
-              border: `1px solid ${BORDER}`,
-              boxShadow: "0 32px 80px rgba(28,25,23,0.14)",
-            }}
           >
-            <img
-              src="/almanack/web-today.png"
-              alt="Almanack on the web: today's follow-ups and recent entries, organized from raw dumps"
-              className="w-full block"
-            />
+            <BrowserFrame>
+              <img
+                src="/almanack/web-today.png"
+                alt="Almanack on the web: today's follow-ups and recent entries, organized from raw dumps"
+                className="w-full block"
+              />
+            </BrowserFrame>
           </motion.div>
           <motion.p
             initial="hidden"
@@ -420,16 +661,14 @@ export default function AlmanackPage() {
                 </p>
               </div>
             </motion.div>
-            <motion.div
-              variants={fadeUp}
-              className="mt-6 rounded-xl overflow-hidden"
-              style={{ border: `1px solid ${BORDER}` }}
-            >
-              <img
-                src="/almanack/web-ask.png"
-                alt="Asking Almanack what was decided about pricing: the answer cites the original entry and date"
-                className="w-full block"
-              />
+            <motion.div variants={fadeUp} className="mt-6">
+              <BrowserFrame>
+                <img
+                  src="/almanack/web-ask.png"
+                  alt="Asking Almanack what was decided about pricing: the answer cites the original entry and date"
+                  className="w-full block"
+                />
+              </BrowserFrame>
             </motion.div>
           </motion.div>
 
@@ -538,6 +777,35 @@ export default function AlmanackPage() {
             </Link>
             . Every claim on this page is documented there.
           </motion.p>
+        </div>
+      </section>
+
+      {/* FOUNDER NOTE */}
+      <section className="border-t" style={{ borderColor: BORDER }}>
+        <div className="max-w-2xl mx-auto px-6 py-16 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.p
+              variants={fadeUp}
+              className="text-xl md:text-2xl leading-relaxed"
+              style={{ fontFamily: serif }}
+            >
+              "I built Almanack because I kept re-litigating my own decisions
+              and dropping promises I'd made on calls. Now I dump everything
+              and ask later. I use it every day."
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="text-sm mt-4"
+              style={{ color: TEXT_SECONDARY, fontFamily: mono }}
+            >
+              Fabio, founder
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
@@ -708,9 +976,16 @@ export default function AlmanackPage() {
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:brightness-110 active:scale-[0.98]"
                 style={{ backgroundColor: ACCENT, color: CARD }}
               >
-                Start on the web
+                Start free on the web
               </a>
             </motion.div>
+            <motion.p
+              variants={fadeUp}
+              className="text-sm mt-4"
+              style={{ color: TEXT_MUTED }}
+            >
+              Sign in with Google. Capturing in 30 seconds.
+            </motion.p>
           </motion.div>
         </div>
       </section>
