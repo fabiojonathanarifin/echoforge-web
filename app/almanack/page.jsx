@@ -28,8 +28,7 @@ const TEXT_MUTED = "#A39B8B";
 const serif = "Georgia, 'Times New Roman', serif";
 const mono = "'JetBrains Mono', Menlo, 'Courier New', monospace";
 
-// Update when the web app's production domain is live on Railway.
-const WEB_APP_URL = "https://almanack.echoforge.to";
+const WEB_APP_URL = "https://app.almanack.echoforge.to";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
