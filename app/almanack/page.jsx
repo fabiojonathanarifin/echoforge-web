@@ -67,6 +67,40 @@ const steps = [
   },
 ];
 
+// Native-script names for the language cloud. Showing the scripts themselves reads
+// as "we speak your language" faster than a list of English names ever could.
+const LANGS = [
+  "English", "Español", "Français", "Deutsch", "Italiano", "Português",
+  "Nederlands", "Polski", "Русский", "Українська", "Čeština", "Română",
+  "Magyar", "Ελληνικά", "Türkçe", "Svenska", "Norsk", "Suomi", "Català",
+  "العربية", "עברית", "فارسی", "हिन्दी", "বাংলা", "اردو", "தமிழ்", "తెలుగు",
+  "中文", "日本語", "한국어", "Tiếng Việt", "ภาษาไทย", "Bahasa Indonesia",
+  "Filipino", "Kiswahili", "isiZulu",
+];
+
+// Real, verified output from the translate model. Each pairs an English idiom with
+// the natural local phrasing, never the word-for-word version.
+const idioms = [
+  {
+    lang: "French",
+    en: "They want the moon for peanuts.",
+    translated: "Ils veulent la lune pour une bouchée de pain.",
+    note: "Idiom for idiom, not word for word.",
+  },
+  {
+    lang: "Spanish",
+    en: "We keep bending over backwards.",
+    translated: "Nosotros nos desvivimos por ellos.",
+    note: "Reads like a native wrote it.",
+  },
+  {
+    lang: "Japanese",
+    en: "I'll sleep on it.",
+    translated: "一晩考えてみる。",
+    note: "Keeps the casual, spoken tone.",
+  },
+];
+
 const privacyPoints = [
   {
     icon: Mic,
@@ -684,6 +718,102 @@ export default function AlmanackPage() {
             connect Claude or any AI that speaks MCP to ask your decision log
             from wherever you already work.
           </motion.p>
+        </div>
+      </section>
+
+      {/* LANGUAGES */}
+      <section className="border-t" style={{ borderColor: BORDER, backgroundColor: SURFACE }}>
+        <div className="max-w-5xl mx-auto px-6 py-24 md:py-32">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="text-center mb-14"
+          >
+            <motion.p
+              variants={fadeUp}
+              className="text-xs tracking-[0.2em] uppercase mb-4"
+              style={{ color: BRASS, fontFamily: mono }}
+            >
+              Every market
+            </motion.p>
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-5xl tracking-tight"
+              style={{ fontFamily: serif, fontWeight: 700 }}
+            >
+              Your memory speaks 60+ languages.
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="text-base md:text-lg leading-relaxed mt-5 max-w-2xl mx-auto"
+              style={{ color: TEXT_SECONDARY }}
+            >
+              Turn any note into an email, a post, or a clean summary, then send it
+              in the language you need. Almanack translates the way a person would,
+              with the idioms and tone intact, not the stiff word-for-word you get
+              everywhere else.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto"
+          >
+            {LANGS.map((l) => (
+              <span
+                key={l}
+                className="rounded-full px-3.5 py-1.5 text-sm"
+                style={{
+                  backgroundColor: CARD,
+                  border: `1px solid ${BORDER}`,
+                  color: TEXT_SECONDARY,
+                }}
+              >
+                {l}
+              </span>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="mt-14 grid md:grid-cols-3 gap-4 max-w-4xl mx-auto"
+          >
+            {idioms.map((it) => (
+              <motion.div
+                key={it.lang}
+                variants={fadeUp}
+                className="rounded-2xl p-6"
+                style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}
+              >
+                <p
+                  className="text-xs tracking-[0.2em] uppercase mb-3"
+                  style={{ color: BRASS, fontFamily: mono }}
+                >
+                  {it.lang}
+                </p>
+                <p className="text-sm mb-2" style={{ color: TEXT_MUTED }}>
+                  "{it.en}"
+                </p>
+                <p
+                  className="text-lg leading-relaxed"
+                  style={{ color: TEXT, fontFamily: serif }}
+                >
+                  {it.translated}
+                </p>
+                <p className="text-xs mt-3" style={{ color: TEXT_SECONDARY }}>
+                  {it.note}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
