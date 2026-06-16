@@ -171,12 +171,14 @@ export default function StudioLayout({ children }) {
                 >
                   Aksara Privacy
                 </a>
-                <Link
-                  href="/legal/almanack/privacy"
+                <a
+                  href="https://usealmanack.com/privacy"
                   className="hover:text-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Almanack Privacy
-                </Link>
+                </a>
               </div>
             </div>
           </div>

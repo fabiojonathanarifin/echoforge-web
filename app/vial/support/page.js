@@ -57,8 +57,25 @@ const FAQS = [
 ];
 
 export default function VialSupport() {
+  // FAQPage schema mirrors the visible support FAQs so AI answer engines can
+  // extract Vial's troubleshooting answers (restore purchases, notifications,
+  // Apple Health, data export).
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+
   return (
     <main className="max-w-3xl mx-auto px-6 py-24 space-y-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c") }}
+      />
       <header className="space-y-2">
         <h1 className="text-2xl font-semibold text-foreground">
           Vial: Peptide Tracker / Support

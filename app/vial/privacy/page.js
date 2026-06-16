@@ -11,7 +11,7 @@ export default function VialPrivacyPolicy() {
       <h1 className="text-2xl font-semibold text-foreground">
         Vial: Peptide Tracker / Privacy Policy
       </h1>
-      <p className="text-muted">Last updated: May 4, 2026</p>
+      <p className="text-muted">Last updated: June 9, 2026</p>
 
       <p className="text-foreground">
         This Privacy Policy describes how Vial (operated by Fabio Jonathan
@@ -72,10 +72,11 @@ export default function VialPrivacyPolicy() {
           stack.
         </li>
         <li>
-          <strong>Data Not Collected:</strong> Apple Health imports (read-only
-          on device, never uploaded), location, contacts, financial info, your
-          free-text notes, your peptide protocol history (stays on device), and
-          your name / email / phone (no auth or contact form).
+          <strong>Data Not Collected:</strong> Apple Health data (read from and
+          written to Apple Health on your device only, never uploaded to our
+          servers), location, contacts, financial info, your free-text notes,
+          your peptide protocol history (stays on device), and your name /
+          email / phone (no auth or contact form).
         </li>
       </ul>
 
@@ -113,7 +114,7 @@ export default function VialPrivacyPolicy() {
           values, progress photos, or dose history
         </li>
         <li>Your real-time location</li>
-        <li>Apple Health data (read-only, only with explicit grant, never uploaded)</li>
+        <li>Apple Health data on our servers (the integration reads from and writes to Apple Health on your device only, with your explicit grant, and is never uploaded to us)</li>
         <li>Any IDFA, advertising identifier, or cross-app tracking signal</li>
       </ul>
 
@@ -262,10 +263,29 @@ export default function VialPrivacyPolicy() {
         Apple Health
       </h2>
       <p className="text-foreground">
-        Vial offers an optional, read-only integration with Apple Health to
-        import your weight history. The integration runs only with your
-        explicit grant and only on your device. Imported values are stored
-        locally and are never uploaded to our servers or any third party.
+        Vial offers an optional, two-way Apple Health integration. It runs only
+        with your explicit permission and only on your device. Nothing read from
+        or written to Apple Health is ever uploaded to our servers or any third
+        party.
+      </p>
+      <p className="text-foreground">
+        <strong>What Vial reads:</strong> with your permission, Vial reads
+        recent values such as body weight, height, BMI, step count, resting
+        heart rate, active energy, and sleep so it can show your trends inside
+        the app. These values are stored locally on your device.
+      </p>
+      <p className="text-foreground">
+        <strong>What Vial writes:</strong> when you log certain data in Vial,
+        Vial can write it back into your own Apple Health store so your Health
+        app stays current. This includes body weight, blood pressure, mood
+        (State of Mind, on iOS 18 and later), and side-effect symptoms. These
+        samples are tagged as user-entered and stay on your device. Vial does
+        not write dose or medication records to Apple Health.
+      </p>
+      <p className="text-foreground">
+        You control both directions from the iOS Health permission sheet and can
+        change or revoke access at any time in Settings, Health, Data Access &
+        Devices, Vial.
       </p>
 
       <h2 className="text-xl font-medium text-foreground">

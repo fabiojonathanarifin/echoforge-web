@@ -24,8 +24,8 @@ export default function LegalPage() {
             { name: "DiggerInsights - Terms of Service", href: "/legal/diggerinsights/terms" },
             { name: "Aksara - Privacy Policy", href: "https://aksara.so/privacy" },
             { name: "Aksara - Terms of Service", href: "https://aksara.so/terms" },
-            { name: "Almanack - Privacy Policy", href: "/legal/almanack/privacy" },
-            { name: "Almanack - Terms of Service", href: "/legal/almanack/terms" }
+            { name: "Almanack - Privacy Policy", href: "https://usealmanack.com/privacy" },
+            { name: "Almanack - Terms of Service", href: "https://usealmanack.com/terms" }
           ].map((link, i) => (
             <li key={i} className="flex items-center gap-4">
               <span className="w-2 h-2 rounded-full bg-accent" />

@@ -82,9 +82,9 @@ export default function AppsPage() {
         />
         <AppCard
           name="Almanack"
-          tagline="Remember every decision you make."
-          description="Voice-first decision and business memory for operators. Talk for a minute a day; Almanack keeps the decisions, commitments, and follow-ups. Coming soon to the App Store."
-          href="/almanack"
+          tagline="Talk it out. Ask it back."
+          description="Voice-first capture and recall. Dump a thought in ten seconds; Almanack organizes it, hands it back when you ask, and reminds you of what you said you'd do. Coming soon to the App Store."
+          href="https://usealmanack.com"
           icon="/almanack-icon.png"
         />
         <AppCard
