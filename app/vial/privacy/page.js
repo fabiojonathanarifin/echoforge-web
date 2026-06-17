@@ -11,7 +11,7 @@ export default function VialPrivacyPolicy() {
       <h1 className="text-2xl font-semibold text-foreground">
         Vial: Peptide Tracker / Privacy Policy
       </h1>
-      <p className="text-muted">Last updated: June 9, 2026</p>
+      <p className="text-muted">Last updated: June 17, 2026</p>
 
       <p className="text-foreground">
         This Privacy Policy describes how Vial (operated by Fabio Jonathan
@@ -408,10 +408,10 @@ export default function VialPrivacyPolicy() {
         Medical Disclaimer
       </h2>
       <p className="text-foreground">
-        Vial is an informational tracking and calculation tool. It does not
-        provide medical advice and is not a substitute for consultation with a
-        licensed healthcare provider. Always follow the guidance of your
-        physician or compounding pharmacist.
+        Vial is an informational tracking and logging tool. It does not provide
+        medical advice, diagnosis, treatment, or dosing instructions, and is not
+        a substitute for consultation with a licensed healthcare provider. Always
+        follow the guidance of your physician or compounding pharmacist.
       </p>
 
       <h2 className="text-xl font-medium text-foreground">

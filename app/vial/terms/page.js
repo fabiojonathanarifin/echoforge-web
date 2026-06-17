@@ -11,7 +11,7 @@ export default function VialTermsOfService() {
       <h1 className="text-2xl font-semibold text-foreground">
         Vial: Peptide Tracker / Terms of Use
       </h1>
-      <p className="text-muted">Last updated: May 4, 2026</p>
+      <p className="text-muted">Last updated: June 17, 2026</p>
 
       <p className="text-foreground">
         These Terms of Use (&quot;Terms&quot;) govern your use of Vial, an iOS
@@ -23,11 +23,13 @@ export default function VialTermsOfService() {
 
       <h2 className="text-lg font-medium text-foreground">1. What Vial Is</h2>
       <p className="text-foreground">
-        Vial is a personal tracking and calculation tool. It assists with
-        peptide reconstitution math, dose tracking, protocol scheduling,
-        injection-site rotation, body-metric logging, and educational
-        information about peptides. Vial is not a medical device. Vial cannot
-        diagnose, treat, cure, or prevent any condition.
+        Vial is a personal tracking and logging tool. It helps you convert a
+        dose you were already prescribed into a syringe measurement, track and
+        schedule your own protocol, rotate injection sites, log body metrics,
+        and read general educational information about peptides. Vial is not a
+        medical device. It does not diagnose, treat, cure, or prevent any
+        condition, does not recommend or calculate a dose, and does not provide
+        dosing instructions.
       </p>
 
       <h2 className="text-lg font-medium text-foreground">
@@ -67,6 +69,19 @@ export default function VialTermsOfService() {
         </li>
       </ul>
 
+      <p className="text-foreground">
+        <strong>Assumption of risk.</strong> Researching, possessing, preparing,
+        reconstituting, administering, or using peptides, GLP-1 medications, or
+        related compounds can carry serious risks, including side effects,
+        adverse or allergic reactions, incorrect dosage or administration,
+        contamination, impurity, mislabeling, counterfeit product, drug
+        interactions, infection, injury, and in rare cases death. Many of these
+        compounds are not approved by the FDA for human use and have limited or
+        no human safety data. You accept all of these risks and take full
+        responsibility for every decision, action, and outcome related to any
+        substance you track with Vial.
+      </p>
+
       <h2 className="text-lg font-medium text-foreground">
         3. Medical Disclaimer
       </h2>
@@ -88,6 +103,39 @@ export default function VialTermsOfService() {
       <p className="text-foreground">
         Always consult your physician, prescriber, or compounding pharmacist
         before beginning, adjusting, or stopping any peptide protocol.
+      </p>
+      <p className="text-foreground">
+        <strong>No dosing instructions.</strong> Vial does not recommend,
+        suggest, calculate, or determine a dose, schedule, or protocol for you,
+        and it does not provide dosing instructions of any kind. The
+        reconstitution feature converts values you enter, such as your vial
+        strength and your prescribed dose, into a volume or syringe measurement.
+        It is a unit conversion of information you already have, not a
+        recommendation of how much to take.
+      </p>
+      <p className="text-foreground">
+        <strong>Half-life and medication-level estimates.</strong> Any half-life
+        curve, peak-timing indicator, or medication-level estimate in Vial is
+        based on general published values and the numbers you enter. It is not
+        personalized or clinically verified and does not account for your
+        metabolism, body composition, organ function, drug interactions, or the
+        specific product you use. Do not use these estimates to make any dosing,
+        timing, administration, or other medical decision.
+      </p>
+      <p className="text-foreground">
+        <strong>Reminders and notifications.</strong> Reminders, alerts, and
+        notifications are convenience features only. They can be delayed, missed,
+        duplicated, or fail to deliver because of device settings, operating
+        system behavior, permissions, connectivity, or other factors outside our
+        control. Do not rely on Vial reminders or notifications for any medical,
+        medication, dosing, treatment, emergency, or safety-critical decision.
+      </p>
+      <p className="text-foreground">
+        <strong>No professional relationship; emergencies.</strong> Using Vial
+        does not create a physician-patient, pharmacist-patient, or any other
+        professional or clinical relationship between you and the Operator. Vial
+        is not designed for medical emergencies. If you think you may be having a
+        medical emergency, call 911 or your local emergency number immediately.
       </p>
 
       <h2 className="text-lg font-medium text-foreground">4. Vial AI</h2>
@@ -320,7 +368,27 @@ export default function VialTermsOfService() {
         effect constitutes your acceptance of the updated Terms.
       </p>
 
-      <h2 className="text-lg font-medium text-foreground">18. Contact</h2>
+      <h2 className="text-lg font-medium text-foreground">
+        18. Apple App Store
+      </h2>
+      <p className="text-foreground">
+        Vial is distributed through the Apple App Store. These Terms are between
+        you and the Operator only, not Apple, and Apple is not responsible for
+        Vial or its content. Your license to use Vial is limited to Apple-branded
+        devices you own or control and is subject to the Apple Media Services
+        Terms and Conditions. Apple has no obligation to provide maintenance or
+        support for Vial. If Vial fails to conform to any applicable warranty,
+        you may notify Apple and Apple may refund the purchase price, if any; to
+        the maximum extent permitted by law, Apple has no other warranty
+        obligation with respect to Vial. The Operator, not Apple, is responsible
+        for addressing any claims relating to Vial, including product liability,
+        legal or regulatory compliance, and consumer protection claims, and for
+        any third-party claim that Vial infringes intellectual property rights.
+        Apple and its subsidiaries are third-party beneficiaries of these Terms
+        and may enforce them against you.
+      </p>
+
+      <h2 className="text-lg font-medium text-foreground">19. Contact</h2>
       <p className="text-foreground">
         Questions or notices:{" "}
         <a
