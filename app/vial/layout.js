@@ -18,13 +18,13 @@ const PAGE_URL = `${SITE}/vial`;
 
 export const metadata = {
   metadataBase: new URL(SITE),
-  title: "Vial: Peptide Calculator, Dose Tracker & AI Coach",
+  title: "Vial: Peptide, GLP-1 & TRT Dose Tracker",
   description:
-    "The peptide calculator and tracker for iPhone. Reconstitute, dose, and track BPC-157, GLP-1s, TRT, and more. Calculator stays free. AI coach included with Vial.",
+    "The peptide, GLP-1, and TRT tracker for iPhone. Log every dose, set on-device reminders, and track BPC-157, GLP-1s, TRT, and more. Free to start. AI coach included with Vial.",
   keywords: [
     "peptide tracker",
-    "peptide calculator",
-    "reconstitution calculator",
+    "peptide dose tracker",
+    "dose tracker",
     "GLP-1 tracker",
     "BPC-157",
     "TB-500",
@@ -39,24 +39,24 @@ export const metadata = {
     "testosterone tracker",
     "HCG",
     "injection tracker",
-    "syringe units",
-    "dose calculator",
+    "peptide log",
+    "dose reminder",
     "peptide AI",
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",
     url: PAGE_URL,
-    title: "Vial: Peptide Calculator, Dose Tracker & AI Coach",
+    title: "Vial: Peptide, GLP-1 & TRT Dose Tracker",
     description:
-      "The peptide calculator and tracker for iPhone. Reconstitute, dose, and track BPC-157, GLP-1s, TRT, and more. Calculator stays free.",
+      "The peptide, GLP-1, and TRT tracker for iPhone. Log every dose, set on-device reminders, and track BPC-157, GLP-1s, TRT, and more. Free to start.",
     siteName: "Vial",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vial: Peptide Calculator, Dose Tracker & AI Coach",
+    title: "Vial: Peptide, GLP-1 & TRT Dose Tracker",
     description:
-      "Reconstitute, dose, and track BPC-157, GLP-1s, TRT, and more. Calculator stays free. AI coach included.",
+      "Log every dose, set reminders, and track BPC-157, GLP-1s, TRT, and more. Free to start. AI coach included.",
   },
   robots: { index: true, follow: true },
 };
@@ -73,7 +73,7 @@ export default function VialLayout({ children }) {
     operatingSystem: "iOS",
     applicationCategory: "HealthApplication",
     description:
-      "The peptide calculator and tracker for iPhone. Reconstitute, dose, and track BPC-157, GLP-1s, TRT, and more. Calculator stays free. AI coach included with Vial.",
+      "The peptide, GLP-1, and TRT tracker for iPhone. Log every dose, set on-device reminders, and track BPC-157, GLP-1s, TRT, and more. Free to start. AI coach included with Vial.",
     url: PAGE_URL,
     publisher: { "@type": "Organization", name: "EchoForge", url: SITE },
     offers: [
@@ -82,7 +82,7 @@ export default function VialLayout({ children }) {
       { "@type": "Offer", name: "Vial Lifetime", price: "99.99", priceCurrency: "USD", category: "lifetime" },
     ],
     featureList: [
-      "Reconstitution calculator with U-20/U-30/U-40/U-100 syringe support",
+      "Vial inventory with expiry and fridge-life alerts",
       "Dose tracker with three-state logging",
       "Smart injection site rotation",
       "Cycle scheduling for on/off protocols",

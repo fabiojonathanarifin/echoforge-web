@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Terms of Use | Vial: Peptide Tracker",
   description:
-    "Vial is a personal tracking and calculation tool. Not medical advice. Not a medical device. Educational only.",
+    "Vial is a personal tracking and logging tool. Not medical advice. Not a medical device. Educational only.",
   robots: { index: true, follow: true },
 };
 
@@ -11,7 +11,7 @@ export default function VialTermsOfService() {
       <h1 className="text-2xl font-semibold text-foreground">
         Vial: Peptide Tracker / Terms of Use
       </h1>
-      <p className="text-muted">Last updated: June 17, 2026</p>
+      <p className="text-muted">Last updated: June 19, 2026</p>
 
       <p className="text-foreground">
         These Terms of Use (&quot;Terms&quot;) govern your use of Vial, an iOS
@@ -23,13 +23,12 @@ export default function VialTermsOfService() {
 
       <h2 className="text-lg font-medium text-foreground">1. What Vial Is</h2>
       <p className="text-foreground">
-        Vial is a personal tracking and logging tool. It helps you convert a
-        dose you were already prescribed into a syringe measurement, track and
-        schedule your own protocol, rotate injection sites, log body metrics,
-        and read general educational information about peptides. Vial is not a
-        medical device. It does not diagnose, treat, cure, or prevent any
-        condition, does not recommend or calculate a dose, and does not provide
-        dosing instructions.
+        Vial is a personal tracking and logging tool. It helps you record a
+        dose you were already prescribed, track and schedule your own protocol,
+        rotate injection sites, log body metrics, and read general educational
+        information about peptides. Vial is not a medical device. It does not
+        diagnose, treat, cure, or prevent any condition, does not recommend or
+        calculate a dose, and does not provide dosing instructions.
       </p>
 
       <h2 className="text-lg font-medium text-foreground">
@@ -87,18 +86,11 @@ export default function VialTermsOfService() {
       </h2>
       <p className="text-foreground">
         All information provided by Vial, including peptide reference data,
-        published dose ranges, reconstitution math output, calendar timelines,
-        body-metric trends, and any AI-generated educational responses, is
-        provided for informational and personal record-keeping purposes only.
-        It does not constitute medical advice and must not be used as a
-        substitute for consultation with a licensed healthcare provider.
-      </p>
-      <p className="text-foreground">
-        The reconstitution calculator performs arithmetic on parameters you
-        supply. It does not recommend a dose. It does not validate the
-        appropriateness of the parameters you enter. You are responsible for
-        verifying every calculation against your clinician&apos;s instructions
-        and the prescribing information for your specific drug.
+        half-life estimates, calendar timelines, body-metric trends, and any
+        AI-generated educational responses, is provided for informational and
+        personal record-keeping purposes only. It does not constitute medical
+        advice and must not be used as a substitute for consultation with a
+        licensed healthcare provider.
       </p>
       <p className="text-foreground">
         Always consult your physician, prescriber, or compounding pharmacist
@@ -107,11 +99,9 @@ export default function VialTermsOfService() {
       <p className="text-foreground">
         <strong>No dosing instructions.</strong> Vial does not recommend,
         suggest, calculate, or determine a dose, schedule, or protocol for you,
-        and it does not provide dosing instructions of any kind. The
-        reconstitution feature converts values you enter, such as your vial
-        strength and your prescribed dose, into a volume or syringe measurement.
-        It is a unit conversion of information you already have, not a
-        recommendation of how much to take.
+        and it does not provide dosing instructions of any kind. You enter a
+        dose you were already prescribed, and Vial records and organizes it. It
+        is not a recommendation of how much to take.
       </p>
       <p className="text-foreground">
         <strong>Half-life and medication-level estimates.</strong> Any half-life
@@ -165,10 +155,10 @@ export default function VialTermsOfService() {
         5. Purchases and Subscriptions
       </h2>
       <p className="text-foreground">
-        Vial is offered as a freemium app. The reconstitution calculator and a
-        single active protocol are free without purchase. Premium features
-        unlock with one of the following purchases through the Apple App
-        Store:
+        Vial is offered as a freemium app. A single active protocol and your
+        first vial tracked to the last dose are free without purchase. Premium
+        features unlock with one of the following purchases through the Apple
+        App Store:
       </p>
       <ul className="list-disc list-inside text-foreground space-y-2">
         <li>
@@ -262,11 +252,11 @@ export default function VialTermsOfService() {
         WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WITHOUT
         LIMITATION ANY WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
         PURPOSE, NON-INFRINGEMENT, OR ACCURACY. THE OPERATOR MAKES NO
-        REPRESENTATION REGARDING THE ACCURACY OF ANY CALCULATION, ANY PEPTIDE
-        REFERENCE DATA, ANY AI-GENERATED RESPONSE, OR THE AVAILABILITY OR
-        UPTIME OF VIAL OR VIAL AI. RECONSTITUTION CALCULATIONS ARE A
-        CONVENIENCE TOOL ONLY; ALWAYS VERIFY WITH A LICENSED CLINICIAN OR
-        PHARMACIST.
+        REPRESENTATION REGARDING THE ACCURACY OF ANY PEPTIDE REFERENCE DATA,
+        ANY HALF-LIFE OR MEDICATION-LEVEL ESTIMATE, ANY AI-GENERATED RESPONSE,
+        OR THE AVAILABILITY OR UPTIME OF VIAL OR VIAL AI. ALL INFORMATION IN
+        VIAL IS A CONVENIENCE FOR PERSONAL RECORD-KEEPING ONLY; ALWAYS VERIFY
+        WITH A LICENSED CLINICIAN OR PHARMACIST.
       </p>
 
       <h2 className="text-lg font-medium text-foreground">

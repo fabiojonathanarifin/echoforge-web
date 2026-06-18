@@ -47,8 +47,8 @@ const FAQS = [
     a: "Free users get a limited number of AI messages so you can experience the coach before upgrading. Once the quota is used, you will see an upgrade prompt. Upgrading to any paid Vial plan removes the limit entirely.",
   },
   {
-    q: "The calculator looks wrong. What do I do?",
-    a: "Double-check your inputs: vial total (mg), bacteriostatic water (mL), and target dose (mcg or mg). Make sure the syringe size matches the syringe you actually have. If you still believe the math is off, email support@echoforge.to with the inputs you used and the expected result, and we will look at it.",
+    q: "I logged a dose by mistake. How do I fix it?",
+    a: "Open the dose from History or the calendar day it landed on and tap Delete this entry, then log it again with the correct details. Vial uses delete-and-relog rather than an edit button, so your history stays an accurate record of what actually happened.",
   },
   {
     q: "Is the app available on Android?",
@@ -176,7 +176,7 @@ export default function VialSupport() {
           </li>
         </ul>
         <p className="text-muted text-sm">
-          Vial is a personal tracking and calculation tool. It is not a medical device, prescription service, or healthcare provider. Nothing in the app or on this support page is medical advice. Always consult a licensed clinician before starting, changing, or stopping any peptide, supplement, or protocol.
+          Vial is a personal tracking tool. It is not a medical device, prescription service, or healthcare provider. Nothing in the app or on this support page is medical advice. Always consult a licensed clinician before starting, changing, or stopping any peptide, supplement, or protocol.
         </p>
       </section>
     </main>

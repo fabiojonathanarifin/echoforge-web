@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  FlaskConical,
   Activity,
   Bell,
   Sparkles,
@@ -100,24 +99,6 @@ function PhoneFrame({ src, alt, w, h, priority = false }) {
 
 const features = [
   {
-    icon: FlaskConical,
-    label: "Calculator",
-    title: "Stop doing dose math in your head.",
-    desc: "Enter your vial size, bacteriostatic water volume, and target dose. Vial computes the reconstituted concentration, draw volume in mL, and exact syringe units. Switch between mcg and mg. Supports U-20, U-30, U-40, and U-100 syringes. Free forever, no purchase required.",
-    bullets: [
-      "15 preloaded peptide presets including BPC-157, TB-500, CJC-1295, Ipamorelin, GHK-Cu",
-      "Compounded GLP-1 support: semaglutide, tirzepatide, retatrutide",
-      "TRT cohort support: testosterone, HCG, ancillaries",
-      "Custom peptide entry for anything not on the list",
-      "Multi-peptide blend support for KLOW, GLOW, and custom stacks",
-      "Water Solver: input your target units and get the BAC water volume",
-    ],
-    reverse: false,
-    image: "/asset/vial/screen-calculator.png",
-    w: 1170,
-    h: 2532,
-  },
-  {
     icon: Activity,
     label: "Tracker",
     title: "Save your protocol once. Tap to log every dose.",
@@ -138,20 +119,20 @@ const features = [
 ];
 
 const trustStats = [
-  { value: "15", label: "peptide presets" },
-  { value: "U-20 – U-100", label: "syringe types" },
+  { value: "55+", label: "peptides supported" },
+  { value: "3-state", label: "dose logging" },
   { value: "100%", label: "on your device" },
-  { value: "$0", label: "calculator, forever" },
+  { value: "$0", label: "to start" },
 ];
 
 const faqs = [
   {
     q: "What is Vial?",
-    a: "Vial is a peptide reconstitution calculator and dose tracker for iPhone. It turns your vial size, bacteriostatic water volume, and target dose into exact syringe units, then tracks every dose with local reminders. It supports BPC-157, TB-500, GLP-1s like semaglutide and tirzepatide, TRT, and custom compounds. The calculator is free.",
+    a: "Vial is a peptide, GLP-1, and TRT dose tracker for iPhone. You log every dose, set on-device reminders, and keep your vials, schedule, bloodwork, and notes in one private place. It supports BPC-157, TB-500, GLP-1s like semaglutide and tirzepatide, TRT, and custom compounds. Vial is free to start.",
   },
   {
-    q: "Is the Vial calculator really free?",
-    a: "Yes. The reconstitution calculator is free forever with no purchase required. The free tier also includes one saved vial and one active protocol. Premium unlocks unlimited protocols, full history, body metrics, bloodwork, progress photos, and Vial AI.",
+    q: "Is Vial really free?",
+    a: "Yes. Vial is free to start: one active protocol, your first vial tracked to the last dose, 14 days of history, bloodwork, body metrics, and progress photos, plus one AI coach message. Premium unlocks unlimited protocols, full history, CSV export, and unlimited Vial AI.",
   },
   {
     q: "Is my peptide data private?",
@@ -159,23 +140,23 @@ const faqs = [
   },
   {
     q: "What peptides does Vial support?",
-    a: "Vial includes 15 presets: BPC-157, TB-500, CJC-1295 (with and without DAC), Ipamorelin, GHK-Cu, semaglutide, tirzepatide, retatrutide, Epitalon, NAD+, MOTS-c, Tesamorelin, Sermorelin, and PT-141, plus testosterone and HCG for TRT. Custom peptide entry covers anything else.",
+    a: "Vial supports 15 built-in peptides: BPC-157, TB-500, CJC-1295 (with and without DAC), Ipamorelin, GHK-Cu, semaglutide, tirzepatide, retatrutide, Epitalon, NAD+, MOTS-c, Tesamorelin, Sermorelin, and PT-141, plus testosterone and HCG for TRT. Custom peptide entry covers anything else.",
   },
   {
     q: "How much does Vial cost?",
-    a: "Vial Monthly is $14.99 and Vial Yearly is $49.99, with a $29.99 first-year intro for new subscribers. Vial Lifetime is $99.99 one time. The AI coach is included with every paid tier, and the reconstitution calculator stays free forever.",
+    a: "Vial Monthly is $14.99 and Vial Yearly is $49.99, with a $29.99 first-year intro for new subscribers. Vial Lifetime is $99.99 one time. The AI coach is included with every paid tier, and core dose tracking stays free.",
   },
   {
     q: "What is Vial AI?",
     a: "Vial AI is an educational chat assistant included with every paid tier. It explains peptide mechanisms, half-lives, technique principles, and published prescribing information. It cannot diagnose, prescribe, or recommend a dose, and is configured to redirect personalized clinical questions to your prescriber.",
   },
   {
-    q: "What syringes does Vial support?",
-    a: "Vial supports U-20, U-30, U-40, and U-100 insulin syringes. Select your syringe type and the calculator outputs the exact unit mark to draw to on the barrel. For example, a 5 mg BPC-157 vial reconstituted with 1 mL of bacteriostatic water is 5 mg/mL, so a 250 mcg dose is 5 units on a U-100 syringe.",
+    q: "Does Vial work for GLP-1 and TRT, not just peptides?",
+    a: "Yes. Vial tracks compounded GLP-1 protocols like semaglutide, tirzepatide, and retatrutide, plus TRT and HRT regimens like testosterone, HCG, and ancillaries, alongside research peptides. Daily, weekly, and custom schedules are supported, including on and off cycle weeks.",
   },
   {
     q: "Does Vial work offline?",
-    a: "Yes. The calculator and tracker work fully offline with no account. Only Vial AI needs an internet connection, because it streams responses from a hosted model.",
+    a: "Yes. Vial works fully offline with no account. Only Vial AI needs an internet connection, because it streams responses from a hosted model.",
   },
 ];
 
@@ -339,13 +320,13 @@ export default function VialPage() {
               </motion.div>
 
               <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-5" style={{ color: TEXT }}>
-                Peptide calculator, dose tracker, and{" "}
+                Track every peptide, GLP-1, and TRT dose, with an{" "}
                 <span style={{ color: ACCENT }}>AI coach</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} className="text-lg mb-10 leading-relaxed" style={{ color: TEXT_SECONDARY }}>
-                Reconstitute, dose, and track every protocol on your iPhone. The
-                calculator is free.
+                Log every dose, set reminders, and keep your whole protocol on
+                your iPhone. Free to start.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
@@ -459,7 +440,7 @@ export default function VialPage() {
                   "Dose due notification at your scheduled time",
                   "Missed dose alert 2 hours after the window closes",
                   "Streak milestones at 7, 14, 30, 60, and 100 days",
-                  "Vial freshness warnings before reconstitution expires",
+                  "Vial freshness and expiry alerts before a bottle goes bad",
                   "Works fully offline, no account needed",
                 ].map((b) => (
                   <motion.li key={b} variants={fadeUp} className="flex items-start gap-3 text-sm" style={{ color: TEXT_SECONDARY }}>

@@ -23,16 +23,16 @@ const TEXT_MUTED = "#A1A1AA";
 const mono = "var(--font-jetbrains), 'JetBrains Mono', Menlo, monospace";
 
 export const metadata = {
-  title: "Vial FAQ: Peptide Calculator & Tracker Questions Answered",
+  title: "Vial FAQ: Peptide, GLP-1 & TRT Tracker Questions Answered",
   description:
-    "Answers to common questions about Vial, the peptide reconstitution calculator and dose tracker for iPhone. How the calculator works, supported peptides, GLP-1 and TRT support, pricing, privacy, and Vial AI.",
+    "Answers to common questions about Vial, the peptide, GLP-1, and TRT dose tracker for iPhone. How tracking works, supported peptides, GLP-1 and TRT support, pricing, privacy, and Vial AI.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "article",
     url: PAGE_URL,
-    title: "Vial FAQ: Peptide Calculator & Tracker Questions Answered",
+    title: "Vial FAQ: Peptide, GLP-1 & TRT Tracker Questions Answered",
     description:
-      "How the calculator works, supported peptides, GLP-1 and TRT support, pricing, privacy, and Vial AI. The peptide app for iPhone.",
+      "How tracking works, supported peptides, GLP-1 and TRT support, pricing, privacy, and Vial AI. The peptide app for iPhone.",
     siteName: "Vial",
   },
   robots: { index: true, follow: true },
@@ -44,11 +44,11 @@ const groups = [
     items: [
       {
         q: "What is Vial?",
-        a: "Vial is a peptide reconstitution calculator and dose tracker for iPhone. It converts your vial strength, bacteriostatic water volume, and target dose into exact syringe units, then tracks every dose with on-device reminders. It works for research peptides, compounded GLP-1s, and TRT. The reconstitution calculator is free.",
+        a: "Vial is a peptide, GLP-1, and TRT dose tracker for iPhone. You log every dose, set on-device reminders, and keep your vials, schedule, bloodwork, and notes in one private place. It supports research peptides, compounded GLP-1s, and TRT. Vial is free to start.",
       },
       {
         q: "Who is Vial for?",
-        a: "Vial is for anyone running a peptide or hormone protocol who wants accurate dosing and a reliable log. Its two core users are compounded GLP-1 patients on semaglutide, tirzepatide, or retatrutide, and peptide users running compounds like BPC-157, TB-500, and CJC-1295. TRT users track testosterone and HCG.",
+        a: "Vial is for anyone running a peptide or hormone protocol who wants a reliable log and timely reminders. Its two core users are compounded GLP-1 patients on semaglutide, tirzepatide, or retatrutide, and peptide users running compounds like BPC-157, TB-500, and CJC-1295. TRT users track testosterone and HCG.",
       },
       {
         q: "What devices does Vial run on?",
@@ -56,36 +56,28 @@ const groups = [
       },
       {
         q: "Is Vial a medical device?",
-        a: "No. Vial is a personal calculation and tracking tool, not a medical device. It does not diagnose, treat, or recommend a dose. The calculator performs arithmetic on the numbers you enter. Always confirm calculations and protocol decisions with a licensed clinician or compounding pharmacist.",
+        a: "No. Vial is a personal tracking tool, not a medical device. It does not diagnose, treat, recommend, or calculate a dose. You enter a dose your clinician already prescribed, and Vial records and organizes it. Always confirm protocol decisions with a licensed clinician or compounding pharmacist.",
       },
     ],
   },
   {
-    title: "The reconstitution calculator",
+    title: "Vials and inventory",
     items: [
       {
-        q: "What is peptide reconstitution?",
-        a: "Reconstitution is mixing a freeze-dried (lyophilized) peptide powder with bacteriostatic water to make an injectable solution. The volume of water you add sets the concentration, which determines how many syringe units equal your target dose. Getting this math wrong is a common cause of accidental overdose or underdose.",
+        q: "How does Vial track my vials?",
+        a: "Vial tracks every vial from first dose to last. It shows how many doses remain, warns you before a vial expires or passes its fridge life, and estimates cost per dose and runway across your bottles. When one runs out, you replace it in a tap.",
       },
       {
-        q: "How does the Vial calculator work?",
-        a: "Enter your vial strength in mg, the bacteriostatic water you added in mL, and your target dose in mcg or mg. Vial returns the concentration, the draw volume in mL, and the exact insulin-syringe units to draw. It supports U-20, U-30, U-40, and U-100 syringes and saves vials for instant recall.",
+        q: "Does Vial warn me before a vial expires?",
+        a: "Yes. Vial shows fridge-life and expiry alerts so you do not use a vial that has gone bad. Per-peptide shelf life is built in, so compounded GLP-1 vials, research peptides, and pre-mixed TRT esters each get the right window.",
       },
       {
-        q: "How do I calculate a peptide dose in syringe units?",
-        a: "Concentration equals total peptide divided by water volume. Draw volume equals dose divided by concentration. For example, a 5 mg vial with 1 mL of bacteriostatic water is 5 mg/mL, so a 250 mcg dose is 0.05 mL, which is 5 units on a U-100 syringe. Vial does this automatically.",
+        q: "Does Vial track peptide blends and stacks?",
+        a: "Yes. Vial tracks multi-peptide blends such as KLOW and GLOW, plus custom stacks. You record the components and Vial keeps the blend in your inventory and dose history alongside your single-peptide protocols.",
       },
       {
-        q: "What syringe types does Vial support?",
-        a: "Vial supports U-20, U-30, U-40, and U-100 insulin syringes. You select your syringe type and the calculator outputs the exact unit mark to draw to on the barrel, so you never convert between mL and units by hand. You can set a default syringe in settings.",
-      },
-      {
-        q: "What is the Water Solver?",
-        a: "The Water Solver works the calculation backwards. Instead of solving for units, you enter the dose and the syringe units you want it to land on, and Vial tells you how much bacteriostatic water to add to the vial. It is useful when you want a dose to equal a round, easy-to-read number of units.",
-      },
-      {
-        q: "Does Vial support peptide blends and stacks?",
-        a: "Yes. Vial supports multi-peptide blends such as KLOW and GLOW, plus custom stacks. You enter each component and Vial handles the per-peptide concentration and draw volume so a combined vial still gives you accurate units for each compound.",
+        q: "Can Vial show my cost per dose?",
+        a: "Yes. Enter what you paid for a vial and Vial estimates your real cost per dose and how long your current inventory will last. It is a simple way to see what a protocol actually costs over a month or a year.",
       },
     ],
   },
@@ -94,23 +86,23 @@ const groups = [
     items: [
       {
         q: "What peptides does Vial support?",
-        a: "Vial includes 15 presets: BPC-157, TB-500, CJC-1295 with and without DAC, Ipamorelin, GHK-Cu, semaglutide, tirzepatide, retatrutide, Epitalon, NAD+, MOTS-c, Tesamorelin, Sermorelin, and PT-141. Testosterone and HCG are included for TRT. Custom peptide entry covers anything not in the preset list.",
+        a: "Vial supports 15 built-in peptides: BPC-157, TB-500, CJC-1295 with and without DAC, Ipamorelin, GHK-Cu, semaglutide, tirzepatide, retatrutide, Epitalon, NAD+, MOTS-c, Tesamorelin, Sermorelin, and PT-141. Testosterone and HCG are included for TRT. Custom peptide entry covers anything not in the list.",
       },
       {
         q: "Does Vial work for GLP-1s like semaglutide and tirzepatide?",
-        a: "Yes. Vial is built for compounded GLP-1 users. It models semaglutide, tirzepatide, and retatrutide as reconstitutable vials, so you can calculate exact units from a powder vial and bacteriostatic water and track each weekly dose. Brand pens like Wegovy and Zepbound do not need reconstitution.",
+        a: "Yes. Vial is built for compounded GLP-1 users. It tracks semaglutide, tirzepatide, and retatrutide protocols, logs each weekly dose, and manages the vial in your inventory. Brand pens like Wegovy and Zepbound are supported too.",
       },
       {
         q: "Can Vial track compounded GLP-1 from a pharmacy?",
-        a: "Yes. Compounded GLP-1 usually ships as a powder vial plus bacteriostatic water, which is exactly what Vial's calculator is designed for. You enter the vial strength and water volume, and Vial gives you the units to draw for your prescribed dose, then tracks the schedule.",
+        a: "Yes. Compounded GLP-1 usually ships as a vial plus bacteriostatic water. You add the vial to Vial's inventory, set your prescribed schedule, and Vial logs each dose and tracks the bottle until it runs out.",
       },
       {
         q: "Does Vial work for TRT?",
-        a: "Yes. Vial supports testosterone and HCG for TRT protocols. You can track injection schedules, rotate sites, and log bloodwork. Pre-mixed oil esters do not use the reconstitution clock, so Vial applies the manufacturer expiry instead of the fridge rule for those.",
+        a: "Yes. Vial supports testosterone and HCG for TRT protocols. You can track injection schedules, rotate sites, and log bloodwork. Pre-mixed oil esters use the manufacturer expiry rather than a fridge-life window, and Vial applies the right one automatically.",
       },
       {
         q: "Can I track BPC-157 and TB-500?",
-        a: "Yes. BPC-157 and TB-500 are built-in presets, including common stacks. Vial calculates units from your vial and water, schedules doses, and logs them with a single tap. You can also run on and off cycles for cycled peptides.",
+        a: "Yes. BPC-157 and TB-500 are built-in, including common stacks. Vial schedules doses, logs them with a single tap, and runs on and off cycles for cycled peptides.",
       },
     ],
   },
@@ -170,11 +162,11 @@ const groups = [
     items: [
       {
         q: "Is Vial free?",
-        a: "The reconstitution calculator is free forever with no purchase required. The free tier also includes one saved vial, one active protocol, and 30 days of history. Premium unlocks unlimited protocols, full history, body metrics, bloodwork, progress photos, and Vial AI.",
+        a: "Yes. Vial is free to start: one active protocol, your first vial tracked to the last dose, 14 days of history, bloodwork, body metrics, and progress photos, plus one AI coach message. Premium unlocks unlimited protocols, full history, CSV export, and unlimited Vial AI.",
       },
       {
         q: "How much does Vial cost?",
-        a: "Vial Monthly is $14.99 and Vial Yearly is $49.99, with a $29.99 first-year intro for new subscribers. Vial Lifetime is $99.99 one time. The AI coach is included with every paid tier, and the reconstitution calculator stays free forever.",
+        a: "Vial Monthly is $14.99 and Vial Yearly is $49.99, with a $29.99 first-year intro for new subscribers. Vial Lifetime is $99.99 one time. The AI coach is included with every paid tier, and core dose tracking stays free.",
       },
       {
         q: "What is the refund policy?",
@@ -191,15 +183,15 @@ const groups = [
     items: [
       {
         q: "What is the best peptide tracker app?",
-        a: "A peptide tracker should handle three things: reconstitution math, any peptide rather than one drug, and reliable dose logging. Vial combines a free reconstitution calculator, a three-state tracker for any compound, on-device reminders, and an educational AI coach in one iPhone app. The right choice depends on whether you need calculation plus tracking in one place.",
+        a: "A peptide tracker should handle three things: any peptide rather than one drug, reliable dose logging, and timely reminders. Vial combines a three-state tracker for any compound, vial inventory, on-device reminders, and an educational AI coach in one iPhone app. The right choice depends on whether you want tracking, inventory, and coaching in one place.",
       },
       {
         q: "How is Vial different from a GLP-1-only tracker?",
-        a: "Most GLP-1 trackers cover one drug and skip reconstitution math. Vial handles compounded GLP-1s and research peptides and TRT in the same app, and its calculator turns a powder vial into exact syringe units. If you run more than semaglutide, or you reconstitute your own vials, that breadth is the difference.",
+        a: "Most GLP-1 trackers cover one drug. Vial tracks compounded GLP-1s, research peptides, and TRT in the same app, with vial inventory, injection site rotation, and bloodwork. If you run more than semaglutide, that breadth is the difference.",
       },
       {
-        q: "Is there a free peptide reconstitution calculator?",
-        a: "Yes. Vial's reconstitution calculator is free forever on iPhone with no account. It supports U-20 to U-100 syringes, 15 peptide presets, custom compounds, and a Water Solver that calculates the bacteriostatic water volume backwards from your target units.",
+        q: "Is there a free peptide tracker?",
+        a: "Yes. Vial is free to start on iPhone with no account. The free tier includes one active protocol, your first vial tracked end to end, 14 days of history, bloodwork, body metrics, and progress photos, plus one AI coach message.",
       },
     ],
   },
@@ -262,10 +254,10 @@ export default function VialFAQPage() {
             Questions about Vial, answered
           </h1>
           <p className="text-lg leading-relaxed mb-4" style={{ color: TEXT_SECONDARY }}>
-            Vial is a peptide reconstitution calculator and dose tracker for iPhone. It turns your
-            vial strength, bacteriostatic water volume, and target dose into exact syringe units,
-            then tracks every dose with on-device reminders. It supports BPC-157, TB-500, GLP-1s like
-            semaglutide and tirzepatide, TRT, and custom compounds. The calculator is free.
+            Vial is a peptide, GLP-1, and TRT dose tracker for iPhone. You log every dose, set
+            on-device reminders, and keep your vials, schedule, bloodwork, and notes in one private
+            place. It supports BPC-157, TB-500, GLP-1s like semaglutide and tirzepatide, TRT, and
+            custom compounds. Vial is free to start.
           </p>
           <p className="text-sm" style={{ color: TEXT_MUTED }}>
             Last updated {UPDATED}
@@ -318,7 +310,7 @@ export default function VialFAQPage() {
             Ready to try Vial?
           </h2>
           <p className="text-sm mb-6" style={{ color: TEXT_SECONDARY }}>
-            The reconstitution calculator is free. Download Vial on iPhone.
+            Vial is free to start. Download Vial on iPhone.
           </p>
           <a
             href="#"

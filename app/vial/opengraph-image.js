@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 // (accent #00B380 on a neutral canvas). Replaces the previously-referenced
 // static PNG that did not exist.
 export const runtime = "edge";
-export const alt = "Vial: Peptide calculator, dose tracker, and AI coach.";
+export const alt = "Vial: Peptide, GLP-1 & TRT dose tracker, and AI coach.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -36,10 +36,10 @@ export default function Image() {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 72, fontWeight: 800, color: TEXT, letterSpacing: -3, lineHeight: 1.08 }}>
-            Peptide calculator,
+            Peptide, GLP-1 &
           </div>
           <div style={{ display: "flex", fontSize: 72, fontWeight: 800, color: TEXT, letterSpacing: -3, lineHeight: 1.08 }}>
-            dose tracker,
+            TRT dose tracker,
           </div>
           <div style={{ display: "flex", fontSize: 72, fontWeight: 800, color: ACCENT, letterSpacing: -3, lineHeight: 1.08 }}>
             and AI coach
@@ -49,7 +49,7 @@ export default function Image() {
         <div style={{ display: "flex", alignItems: "center", fontSize: 28, color: TEXT_SECONDARY }}>
           {"For compounded GLP-1, TRT & peptide protocols"}
           <span style={{ color: ACCENT, margin: "0 16px" }}>•</span>
-          Calculator is free
+          Free to start
         </div>
       </div>
     ),
