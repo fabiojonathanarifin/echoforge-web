@@ -47,12 +47,12 @@ export default function RelicPrivacyPage() {
 
         <Section title="1. Information We Collect">
           <ul className="space-y-3 list-disc list-inside leading-relaxed" style={{ color: TEXT_SECONDARY }}>
-            <li><strong className="text-white">Account information</strong>:your name and email address, provided when you sign in with Apple or Google.</li>
-            <li><strong className="text-white">Voice recordings</strong>:audio files you record within the app. We request microphone access solely to let you record post-meeting voice notes describing people you&apos;ve met. Recordings are uploaded for transcription and deleted from our servers after processing is complete.</li>
-            <li><strong className="text-white">Contact and relationship data</strong>:names, roles, notes, and details you add or that are extracted from your voice recordings.</li>
-            <li><strong className="text-white">Usage analytics</strong>:anonymized event data (screens viewed, features used) collected via PostHog to help us improve the app.</li>
-            <li><strong className="text-white">Subscription status</strong>:managed by RevenueCat to determine your plan and entitlements.</li>
-            <li><strong className="text-white">Push notification token</strong>:used solely to deliver pre-meeting briefings and reminders to your device.</li>
+            <li><strong className="text-white">Account information</strong>: your name and email address, provided when you sign in with Apple or Google.</li>
+            <li><strong className="text-white">Voice recordings</strong>: audio files you record within the app. We request microphone access solely to let you record post-meeting voice notes describing people you&apos;ve met. Recordings are uploaded for transcription and deleted from our servers after processing is complete.</li>
+            <li><strong className="text-white">Contact and relationship data</strong>: names, roles, notes, and details you add or that are extracted from your voice recordings.</li>
+            <li><strong className="text-white">Usage analytics</strong>: anonymized event data (screens viewed, features used) collected via PostHog to help us improve the app.</li>
+            <li><strong className="text-white">Subscription status</strong>: managed by RevenueCat to determine your plan and entitlements.</li>
+            <li><strong className="text-white">Push notification token</strong>: used solely to deliver pre-meeting briefings and reminders to your device.</li>
           </ul>
         </Section>
 
@@ -74,28 +74,30 @@ export default function RelicPrivacyPage() {
             Relic uses the following third-party services. Each has its own privacy policy:
           </p>
           <ul className="space-y-3 list-disc list-inside leading-relaxed" style={{ color: TEXT_SECONDARY }}>
-            <li><strong className="text-white">Supabase</strong>:authentication, database, and file storage. <a href="https://supabase.com/privacy" className="underline hover:text-white transition-colors" style={{ color: AMBER }}>supabase.com/privacy</a></li>
-            <li><strong className="text-white">RevenueCat</strong>:subscription management and payment processing. <a href="https://www.revenuecat.com/privacy" className="underline hover:text-white transition-colors" style={{ color: AMBER }}>revenuecat.com/privacy</a></li>
-            <li><strong className="text-white">PostHog</strong>:product analytics. <a href="https://posthog.com/privacy" className="underline hover:text-white transition-colors" style={{ color: AMBER }}>posthog.com/privacy</a></li>
-            <li><strong className="text-white">DeepInfra (Whisper)</strong>:voice transcription. Audio is processed and not retained.</li>
-            <li><strong className="text-white">Google Gemini</strong>:AI extraction of contact details from transcripts.</li>
+            <li><strong className="text-white">Supabase</strong>: authentication, database, and file storage. <a href="https://supabase.com/privacy" className="underline hover:text-white transition-colors" style={{ color: AMBER }}>supabase.com/privacy</a></li>
+            <li><strong className="text-white">RevenueCat</strong>: subscription management and payment processing. <a href="https://www.revenuecat.com/privacy" className="underline hover:text-white transition-colors" style={{ color: AMBER }}>revenuecat.com/privacy</a></li>
+            <li><strong className="text-white">PostHog</strong>: product analytics. <a href="https://posthog.com/privacy" className="underline hover:text-white transition-colors" style={{ color: AMBER }}>posthog.com/privacy</a></li>
+            <li><strong className="text-white">DeepInfra (Whisper)</strong>: voice transcription. Audio is processed and not retained.</li>
+            <li><strong className="text-white">OpenRouter</strong>: routes AI requests to the language models below for extraction and briefings. <a href="https://openrouter.ai/privacy" className="underline hover:text-white transition-colors" style={{ color: AMBER }}>openrouter.ai/privacy</a></li>
+            <li><strong className="text-white">Google Gemini</strong>: AI extraction and briefing generation, accessed via OpenRouter.</li>
+            <li><strong className="text-white">DeepSeek</strong>: fallback AI model for extraction and briefings, accessed via OpenRouter.</li>
           </ul>
         </Section>
 
         <Section title="4. Data Retention">
           <ul className="space-y-3 list-disc list-inside leading-relaxed" style={{ color: TEXT_SECONDARY }}>
-            <li><strong className="text-white">Voice recordings</strong>:deleted from our servers after processing is complete.</li>
-            <li><strong className="text-white">Contact and relationship data</strong>:retained until you delete your account.</li>
-            <li><strong className="text-white">Analytics events</strong>:retained for up to 12 months.</li>
+            <li><strong className="text-white">Voice recordings</strong>: deleted from our servers after processing is complete.</li>
+            <li><strong className="text-white">Contact and relationship data</strong>: retained until you delete your account.</li>
+            <li><strong className="text-white">Analytics events</strong>: retained for up to 12 months.</li>
           </ul>
         </Section>
 
         <Section title="5. Your Rights and Choices">
           <ul className="space-y-3 list-disc list-inside leading-relaxed" style={{ color: TEXT_SECONDARY }}>
-            <li><strong className="text-white">Access and correction</strong>:you can view and edit your contact data within the app at any time.</li>
-            <li><strong className="text-white">Account deletion</strong>:go to Settings → Delete Account. This permanently removes all your data from our servers.</li>
-            <li><strong className="text-white">Push notifications</strong>:disable at any time in your device&apos;s iOS Settings.</li>
-            <li><strong className="text-white">Data portability</strong>:contact us to request a copy of your data.</li>
+            <li><strong className="text-white">Access and correction</strong>: you can view and edit your contact data within the app at any time.</li>
+            <li><strong className="text-white">Account deletion</strong>: go to Settings → Delete Account. This permanently removes all your data from our servers.</li>
+            <li><strong className="text-white">Push notifications</strong>: disable at any time in your device&apos;s iOS Settings.</li>
+            <li><strong className="text-white">Data portability</strong>: contact us to request a copy of your data.</li>
           </ul>
           <p className="mt-4 leading-relaxed" style={{ color: TEXT_SECONDARY }}>
             If you are located in the European Economic Area (EEA), you may have additional rights under the General Data
