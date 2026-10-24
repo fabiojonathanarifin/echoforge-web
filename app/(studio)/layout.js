@@ -8,7 +8,7 @@ export const metadata = {
     template: "%s | EchoForge", // This allows child pages to be "Kume | EchoForge"
   },
   description:
-    "A quiet software studio based in San Francisco. Building Kume, Protos, and thoughtful digital products.",
+    "A quiet software studio based in San Francisco. Building Oaktally, Airlophone, ReadersGuild, Protos, and thoughtful digital products.",
   keywords: [
     "Software Studio",
     "Indie Hacker",
@@ -172,12 +172,28 @@ export default function StudioLayout({ children }) {
                   Aksara Privacy
                 </a>
                 <a
-                  href="https://usealmanack.com/privacy"
+                  href="https://oaktally.app/privacy.html"
                   className="hover:text-foreground"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Almanack Privacy
+                  Oaktally Privacy
+                </a>
+                <a
+                  href="https://airlophone.com/privacy"
+                  className="hover:text-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Airlophone Privacy
+                </a>
+                <a
+                  href="https://blockboard.lol/privacy"
+                  className="hover:text-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  BLOCKBOARD Privacy
                 </a>
               </div>
             </div>

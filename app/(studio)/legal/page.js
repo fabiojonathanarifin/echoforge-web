@@ -24,8 +24,12 @@ export default function LegalPage() {
             { name: "DiggerInsights - Terms of Service", href: "/legal/diggerinsights/terms" },
             { name: "Aksara - Privacy Policy", href: "https://aksara.so/privacy" },
             { name: "Aksara - Terms of Service", href: "https://aksara.so/terms" },
-            { name: "Almanack - Privacy Policy", href: "https://usealmanack.com/privacy" },
-            { name: "Almanack - Terms of Service", href: "https://usealmanack.com/terms" }
+            { name: "Oaktally - Privacy Policy", href: "https://oaktally.app/privacy.html" },
+            { name: "Oaktally - Terms of Service", href: "https://oaktally.app/terms.html" },
+            { name: "Airlophone - Privacy Policy", href: "https://airlophone.com/privacy" },
+            { name: "Airlophone - Terms of Service", href: "https://airlophone.com/terms" },
+            { name: "BLOCKBOARD - Privacy Policy", href: "https://blockboard.lol/privacy" },
+            { name: "BLOCKBOARD - Terms of Service", href: "https://blockboard.lol/terms" }
           ].map((link, i) => (
             <li key={i} className="flex items-center gap-4">
               <span className="w-2 h-2 rounded-full bg-accent" />

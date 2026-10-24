@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AppCard from "@/components/AppCard";
+import { products } from "@/lib/products";
 
 export default function Home() {
   return (
@@ -54,54 +55,14 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <AppCard
-              name="Kume"
-              description="A personal travel planner tailored to your specific vibe and pace."
-              href="/kume"
-              icon="/kume-icon.png"
-            />
-            <AppCard
-              name="Brainecho"
-              description="A voice-first AI thinking assistant transforming spoken thoughts into structured outputs."
-              href="https://brainechoai.com/"
-              icon="/brainecho-icon.png"
-            />
-            <AppCard
-              name="Protos"
-              description="A Bible study app with contextual backgrounds and verse-by-verse commentary."
-              href="https://protos-app.com/"
-              icon="/protos-icon.png"
-            />
-            <AppCard
-              name="TinyOrange"
-              description="A minimalist todo list with multi-device sync. Important, but not red important."
-              href="https://tinyorange.app/"
-              icon="/tinyorange-icon.png"
-            />
-            <AppCard
-              name="Relic"
-              description="An AI relationship memory for founders. Voice capture, smart briefings, and promise tracking."
-              href="/relic"
-              icon="/asset/relic/icon-trasnparent-bg.png"
-            />
-            <AppCard
-              name="ReadersGuild"
-              description="A social reading app where reading is shared, not measured. Timer sessions, beautiful share cards, and a community feed."
-              href="https://readers-guild.com/"
-              icon="/asset/readersGuild/icon.png"
-            />
-            <AppCard
-              name="Vial"
-              description="A daily companion for peptide protocols. Calculator, tracker, and AI coach in one beautifully designed iOS app."
-              href="/vial"
-              icon="/asset/vial/icon.png"
-            />
-            <AppCard
-              name="Aksara"
-              description="A link in bio to show your work. Build a real portfolio in minutes, not weeks, made for your Instagram, X, or LinkedIn bio."
-              href="https://aksara.so"
-              icon="/asset/aksara/icon.png"
-            />
+            {products.filter((product) => product.isFeatured).map((product) => (
+              <AppCard
+                key={product.name}
+                {...product}
+                tagline={undefined}
+                description={product.homeDescription || product.description}
+              />
+            ))}
           </div>
 
           <div className="pt-8">
