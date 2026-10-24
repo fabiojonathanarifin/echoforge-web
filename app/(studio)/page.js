@@ -1,83 +1,60 @@
 import Image from "next/image";
-import AppCard from "@/components/AppCard";
-import { products } from "@/lib/products";
+import Link from "next/link";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ProductGallery, ProductDirectory } from "@/components/studio/ProductGallery";
+import FounderPortrait from "@/components/studio/FounderPortrait";
+import { STUDIO_FOUNDER } from "@/lib/studioFounder";
+import { CoastScene, Reveal } from "@/components/studio/StudioMotion";
 
-export default function Home() {
+export const metadata = { alternates: { canonical: "/" } };
+
+export default function StudioHome() {
   return (
-    <div className="relative">
-      <section className="max-w-5xl mx-auto px-6 pt-32 pb-40 space-y-32">
-        {/* HERO */}
-        <div className="space-y-8 max-w-3xl">
-          <div className="w-22 h-22 overflow-hidden transition-all hover:scale-105 active:scale-95 duration-500">
-            <Image
-              src="/echo-forge-icon.png"
-              alt="EchoForge mark"
-              className="w-full h-full object-cover"
-              width={64}
-              height={64}
-              priority
-            />
-          </div>
-
-          <div className="space-y-8">
-            <h1 className="text-7xl font-black tracking-tighter text-foreground leading-[1] md:text-8xl">
-              Echo<span className="text-muted">Forge</span>
-            </h1>
-            <p className="text-muted text-2xl md:text-3xl max-w-2xl leading-relaxed font-medium">
-              A software studio based in{" "}
-              <span className="text-foreground">San Francisco</span>, building a
-              suite of <span className="text-foreground">focused</span> and{" "}
-              <span className="text-foreground">thoughtfully designed</span>{" "}
-              digital products.
-            </p>
-          </div>
-
+    <>
+      <section className="studio-hero studio-wrap">
+        <div className="hero-intro">
           <div>
-            <a
-              href="#products"
-              className="group inline-flex items-center gap-3 text-xl font-bold text-foreground hover:gap-5 transition-all duration-300 underline underline-offset-8 decoration-border hover:decoration-foreground"
-            >
-              Explore our products{" "}
-              <span className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </a>
+            <p className="small-label hero-label"><span className="studio-dot" /> Built on the road</p>
+            <h1>Independent<br /> software studio.</h1>
+          </div>
+          <div className="hero-aside">
+            <a href="#products" className="text-link">See the apps <ArrowDown size={16} /></a>
           </div>
         </div>
-
-        {/* FEATURED PRODUCTS */}
-        <div id="products" className="space-y-16">
-          <div className="space-y-4">
-            <h2 className="text-4xl font-black tracking-tight">Our Products</h2>
-            <p className="text-muted text-xl">
-              The core ecosystem of the Forge.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {products.filter((product) => product.isFeatured).map((product) => (
-              <AppCard
-                key={product.name}
-                {...product}
-                tagline={undefined}
-                description={product.homeDescription || product.description}
-              />
-            ))}
-          </div>
-
-          <div className="pt-8">
-            <a
-              href="/apps"
-              className="group inline-flex items-center gap-3 text-lg font-bold text-muted hover:text-foreground hover:gap-4 transition-all duration-300"
-            >
-              View the full suite{" "}
-              <span className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </a>
-          </div>
+        <figure className="coast-figure">
+          <CoastScene>
+            <Image src="https://images.unsplash.com/photo-1565367267466-29c9004fc71f?auto=format&fit=crop&w=2400&q=85" alt="Coastal headlands meeting the Pacific Ocean in Monterey, California" fill priority unoptimized sizes="100vw" />
+          </CoastScene>
+          <figcaption>
+            <span>EchoForge / Independent software</span>
+            <a href="https://unsplash.com/photos/WymR2nYtj5M">Pacific coast. Photo by Ian Schneider <ArrowUpRight size={12} /></a>
+          </figcaption>
+        </figure>
+      </section>
+      <section className="studio-wrap selected-section" id="products">
+        <Reveal className="section-heading">
+          <div><p className="small-label">Our products</p><h2>What we build.</h2></div>
+          <p>A look inside the apps.</p>
+        </Reveal>
+        <ProductGallery />
+      </section>
+      <section className="studio-note">
+        <div className="studio-wrap note-layout">
+          <FounderPortrait compact />
+          <Reveal>
+            <h2>Independent<br /> software studio.</h2>
+            <p>{STUDIO_FOUNDER.introduction}</p>
+            <Link href="/studio" className="text-link">About EchoForge <ArrowUpRight size={17} /></Link>
+          </Reveal>
         </div>
       </section>
-    </div>
+      <section className="studio-wrap more-section">
+        <Reveal className="section-heading">
+          <h2>More from EchoForge.</h2>
+          <Link href="/apps" className="text-link">All products <ArrowUpRight size={17} /></Link>
+        </Reveal>
+        <ProductDirectory featuredOnly />
+      </section>
+    </>
   );
 }

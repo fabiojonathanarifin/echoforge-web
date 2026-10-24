@@ -1,39 +1,39 @@
 import "./globals.css";
-import Link from "next/link";
+import { BRAND_NAME, BRAND_DESCRIPTION } from "@/constants/branding";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata = {
-  title: "EchoForge — Independent Software Studio",
-  description: "An independent software studio building focused, voice-first and thoughtfully opinionated tools.",
+  title: `${BRAND_NAME} | ${BRAND_DESCRIPTION}`,
+  description: "An independent software studio founded by Fabio Jonathan Arifin.",
   metadataBase: new URL("https://echoforge.to"),
   openGraph: {
     title: "EchoForge",
-    description: "Focused tools for focused minds.",
+    description: "Independent software studio.",
     url: "https://echoforge.to",
     siteName: "EchoForge",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png?v=studio-mark-1",
         width: 1200,
         height: 630,
-        alt: "EchoForge — Independent Software Studio",
+        alt: "EchoForge | Independent software studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "EchoForge",
-    description: "An independent software studio building focused, voice-first tools.",
-    images: ["/og-image.png"],
+    description: "Independent software studio.",
+    images: ["/og-image.png?v=studio-mark-1"],
   },
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png?v=studio-mark-1", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png?v=studio-mark-1", sizes: "32x32", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon.png?v=studio-mark-1",
   },
 };
 

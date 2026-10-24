@@ -1,15 +1,24 @@
 # EchoForge Web
 
-EchoForge's public studio website introduces its software portfolio and directs visitors to product websites, app pages, support, and legal policies.
+EchoForge is an independent software studio founded by Fabio Jonathan Arifin. Its public website presents its products, introduces the founder, and directs visitors to product websites, support, and legal policies. EchoForge remains the public brand and domain. Pelagos Hill is a planned company name whose formation is in progress; the website makes no LLC or incorporation claims.
 
-## Core flows
-- Browse products on the homepage and the full Apps directory.
-- Visit a product website or its dedicated landing page.
-- Find privacy policies, terms, and studio support.
-- Authorized admins manage existing Protos promo codes and Aksara tools.
+## Public experience
+- The homepage uses a coastal editorial design with photography, serif typography, a sea-green and chalk palette, and the studio's wave mark.
+- The headline is "Independent software studio", with "Built on the road" adding the founder's travel context.
+- The product gallery leads with Oaktally, Airlophone, ReadersGuild, and Protos, in that order. It uses real screenshots and recordings from the products.
+- The remaining products follow in a compact directory, with Kume last. `/apps` includes the full collection.
+- `/studio` introduces Fabio through his boat portrait and actual product-origin stories drawn from existing press materials and his own context.
+- `/legal` organizes existing privacy and terms links by product. Product legal documents retain their existing identities.
+- Almanack stays hidden from studio cards and legal navigation. Existing redirects to its independent website remain active.
 
-## Portfolio presentation
-- Lead both product grids with Oaktally, Airlophone, ReadersGuild, and Protos, in that order.
-- Show the remaining products afterward, with Kume last.
-- Hide Almanack from public studio listings and legal navigation. Preserve existing redirects to its independent website.
-- The studio website is a marketing and support surface; individual products manage their own pricing and subscriptions.
+## Motion and accessibility
+- The coast image and product captures move with scrolling. Product entrances are staggered.
+- Reduced motion disables parallax, entrance movement, and video autoplay.
+- Demo videos pause outside the viewport and in background tabs. They play at most five times automatically, with manual play/pause controls.
+- Layouts support desktop and mobile, with keyboard focus and a skip-to-content link.
+
+## Operations
+- Product links lead to their existing destinations. Individual products manage their own pricing and subscriptions.
+- Authorized admins retain the existing Protos promo-code and Aksara tools.
+- The website is hosted on Railway and deployed from `main`.
+- Old `/prototype` review links redirect to their corresponding public pages.

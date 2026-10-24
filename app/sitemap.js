@@ -9,7 +9,10 @@ export default function sitemap() {
 
   // Almanack now lives at usealmanack.com and is listed in that site's own sitemap.
   return [
-    { url: `${SITE}/`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE}/`, changeFrequency: "monthly", priority: 1.0 },
+    { url: `${SITE}/apps`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE}/studio`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE}/legal`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE}/vial`, lastModified: vialUpdated, changeFrequency: "weekly", priority: 1.0 },
     { url: `${SITE}/vial/faq`, lastModified: faqUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE}/vial/support`, lastModified: vialUpdated, changeFrequency: "monthly", priority: 0.6 },
