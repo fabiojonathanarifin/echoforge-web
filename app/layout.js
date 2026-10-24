@@ -1,14 +1,14 @@
 import "./globals.css";
-import { BRAND_NAME, BRAND_DESCRIPTION } from "@/constants/branding";
+import { BRAND_NAME, BRAND_DESCRIPTION, BRAND_META_DESCRIPTION } from "@/constants/branding";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata = {
   title: `${BRAND_NAME} | ${BRAND_DESCRIPTION}`,
-  description: "An independent software studio founded by Fabio Jonathan Arifin.",
+  description: BRAND_META_DESCRIPTION,
   metadataBase: new URL("https://echoforge.to"),
   openGraph: {
     title: "EchoForge",
-    description: "Independent software studio.",
+    description: BRAND_META_DESCRIPTION,
     url: "https://echoforge.to",
     siteName: "EchoForge",
     locale: "en_US",
@@ -25,7 +25,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "EchoForge",
-    description: "Independent software studio.",
+    description: BRAND_META_DESCRIPTION,
     images: ["/og-image.png?v=studio-mark-1"],
   },
   icons: {

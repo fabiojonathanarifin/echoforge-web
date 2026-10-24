@@ -12,7 +12,7 @@
 - `lib/studioProducts.js` owns direct studio copy and verified screenshot/recording URLs. `ProductGallery` and `ProductDirectory` consume the shared catalog.
 - `ProductArtwork` frames actual product media, never recreated app interfaces. ReadersGuild and Protos use existing R2 custom domains; Oaktally and Airlophone reference media already served by their public sites. New hosted media belongs in Cloudflare R2.
 - Screenshot provenance: Oaktally's `src/constants/appScreens.js` identifies demo-budget simulator captures; ReadersGuild's `src/lib/press-kit.ts` lists real app captures; Protos's `components/landing/content.js` and Airlophone's `components/DemoClip.tsx` define the recordings.
-- `lib/studioFounder.js` owns founder text, product-origin stories, and the existing public boat portrait URL. `FounderPortrait` is shared by the homepage and studio page. Ground claims in source press materials and Fabio's context; do not infer a current city from conflicting legacy bios.
+- `lib/studioFounder.js` owns factual studio and founder text and the existing public boat portrait URL. `FounderPortrait` is shared by the homepage and studio page. Ground claims in source press materials and Fabio's context; do not infer a current city from conflicting legacy bios.
 - `lib/studioLegal.js` owns existing legal-link destinations. Legal policy contents are unchanged.
 - EchoForge is the public brand. Do not claim Pelagos Hill LLC exists or replace legal entities while formation is in progress.
 - Almanack is hidden from the public catalog and legal navigation; existing redirects remain in `next.config.mjs`.

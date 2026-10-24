@@ -237,12 +237,7 @@
 .coastal .founder-portrait-compact { max-width: 210px; }
 .coastal .about-statement>.studio-reveal { align-self: center; }
 .coastal .about-statement .text-link { margin-top: 25px; }
-.coastal .studio-origins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: 1px solid var(--coast-line); padding-block: 45px 90px; }
-.coastal .studio-origins h2 { font: 400 1.9rem/1.15 var(--coast-display); margin-bottom: 18px; }
-.coastal .studio-origins p { color: var(--coast-muted); font-size: .87rem; line-height: 1.8; }
-.coastal .studio-origins .text-link { margin-top: 18px; }
 @media (max-width: 760px) {
-  .coastal .studio-origins { grid-template-columns: 1fr; gap: 35px; padding-block: 35px 60px; }
   .coastal .founder-portrait { max-width: 260px; }
   .coastal .founder-portrait-compact { max-width: 175px; }
 }

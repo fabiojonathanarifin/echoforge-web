@@ -7,7 +7,7 @@ EchoForge is an independent software studio founded by Fabio Jonathan Arifin. It
 - The headline is "Independent software studio", with "Built on the road" adding the founder's travel context.
 - The product gallery leads with Oaktally, Airlophone, ReadersGuild, and Protos, in that order. It uses real screenshots and recordings from the products.
 - The remaining products follow in a compact directory, with Kume last. `/apps` includes the full collection.
-- `/studio` introduces Fabio through his boat portrait and actual product-origin stories drawn from existing press materials and his own context.
+- `/studio` introduces the studio and its founder through a short factual biography and boat portrait. Copy uses an editorial studio voice rather than first-person product-origin stories.
 - `/legal` organizes existing privacy and terms links by product. Product legal documents retain their existing identities.
 - Almanack stays hidden from studio cards and legal navigation. Existing redirects to its independent website remain active.
 
