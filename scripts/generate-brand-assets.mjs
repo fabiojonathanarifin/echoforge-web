@@ -2,8 +2,8 @@ import { writeFile } from "node:fs/promises";
 import sharp from "sharp";
 import { BRAND_COLORS, BRAND_DESCRIPTION, BRAND_MARK_PATH, BRAND_NAME } from "../constants/branding.js";
 
-const mark = `<path d="${BRAND_MARK_PATH}" fill="none" stroke="${BRAND_COLORS.ink}" stroke-width="1.7" stroke-linecap="round"/>`;
-const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="${BRAND_COLORS.paper}"/>${mark}</svg>`;
+const mark = `<path d="${BRAND_MARK_PATH}" fill="none" stroke="${BRAND_COLORS.ink}" stroke-width="1.8" stroke-linecap="round"/>`;
+const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 42 42"><rect width="42" height="42" rx="10" fill="${BRAND_COLORS.paper}"/>${mark}</svg>`;
 
 async function createPng(size) {
   return sharp(Buffer.from(iconSvg)).resize(size, size).png().toBuffer();
@@ -45,7 +45,7 @@ try {
   const ico = await createIco();
   await Promise.all(["app/favicon.ico", "public/favicon.ico"].map(path => writeFile(path, ico)));
 
-  const socialSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="${BRAND_COLORS.paper}"/><g transform="translate(76 100) scale(3.2)">${mark}</g><text x="80" y="375" fill="${BRAND_COLORS.ink}" font-family="Georgia, serif" font-size="100" letter-spacing="-4">${BRAND_NAME}</text><text x="85" y="445" fill="${BRAND_COLORS.ink}" font-family="Arial, sans-serif" font-size="28">${BRAND_DESCRIPTION}</text><text x="85" y="550" fill="${BRAND_COLORS.ink}" font-family="Arial, sans-serif" font-size="20">echoforge.to</text></svg>`;
+  const socialSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="${BRAND_COLORS.paper}"/><g transform="translate(65 55) scale(2.5)">${mark}</g><text x="80" y="370" fill="${BRAND_COLORS.ink}" font-family="Helvetica, Arial, sans-serif" font-size="82" letter-spacing="12">${BRAND_NAME.toUpperCase()}</text><text x="85" y="445" fill="${BRAND_COLORS.ink}" font-family="Arial, sans-serif" font-size="28">${BRAND_DESCRIPTION}</text><text x="85" y="550" fill="${BRAND_COLORS.ink}" font-family="Arial, sans-serif" font-size="20">echoforge.to</text></svg>`;
   const social = await sharp(Buffer.from(socialSvg)).png().toBuffer();
   await Promise.all(["app/opengraph-image.png", "public/og-image.png"].map(path => writeFile(path, social)));
   console.log("Updated app icons, favicon variants, and social metadata images from the shared studio mark.");

@@ -1,7 +1,10 @@
-import { BRAND_META_DESCRIPTION } from "@/constants/branding";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { StudioMark } from "@/components/studio/StudioMark";
+import StudioNav from "@/components/studio/StudioNav";
+import { EchoLines } from "@/components/studio/BrandElements";
+import { BRAND_META_DESCRIPTION } from "@/constants/branding";
+import { BrandReveal } from "@/components/studio/BrandMotion";
+import BrandMark from "@/components/studio/BrandMark";
 import "./studio.css";
 
 export const metadata = {
@@ -11,33 +14,14 @@ export const metadata = {
 };
 
 export default function StudioLayout({ children }) {
-  return (
-    <div className="coastal">
-      <a className="skip-link" href="#studio-content">Skip to content</a>
-      <header className="studio-header studio-wrap">
-        <Link href="/" className="studio-brand" aria-label="EchoForge home">
-          <StudioMark /><span>EchoForge</span>
-        </Link>
-        <nav aria-label="Studio navigation">
-          <Link href="/apps">Products</Link>
-          <Link href="/studio">Studio</Link>
-          <a className="header-contact" href="mailto:support@echoforge.to">Contact <ArrowUpRight size={15} /></a>
-        </nav>
-      </header>
-      <div id="studio-content" tabIndex={-1}>{children}</div>
-      <footer className="studio-footer">
-        <div className="studio-wrap">
-          <div className="footer-top">
-            <div><h2>Get in touch.</h2><p>Questions, feedback, or help with a product.</p><a href="mailto:support@echoforge.to" className="text-link">support@echoforge.to <ArrowUpRight size={17} /></a></div>
-            <StudioMark className="footer-mark" />
-          </div>
-          <div className="footer-bottom">
-            <Link href="/" className="studio-brand"><span>EchoForge</span></Link>
-            <nav aria-label="Footer navigation"><Link href="/apps">Products</Link><Link href="/studio">Studio</Link><Link href="/legal">Legal & support</Link></nav>
-            <span>© {new Date().getFullYear()} EchoForge</span>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
+  return <div className="echo-studio">
+    <a href="#echo-content" className="echo-skip">Skip to content</a>
+    <header className="echo-header echo-wrap"><Link className="echo-wordmark" href="/" aria-label="EchoForge home"><BrandMark /><span>ECHOFORGE</span></Link><StudioNav /></header>
+    <div id="echo-content" tabIndex={-1}>{children}</div>
+    <footer className="echo-footer echo-wrap">
+      <div className="echo-footer-signature"><EchoLines variant="footer" /></div>
+      <BrandReveal className="echo-footer-top"><div><h2><a href="mailto:support@echoforge.to">Get in touch.</a></h2><p className="echo-meta">Questions, feedback, or help with a product.</p></div><a className="echo-contact" href="mailto:support@echoforge.to">support@echoforge.to <ArrowUpRight size={20} /></a></BrandReveal>
+      <div className="echo-footer-bottom"><Link className="echo-wordmark" href="/">ECHOFORGE</Link><Link href={"/apps"}>Products</Link><Link href={"/studio"}>Studio</Link><Link href={"/legal"}>Legal & support</Link><span>© {new Date().getFullYear()} EchoForge</span></div>
+    </footer>
+  </div>;
 }

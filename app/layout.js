@@ -15,7 +15,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png?v=studio-mark-1",
+        url: "/og-image.png?v=flow-1",
         width: 1200,
         height: 630,
         alt: "EchoForge | Independent software studio",
@@ -26,14 +26,14 @@ export const metadata = {
     card: "summary_large_image",
     title: "EchoForge",
     description: BRAND_META_DESCRIPTION,
-    images: ["/og-image.png?v=studio-mark-1"],
+    images: ["/og-image.png?v=flow-1"],
   },
   icons: {
     icon: [
-      { url: "/favicon-16x16.png?v=studio-mark-1", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png?v=studio-mark-1", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png?v=flow-1", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png?v=flow-1", sizes: "32x32", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png?v=studio-mark-1",
+    apple: "/apple-touch-icon.png?v=flow-1",
   },
 };
 

@@ -1,13 +1,8 @@
-import { ProductGallery, ProductDirectory } from "@/components/studio/ProductGallery";
+import { ProductCollection, SelectedProducts } from "@/components/studio/BrandElements";
+import { BrandReveal } from "@/components/studio/BrandMotion";
 
-export const metadata = { title: "Products", alternates: { canonical: "/apps" } };
+export const metadata = { alternates: { canonical: "/apps" }, title: "Apps" };
 
-export default function ProductsPage() {
-  return (
-    <div className="studio-wrap collection-page">
-      <div className="page-heading"><h1>Our products.</h1></div>
-      <ProductGallery />
-      <section className="more-section"><div className="section-heading"><h2>More from EchoForge.</h2></div><ProductDirectory /></section>
-    </div>
-  );
+export default function StudioApps() {
+  return <section className="echo-wrap echo-inner-page"><BrandReveal className="echo-page-heading"><h1>Our products.</h1></BrandReveal><SelectedProducts /><section className="echo-apps-more"><BrandReveal className="echo-section-heading"><h2>More from EchoForge.</h2></BrandReveal><ProductCollection compact /></section></section>;
 }

@@ -6,7 +6,7 @@ import { useInView, useReducedMotion } from "framer-motion";
 
 const MAX_PLAYS = 5;
 
-export default function ProductClip({ media, name }) {
+export default function ProductClip({ media, name, showControls = true }) {
   const videoRef = useRef(null);
   const completedPlays = useRef(0);
   const isInView = useInView(videoRef, { amount: 0.35 });
@@ -26,7 +26,7 @@ export default function ProductClip({ media, name }) {
         return;
       }
       video.play().catch(() => {
-        // Autoplay can be declined by the browser. The play button remains usable.
+        // If autoplay is declined, the poster remains visible.
       });
     };
 
@@ -90,7 +90,7 @@ export default function ProductClip({ media, name }) {
         onEnded={handleEnded}
         onError={() => setHasError(true)}
       />
-      {!hasError && (
+      {showControls && !hasError && (
         <button type="button" className="clip-toggle" onClick={togglePlayback} aria-label={`${isPlaying ? "Pause" : "Play"} ${name} demo`}>
           {isPlaying ? <Pause size={13} /> : <Play size={13} />}
           <span>{isPlaying ? "Pause demo" : "Play demo"}</span>

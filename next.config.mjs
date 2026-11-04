@@ -9,6 +9,11 @@ const nextConfig = {
   // Keep the old echoforge.to links alive by forwarding them to the new home.
   async redirects() {
     return [
+      { source: "/brand-preview", destination: "/", permanent: true },
+      { source: "/brand-preview/icons", destination: "/", permanent: true },
+      { source: "/brand-preview/apps", destination: "/apps", permanent: true },
+      { source: "/brand-preview/studio", destination: "/studio", permanent: true },
+      { source: "/brand-preview/legal", destination: "/legal", permanent: true },
       { source: "/prototype", destination: "/", permanent: true },
       { source: "/prototype/apps", destination: "/apps", permanent: true },
       { source: "/prototype/studio", destination: "/studio", permanent: true },
