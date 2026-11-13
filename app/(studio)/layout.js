@@ -5,6 +5,8 @@ import { EchoLines } from "@/components/studio/BrandElements";
 import { BRAND_META_DESCRIPTION } from "@/constants/branding";
 import { BrandReveal } from "@/components/studio/BrandMotion";
 import BrandMark from "@/components/studio/BrandMark";
+import JsonLd from "@/components/studio/JsonLd";
+import { buildStudioGraph } from "@/lib/studioSeo";
 import "./studio.css";
 
 export const metadata = {
@@ -15,6 +17,7 @@ export const metadata = {
 
 export default function StudioLayout({ children }) {
   return <div className="echo-studio">
+    <JsonLd data={buildStudioGraph()} />
     <a href="#echo-content" className="echo-skip">Skip to content</a>
     <header className="echo-header echo-wrap"><Link className="echo-wordmark" href="/" aria-label="EchoForge home"><BrandMark /><span>ECHOFORGE</span></Link><StudioNav /></header>
     <div id="echo-content" tabIndex={-1}>{children}</div>

@@ -15,3 +15,6 @@ export const BRAND_NAME = "EchoForge";
 export const BRAND_DESCRIPTION = "Independent software studio";
 
 export const BRAND_META_DESCRIPTION = "EchoForge is an independent software studio building Oaktally, Airlophone, ReadersGuild, Protos, and more.";
+
+export const SITE_URL = "https://echoforge.to";
+export const SUPPORT_EMAIL = "support@echoforge.to";

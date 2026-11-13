@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { products } from "@/lib/products";
-import { STUDIO_PRODUCTS, STUDIO_SUMMARIES } from "@/lib/studioProducts";
+import { STUDIO_PRODUCTS, getProductSummary } from "@/lib/studioProducts";
 import { BrandReveal, ProductStage } from "./BrandMotion";
 
 export function EchoLines({ className = "", variant = "hero" }) {
@@ -32,7 +32,7 @@ export function ProductCollection({ compact = false }) {
   return <div className="echo-directory">{collection.map((product, index) => (
     <BrandReveal key={product.name} delay={(index % 2) * 0.08}><Link href={product.href} className="echo-directory-item">
       <Image src={product.icon} alt="" width={48} height={48} className="echo-icon" />
-      <div><h3>{product.name}</h3><p>{STUDIO_PRODUCTS[product.name]?.description || STUDIO_SUMMARIES[product.name] || product.tagline}</p></div>
+      <div><h3>{product.name}</h3><p>{getProductSummary(product)}</p></div>
       <ArrowUpRight size={19} aria-hidden="true" />
     </Link></BrandReveal>
   ))}</div>;

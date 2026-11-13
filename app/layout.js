@@ -1,15 +1,15 @@
 import "./globals.css";
-import { BRAND_NAME, BRAND_DESCRIPTION, BRAND_META_DESCRIPTION } from "@/constants/branding";
+import { BRAND_NAME, BRAND_DESCRIPTION, BRAND_META_DESCRIPTION, SITE_URL } from "@/constants/branding";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata = {
   title: `${BRAND_NAME} | ${BRAND_DESCRIPTION}`,
   description: BRAND_META_DESCRIPTION,
-  metadataBase: new URL("https://echoforge.to"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "EchoForge",
     description: BRAND_META_DESCRIPTION,
-    url: "https://echoforge.to",
+    url: SITE_URL,
     siteName: "EchoForge",
     locale: "en_US",
     type: "website",

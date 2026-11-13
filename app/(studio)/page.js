@@ -2,12 +2,15 @@ import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { EchoLines, SelectedProducts, ProductCollection } from "@/components/studio/BrandElements";
 import { BrandHero, BrandReveal } from "@/components/studio/BrandMotion";
+import JsonLd from "@/components/studio/JsonLd";
+import { buildProductListGraph } from "@/lib/studioSeo";
 import { STUDIO_FOUNDER } from "@/lib/studioFounder";
 
 export const metadata = { alternates: { canonical: "/" } };
 
 export default function StudioHome() {
   return <>
+    <JsonLd data={buildProductListGraph()} />
     <BrandHero lines={<EchoLines />}>
       <div className="echo-hero-bottom echo-wrap"><div><h1>Independent<br />software studio.</h1></div><a className="echo-text-link" href="#selected">Explore the products <ArrowDown size={17} /></a></div>
     </BrandHero>

@@ -25,7 +25,8 @@
 - Motion uses explicit timing and easing, never springs. Content remains available before hydration; `useMotionEnabled` preserves matching server/client initial markup.
 
 ## Routing and operations
-- Public routes are `/`, `/apps`, `/studio`, and `/legal`, with indexable metadata and canonical URLs. The existing sitemap lists those routes.
+- Public routes are `/`, `/apps`, `/studio`, and `/legal`, with indexable metadata and canonical URLs.
+- `lib/studioSeo.js` owns SEO/GEO output built from the catalog: Organization/Person/WebSite JSON-LD (studio layout, via `components/studio/JsonLd.jsx`), the product `ItemList` (`/` and `/apps`), `/llms.txt`, and the sitemap's product and legal routes. Internal catalog `href`s and internal `studioLegal` links enter the sitemap automatically; bump the dates in `app/sitemap.js` when content changes. `SITE_URL` lives in `constants/branding.js`. The public Person uses `STUDIO_FOUNDER.name`, never the full legal name.
 - `/prototype` and `/brand-preview` review URLs redirect to their public equivalents. `/brand-preview/icons` redirects to `/`.
 - Railway builds and starts through the existing package scripts; `start` reads `PORT`. Pushes to `main` trigger the connected deployment.
 - Preserve product/API/admin routes, credentials, and unrelated working-tree changes.
