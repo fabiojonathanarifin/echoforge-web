@@ -94,6 +94,10 @@ html:has(.echo-studio) body { background-color: var(--background); transition: n
 .echo-product-airlophone { --echo-art-oak: var(--echo-art-air); }
 .echo-product-readers { --echo-art-oak: var(--echo-art-read); }
 .echo-product-protos { --echo-art-oak: var(--echo-art-protos); }
+.echo-product-oarsworn { grid-column: 1 / -1; }
+.echo-product-art.echo-cover-art { height: auto; aspect-ratio: 5 / 2; background: var(--echo-surface); isolation: isolate; }
+.echo-cover-art > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+.echo-cover-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(var(--echo-bg), transparent 55%); opacity: .85; pointer-events: none; }
 .echo-art-caption { display: flex; align-items: center; gap: 12px; padding: 28px; font-size: .92rem; position: relative; z-index: 2; }
 .echo-art-caption img { border-radius: 8px; }
 .echo-art-caption svg { margin-left: auto; }
@@ -195,6 +199,7 @@ html:has(.echo-studio) body { background-color: var(--background); transition: n
   .echo-selected, .echo-directory, .echo-founder { grid-template-columns: 1fr; }
   .echo-selected { gap: 40px; }
   .echo-product-art { height: clamp(310px, 100vw, 440px); }
+  .echo-product-art.echo-cover-art { aspect-ratio: 4 / 3; }
   .echo-web-art { height: clamp(255px, 76vw, 370px); }
   .echo-web-art .echo-screen-depth { width: 90%; left: 5%; top: 28%; }
   .echo-art-caption { padding: 22px; }

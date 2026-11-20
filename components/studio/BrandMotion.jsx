@@ -81,6 +81,13 @@ export function ProductStage({ name, media, children }) {
   const secondY = useTransform(scrollYProgress, [0, 1], [70, -12]);
   const rotate = useTransform(scrollYProgress, [0, 1], [-3, 1]);
 
+  if (media.primary.isCover) {
+    return <div ref={ref} className="echo-product-art echo-cover-art">
+      <ProductMedia media={media.primary} name={name} />
+      {children}
+    </div>;
+  }
+
   return <div ref={ref} className={`echo-product-art ${media.primary.isWeb ? "echo-web-art" : ""} ${media.secondary ? "echo-paired-art" : ""}`}>
     {children}
     {media.secondary && <motion.div className={`echo-secondary-screen ${media.secondary.isDetail ? "echo-detail-screen" : ""}`} style={isMotionEnabled ? { y: secondY, rotate: 5 } : undefined}><ProductMedia media={media.secondary} name={name} /></motion.div>}

@@ -4,6 +4,7 @@
 import { SITE_URL } from "@/constants/branding";
 import { getInternalStudioRoutes } from "@/lib/studioSeo";
 
+const CATALOG_UPDATED = new Date("2026-11-21");
 const STUDIO_UPDATED = new Date("2026-11-14");
 const VIAL_UPDATED = new Date("2026-06-15");
 const VIAL_FAQ_UPDATED = new Date("2026-06-12");
@@ -18,8 +19,8 @@ const entry = (path, lastModified, changeFrequency, priority) => ({
 export default function sitemap() {
   const { productRoutes, legalRoutes } = getInternalStudioRoutes();
   const studioEntries = [
-    entry("/", STUDIO_UPDATED, "monthly", 1.0),
-    entry("/apps", STUDIO_UPDATED, "monthly", 0.8),
+    entry("/", CATALOG_UPDATED, "monthly", 1.0),
+    entry("/apps", CATALOG_UPDATED, "monthly", 0.8),
     entry("/studio", STUDIO_UPDATED, "monthly", 0.6),
     entry("/legal", STUDIO_UPDATED, "yearly", 0.3),
   ];

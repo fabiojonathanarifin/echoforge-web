@@ -7,9 +7,9 @@
 - Individual product pages, legal policies, admin tools, and APIs remain outside the studio route group. Supabase remains the data/auth layer.
 
 ## Portfolio and content
-- `lib/products.js` owns catalog order and destinations: Oaktally, Airlophone, ReadersGuild, and Protos lead; Kume is last.
+- `lib/products.js` owns catalog order and destinations: Oaktally, Airlophone, ReadersGuild, and Protos lead, followed by the Oarsworn showcase. Kume is last.
 - `lib/studioProducts.js` owns studio copy and verified media URLs. `BrandElements` renders selected products and the compact directory from these shared sources.
-- Product captures are real app media, never recreated interfaces. Oaktally, ReadersGuild, and Protos use R2 custom domains; Airlophone uses its existing public recording. New hosted media belongs in R2.
+- Product captures are real app media, never recreated interfaces. Oaktally, ReadersGuild, and Protos use R2 custom domains; Airlophone uses its existing public recording. Oarsworn's full-width showcase uses a gameplay still from its R2 media domain and the app icon from its site. New hosted media belongs in R2.
 - `lib/studioFounder.js` owns factual founder text and the supplied dark portrait, hosted in R2 at `media.oaktally.app/echoforge/2026-11-05/`. `FounderPortrait` uses a consistent 4:5 crop and `STUDIO_FOUNDER.name` for the public caption. Full legal-name data remains separate.
 - `lib/studioLegal.js` owns existing policy destinations. Legal policy contents are unchanged.
 - EchoForge is the public brand. Do not claim Pelagos Hill LLC exists while formation is in progress. Do not infer a current city from legacy bios.

@@ -4,7 +4,7 @@ EchoForge is an independent software studio founded by Fabio Jonathan Arifin. It
 
 ## Public experience
 - The homepage uses near-black surfaces, warm ivory typography, the Flow mark, and fine flowing lines. It leads with "Independent software studio."
-- The product gallery leads with Oaktally, Airlophone, ReadersGuild, and Protos, in that order, using their actual screenshots and recordings.
+- The product gallery leads with Oaktally, Airlophone, ReadersGuild, and Protos, in that order, using their actual screenshots and recordings. Oarsworn follows with a wide coastal gameplay image and links to its own website.
 - The remaining products follow in a compact directory, with Kume last. `/apps` includes the full collection.
 - `/studio` introduces the studio and founder with a short factual biography and the supplied dark portrait. Its caption reads "Fabio Jonathan, founder". The portrait starts in black and white, fades into color on hover, and its frame grows gently. Touch and keyboard users can toggle color.
 - Flowing lines recur as an animated hero, a wide fading About motif, and a subtle footer signature. Product showcases stay clear.

@@ -27,11 +27,16 @@ export function EchoLines({ className = "", variant = "hero" }) {
   );
 }
 
+function ProductIcon({ product, size, className }) {
+  const isRemote = product.icon.startsWith("https://");
+  return <Image src={product.icon} alt="" width={size} height={size} unoptimized={isRemote} className={className} />;
+}
+
 export function ProductCollection({ compact = false }) {
   const collection = compact ? products.filter(product => !STUDIO_PRODUCTS[product.name]) : products;
   return <div className="echo-directory">{collection.map((product, index) => (
     <BrandReveal key={product.name} delay={(index % 2) * 0.08}><Link href={product.href} className="echo-directory-item">
-      <Image src={product.icon} alt="" width={48} height={48} className="echo-icon" />
+      <ProductIcon product={product} size={48} className="echo-icon" />
       <div><h3>{product.name}</h3><p>{getProductSummary(product)}</p></div>
       <ArrowUpRight size={19} aria-hidden="true" />
     </Link></BrandReveal>
@@ -43,7 +48,7 @@ export function SelectedProducts() {
     const detail = STUDIO_PRODUCTS[product.name];
     return <BrandReveal as="article" delay={(index % 2) * 0.1} className={`echo-product echo-product-${detail.tone}`} key={product.name}>
       <ProductStage name={product.name} media={detail.media}>
-        <Link href={product.href} className="echo-art-caption" aria-label={`Visit ${product.name}`}><Image src={product.icon} width={34} height={34} alt="" /><span>{product.name}</span><ArrowUpRight size={18} aria-hidden="true" /></Link>
+        <Link href={product.href} className="echo-art-caption" aria-label={`Visit ${product.name}`}><ProductIcon product={product} size={34} /><span>{product.name}</span><ArrowUpRight size={18} aria-hidden="true" /></Link>
       </ProductStage>
       <div className="echo-product-copy"><p className="echo-meta">{detail.category}</p><h3><Link href={product.href}>{detail.title}</Link></h3><p>{detail.description}</p></div>
     </BrandReveal>;
